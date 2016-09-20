@@ -3,8 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Resource Container's documentation!
-==============================================
+Resource Container Documentation
+================================
+
+This site is the official documentation for Door43's resource container specification.  Resource Containers are the building blocks of content in our Door43 eco-system.
+
 
 Contents:
 
