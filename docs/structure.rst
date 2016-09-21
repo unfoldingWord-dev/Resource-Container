@@ -274,7 +274,7 @@ Alternatively you can choose to use a simplified table of contents as shown belo
     -
         chapter: '02'
         chunks:
-        - title
+            - title
             - '01'
             - '02'
             - '03'
