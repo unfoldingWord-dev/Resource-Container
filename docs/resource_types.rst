@@ -1,13 +1,13 @@
 Resource Types
 ==============
 
-Content can be displayed in different forms and used in different ways within the apps. Therefore several content types exist to manage different needs.
+Content can be displayed in different forms and used in different ways within an application. Therefore several resource types exist to support different needs.
 
-All resource types, unless otherwise specified, may employ any translation mode. Translation modes operate on a resource by resource basis and do not apply globally to all of the same type. For example: Organization X may create a help container that is not translatable. However, organization Y may also create a help container that is translatable.
+All resource types, unless otherwise specified, may employ any translation mode. Translation modes indicate to an application under what conditions a resource container is translatable.
 
-Also note that where a .txt extension is shown below, the proper extension should be used according to the format indicated in the package.json. For example .usfm or .md.
+Note: that where a .txt extension is shown below, the proper extension should be used according to the content_mime_type indicated in the package.json. For example .usfm or .md.
 
-The folder structure of containers are mostly the same. Differences between types may include the absense of some files or the inclusion of others. However, the folder-file heierarchy and reserved names apply in all cases.
+The folder structure of the `content` directory in resource containers are mostly the same. Differences between resource types may include the absense of some files or the inclusion of others.
 
 .. code-block:: none
 
@@ -27,17 +27,17 @@ The folder structure of containers are mostly the same. Differences between type
         |-back/
         ...
 
-The directories shown above indicate chapters except for the two reserved folders front and back which contain, if applicable, the front matter and back matter of the container.
+The directories shown above indicate chapters except for the two reserved folders `front` and `back` which contain, if applicable, the front matter and back matter of the container.
 
-The files within each chapter represents the chunks of the chapter. Within each folder are additional reserved files title, sub-title, intro, reference and summary.
+The files within each chapter represents the chunks of the chapter. Within each folder are additional reserved files:
 
-NOTE: With regard to Resource Container Links, it is currently undecided whether linking to reserved directories (chapters) or files (chunks) should be allowed.
+- title
+- sub-title
+- intro
+- reference
+- summary
 
-
-Media
------
-
-The config.yml file contains information specific for the resource container. There is a reserved field media which allows different media to be assoicated with the resource
+The `config.yml` file contains information specific to the resource type. However, there is a reserved field `media` which allows different media to be assoicated with the resource container.
 
 .. code-block:: none
 
@@ -64,19 +64,22 @@ In the above example there are three different media types:
 
 These media types are utilized via Resource Container Links .
 
-The url can point to either a single media file or a zip archive which contains many pieces of media.
-The downloaded media files themselves can be named whatever you want so long as they adhere to the naming conventions for slugs as described above.
+The `url` can point to either a single media file or a zip archive which contains many pieces of media.
+The downloaded media files themselves can be named whatever you want so long as they adhere to the naming conventions for slugs.
 
 If media is served as a zip archive the archive should contain appropriately named media files which may optionally be organized within folders also appropriately named.
 
 .. code-block:: none
 
     my_media.zip/
-        |-media01.jpg
-        |-media02.jpg
+        |-01/
+        |   |-01.jpg
+        |   |-02.jpg
+        |
+        |-02/
+        |   |-01.jpg
+        |   |-02.jpg
         ...
-        |-dir01/
-            |-media01.jpg
 
 If you want to provide hierarchy to media files in a zip archive without using folders you may use an underscore _ to delimit the slugs.
 
@@ -85,8 +88,7 @@ If you want to provide hierarchy to media files in a zip archive without using f
     my_obs_media.zip/
         |-01_01.jpg
         |-01_02.jpg
-
-In the example above we have defined the accompanying images for the first two chunks in OBS.
+        ...
 
 Implementation Notes:
 When downloaded, the media should be stored in a central location where each media type is stored under a folder named according to it's type. e.g. /media/image_large.
@@ -126,7 +128,7 @@ Related resources can be indicated in the config.yml file:
             - "image://gen/ulb/01:01"
 
 Implementation Notes:
-Related resource as shown above may be displayed along side the book content in order to provide contextual information.
+Related resources as shown above may be displayed in the application along the side of the book content in order to provide contextual information.
 
 The table of contents built with small blocks as shown below. All of the fields in the blocks are optional:
 
