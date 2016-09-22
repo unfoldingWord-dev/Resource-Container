@@ -38,7 +38,7 @@ Related resources as shown above may be displayed in the application along the s
 Help
 ----
 
-A helpful resource to supplement chunks in a book. e.g. notes or questions. For now all help resources must use the markdown format.
+A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help resources must use the markdown format.
 
 Each chunk contains one or more helps which correlate to the corresponding chunk in a book resource:
 
@@ -58,9 +58,9 @@ When parsed by an app the helps in this chunk are split at the headers. If there
 Dictionary
 ----------
 
-A standalone dictionary of terms. For now all dictionary resources must use the markdown format.
+A standalone dictionary of terms. Currently all dictionary resources must use the markdown format.
 
-Rather than using interger styled names for folders as seen in other resource types the dictionary term is used as the chapter name. The translation of the term is placed inside a single 01.txt file:
+The dictionary terms are used as the chapter slug and the translation of the term is placed inside a single 01.txt file:
 
 .. code-block:: none
 
@@ -73,7 +73,7 @@ Rather than using interger styled names for folders as seen in other resource ty
         ...
         |-unclean/
 
-NOTE: if desired the dictionary terms may be split into more than one chunk.
+NOTE: lengthy dictionary terms may be split into more than one chunk.
 
 The 01.txt file contains the translation of the term where the header is the title of the term and the rest is the description:
 
