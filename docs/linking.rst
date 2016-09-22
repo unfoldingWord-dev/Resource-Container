@@ -33,16 +33,16 @@ For example:
 
 Shorthand links may only be used when linking to a passage in a book or linking to a resource as a whole. i.e.
 
-* ``[[en/obs/01:02]]`` Links to OBS 1:2
-* ``[[en/obs]]`` Links to OBS
+- ``[[en/obs/01:02]]`` Links to OBS 1:2
+- ``[[en/obs]]`` Links to OBS
 
 External URLS
 -------------
 
 You may link to online media by simply using a url instead of a resource container id.
 
-* ``[[https://www.google.com]]``
-* ``[Google](https://www.google.com)``
+- ``[[https://www.google.com]]``
+- ``[Google](https://www.google.com)``
 
 Links where the path begins with ``http://`` or ``https://`` are treated as external urls.
 
@@ -58,24 +58,25 @@ These types accept an additional chapter and verse parameter formatted as is com
 
 Here are some examples:
 
-* ``01:02`` verse two in chapter one
-* ``01:02-04`` verses two through four in chapter one. This is allowed for convenience. It will resolve as ``01:02``.
-* ``02`` chapter two. This will resolve to the first chunk of the chapter e.g. ``02:title``. NOTE: the first chunk is not necessarily the first verse. Additional front matter may exist.
+- ``01:02`` verse two in chapter one
+- ``01:02-04`` verses two through four in chapter one. This is allowed for convenience. It will resolve as ``01:02``.
+- ``02`` chapter two. This will resolve to the first chunk of the chapter e.g. ``02:title``. NOTE: the first chunk is not necessarily the first verse. Additional front matter may exist.
 
 Please note that the values in these arguments are not digits but slugs to chapters and chunks. Therefore care must be taken to not use them as digits. For example ``1:2`` will not resolve because there is no chapter ``1`` or chunk ``2``. Because these are just slugs we may link to other elements such as chapter titles or even project titles.
 
-* ``01:title`` the title of chapter one
-* ``title`` the title of the book
+- ``01:title`` the title of chapter one
+- ``title`` the title of the book
 
 Links must always be direct therefore you may not indicate multiple ranges of passages.
 
-* ``01:02,04`` **this is incorrect and will not resolve**
+- ``01:02,04`` **this is incorrect and will not resolve**
 
 Complete Examples:
-* ``[[en/obs/obs/01:02]]``
-* ``[Open Bible Stories 1:2](en/obs/obs/01:02)``
-* ``[[en/gen/ulb/01:02-06]]``
-* ``[Genesus 1:2-6](en/gen/ulb/01:02-06)``
+
+- ``[[en/obs/obs/01:02]]``
+- ``[Open Bible Stories 1:2](en/obs/obs/01:02)``
+- ``[[en/gen/ulb/01:02-06]]``
+- ``[Genesus 1:2-6](en/gen/ulb/01:02-06)``
 
 help
 ~~~~
@@ -89,24 +90,26 @@ dict
 
 Accepts a single dictionary term id as an argument. For example:
 
-* ``aaron``
-* ``abel``
-* ``canaan``
+- ``aaron``
+- ``abel``
+- ``canaan``
 
 Complete Examples:
-* ``[[en/bible/tw/canaan]]``
-* ``[Canaan](en/bible/tw/canaan)``
+
+- ``[[en/bible/tw/canaan]]``
+- ``[Canaan](en/bible/tw/canaan)``
 
 man
 ~~~~
 
 Accepts a single module id as an argument For example:
 
-* ``translate-unknowns``
+- ``translate-unknowns``
 
 Complete examples:
-* ``[[en/ta-translate/vol1/translate-unknowns]]``
-* `[Translate Unknowns](en/ta-translate/vol1/translate-unknowns)``
+
+- ``[[en/ta-translate/vol1/translate-unknowns]]``
+- ``[Translate Unknowns](en/ta-translate/vol1/translate-unknowns)``
 
 Abbreviations
 -------------
@@ -119,12 +122,14 @@ Links within the same resource
 When linking to a different part of the same resource you may just provide the arguments.
 
 Example from tA Translate resource:
-* ``[[translate-unknowns]]``
-* ``[Translate Unknowns](translate-unknowns)``
+
+- ``[[translate-unknowns]]``
+- ``[Translate Unknowns](translate-unknowns)``
 
 Example from tW resource
-* ``[[canaan]]``
-* ``[Canaan](canaan)``
+
+- ``[[canaan]]``
+- ``[Canaan](canaan)``
 
 Links to any translation of a resource
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,8 +137,9 @@ Links to any translation of a resource
 Some times you may not wish to restrict the linked resource to a particular language. In that case you may exclude the language code from the beginning of the path and place an extra slash ``/`` in it's place.
 
 Example:
-* ``[[//ta-translate/vol1/translate-unknowns]]``
-* ``[Translate Unknowns](//ta-translate/vol1/translate-unknowns)``
+
+- ``[[//ta-translate/vol1/translate-unknowns]]``
+- ``[Translate Unknowns](//ta-translate/vol1/translate-unknowns)``
 
 Automatically Linking Bible References
 --------------------------------------
@@ -142,18 +148,18 @@ Bible references in any resource container should be automatically converted int
 
 Conversion of biblical references are limited to those resources that have been indexed on the users' device. Conversion should be performed based on any one of the following:
 
-* a case *insensitive* match of the entire project title.
-* a case *sensitive* match of the project slug where the first character is uppercase e.g. ``Gen``.
+- a case *insensitive* match of the entire project title.
+- a case *sensitive* match of the project slug where the first character is uppercase e.g. ``Gen``.
 
 For each case above there must be a valid ``chapter:verse`` reference immediately after the matching word separated only by white space. For example:
 
-``
-Genesis 1:1
-genesis 1:1
-Gen 1:1
-Gen 1:1-3
-gen 1:1 -- not valid
-``
+.. code-block:: none
+
+    Genesis 1:1
+    genesis 1:1
+    Gen 1:1
+    Gen 1:1-3
+    gen 1:1 -- not valid
 
 If the user clicks on one such generated link where the resource container has not yet been downloaded they should be asked if they would like to download it. After downloading the resource container they should immediately follow the link.
 
@@ -162,9 +168,7 @@ Example
 
 Given the French reference below:
 
-``text
-Genèse 1:1
-``
+``Genèse 1:1``
 
 If the user has only downloaded the English resource the link will not resolve because the title ``Genesis`` or ``genesis`` does not match ``Genèse`` or ``genèse``. Neither does the camel case slug ``Gen`` match since it does not match the *entire* word.
 
@@ -193,15 +197,15 @@ Media types are described in Resource Containers. Media defined in such a way is
 
 In order to use a media link you need only pre-pend a link with the media type as indicated below (this assumes a media type ``image`` exists for both of these resources):
 
-* ``[[image:en/obs/obs/01:02]]``
-* ``[[image:en/gen/ulb/01:02]]``
+- ``[[image:en/obs/obs/01:02]]``
+- ``[[image:en/gen/ulb/01:02]]``
 
 > NOTE: if a media link is titled the title will be used as the alt text.
 
 You may notice a striking similarity between the media links shown above and their accompanying passage links show below:
 
-* ``[[en/obs/obs/01:02]]``
-* ``[[en/gen/ulb/01:02]]``
+- ``[[en/obs/obs/01:02]]``
+- ``[[en/gen/ulb/01:02]]``
 
 Media links are handled in exactly the same way as a normal link except that the arguments are used to reference the correct media file.
 
