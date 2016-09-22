@@ -3,7 +3,9 @@ Linking
 
 A resource link provides navigable directions to a Resource Container.
 
-All resource links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character and may contain additional information at the end of the link as required by the Resource Container so long as these extra arguments are separated from the link path by a slash as well.
+All resource links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character.
+
+Links may include arguments as required by the resource type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
 
 Anonymous Link
 ---------------
