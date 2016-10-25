@@ -44,7 +44,7 @@ All resource containers have a package.json file which looks something like this
             "Wycliffe Associates"
           ],
           "pub_date": "2015-12-17",
-          "license": "CC BY-SA",
+          "license": "CC BY-SA 4.0",
           "checks_performed": [
             "keyword",
             "metaphor",
@@ -53,8 +53,8 @@ All resource containers have a package.json file which looks something like this
           "source_translations": [
             {
               "language_slug": "en",
-              "resource_slug": "obs",
-              "version": "3"
+              "resource_slug": "asv",
+              "version": "1901"
             }
           ]
         },
@@ -75,7 +75,7 @@ Definitions
 -----------
 
 - package_version: indicates the version of the resource container spec that is implemented by the current container.
-- modified_at: indicates when the this resource container was last modified
+- modified_at: indicates when this resource container was last modified
 - content_mime_type: the format of the text that is being stored inside this resource container. The supported formats are currently:
   - text/usfm
   - text/markdown
@@ -92,12 +92,12 @@ Definitions
 - status > translate_mode: The mode in which the resource may be translated.
 
 
-Changing Identifyig Properties
+Changing Identifying Properties
 ------------------------------
 
 An identifying property is any property used in the generation of the resource container slug.
 
-Some times it is desirable to change certain identifying properties. For example a mistake may have been made when choosing the language or the resource.
+Sometimes it is desirable to change certain identifying properties. For example a mistake may have been made when choosing the language or the resource.
 
 Not all identifying properties are allowed to be modified after a resource container has been created. The properties that can be changed are:
 

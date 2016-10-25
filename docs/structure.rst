@@ -163,7 +163,7 @@ The examples above deal only with images, however it is possible to reference ot
 Table of Contents
 -----------------
 
-Chapter directories and chunk files are often named with padded integers. A side affect of this is the natural file order often represents the appropriate order. However, you may also indicate the order of chapters and frames by providing a table of contents toc.yml within the content directory. If no such file exists then the integer order followed by the natural order of the files will be used.
+Chapter directories and chunk files are often named with padded integers. A side effect of this is the natural file order often represents the appropriate order. However, you may also indicate the order of chapters and frames by providing a table of contents toc.yml within the content directory. If no such file exists then the integer order followed by the natural order of the files will be used.
 
 The table of contents is built with small blocks as shown below. All of the fields in the blocks are optional:
 
