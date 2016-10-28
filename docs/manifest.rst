@@ -32,8 +32,8 @@ All resource containers have a package.json file which looks something like this
       "resource": {
         "slug": "ulb",
         "name": "Unlocked Literal Bible",
+        "translate_mode": "all",
         "status": {
-          "translate_mode": "all",
           "checking_entity": [
             "Wycliffe Associates"
           ],

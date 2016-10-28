@@ -1,9 +1,7 @@
-Resource Types
+Container Types
 ==============
 
-Content can be displayed in different forms and used in different ways within an application. Therefore several resource types exist to support different needs.
-
-All resource types, unless otherwise specified, may employ any translation mode. Translation modes indicate to an application under what conditions a resource container is translatable.
+Content can be displayed in different forms and used in different ways within an application. Therefore several container types exist to support different needs.
 
 
 
