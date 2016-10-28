@@ -37,7 +37,7 @@ Related resources as shown above may be displayed in the application along the s
 Image (img)
 ----
 
-Represents a set of images that correspond to a book. It is valid to associate a single image with any chunk in a matching book container.
+Represents a set of images that follows the same structure as a book. It is valid to provide a single image to any equivilant chunk in a book.
 
 .. code-block:: none
 
@@ -64,6 +64,68 @@ The image mime type should be specified in the config.yml.
 
     ---
     image_mime_type: "image/png"
+
+
+Audio (audio)
+----
+
+Represents a set of audio files that follows the same structure as a book. It is valid to provide a single audio file to any equilvilant chunk in a book.
+
+.. code-block:: none
+
+    content/
+        ...
+        |-01/
+        |    |-title.mp3
+        |    |-sub-title.mp3
+        |    |-intro.mp3
+        |    |-reference.mp3
+        |    |-summary.mp3
+        |    |-01.mp3
+        |    |-02.mp3
+        |    ...
+        ...
+        |-front/
+        |-back/
+        ...
+        
+The audio mime type should be specified in the config.yml.
+
+.. code-block:: yaml
+
+    ---
+    audio_mime_type: "audio/mp3"
+
+
+Video (vid)
+----
+
+Represents a set of video files that follows the same structure as a book. It is valid to provide a single video file to any equilvilant chunk in a book.
+
+.. code-block:: none
+
+    content/
+        ...
+        |-01/
+        |    |-title.mp4
+        |    |-sub-title.mp4
+        |    |-intro.mp4
+        |    |-reference.mp4
+        |    |-summary.mp4
+        |    |-01.mp4
+        |    |-02.mp4
+        |    ...
+        ...
+        |-front/
+        |-back/
+        ...
+        
+The video mime type should be specified in the config.yml.
+
+.. code-block:: yaml
+
+    ---
+    video_mime_type: "video/mp4"
 
 
 Help (help)
