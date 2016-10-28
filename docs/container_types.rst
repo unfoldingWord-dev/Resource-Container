@@ -19,24 +19,24 @@ Related resources can be indicated in the config.yml file:
       01:      // chapter
         01:    // chunk
           words: 
-            - "//bible/tw/creation"
-            - "//bible/tw/god"
-            - "//bible/tw/heaven"
-            - "//bible/tw/holyspirit"
+            - "//tw/bible/dict/creation"
+            - "//tw/bible/dict/god"
+            - "//tw/bible/dict/heaven"
+            - "//tw/bible/dict/holyspirit"
           questions: 
-            - "//gen/tq/01:01"
+            - "//tq/gen/help/01:01"
           notes: 
-            - "//gen/tn/01:01"
+            - "//tq/gen/help/01:01"
           images: 
-            - "image://gen/ulb/01:01"
+            - "//ulb/gen/image/01:01"
 
 Implementation Notes:
 Related resources as shown above may be displayed in the application along the side of the book content in order to provide contextual information.
 
-Help
+Help (help)
 ----
 
-A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help resources must use the markdown format.
+A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help resource containers must use the markdown format.
 
 Each chunk contains one or more helps which correlate to the corresponding chunk in a book resource:
 
@@ -53,7 +53,7 @@ Each chunk contains one or more helps which correlate to the corresponding chunk
 When parsed by an app the helps in this chunk are split at the headers. If there is preceding text (without a header) it will be displayed as a single help and a short snippet of the text will be used for the header if applicable.
 
 
-Dictionary
+Dictionary (dict)
 ----------
 
 A standalone dictionary of terms. Currently all dictionary resources must use the markdown format.
@@ -81,12 +81,13 @@ The 01.txt file contains the translation of the term where the header is the tit
 
     God chose Aaron to be the first high priest for the people of Israel.
 
-The config.yml is used to indicate related terms, aliases, and examples.
+The config.yml is used to indicate related terms, aliases, definition title, and examples.
 
 .. code-block:: yaml
 
     ---
-      aaron: 
+      aaron:
+        def_title: "Description"
         see_also: 
           - "covenant"
           - "testimony"
@@ -96,13 +97,13 @@ The config.yml is used to indicate related terms, aliases, and examples.
           - "09-15"
           - "10-05"
 
-Examples are tricky because a dict may be referenced by many different projects/resources. Therefore we cannot specify a resource link but instead must simply provide the chapter and chunk that contains the example.
+Examples are tricky because a dict may be referenced by many different resources/projects. Therefore we cannot specify a resource link but instead must simply provide the chapter and chunk that contains the example.
 
 
-Manual
+Manual (man)
 ------
 
-A user manual. For now manual resources must use the markdown format.
+A user manual. For now manual resource containers must use the markdown format.
 
 Manuals are a collection of modules (articles):
 
@@ -132,4 +133,4 @@ The config.yml indicates recommended and dependent modules:
         dependencies: 
           - "figs-sentences"
 
-Dependencies are id's of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
+Dependencies are slugs's of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
