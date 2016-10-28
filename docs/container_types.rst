@@ -5,7 +5,7 @@ Content can be displayed in different forms and used in different ways within an
 
 
 
-Book
+Book (book)
 ----
 
 Represents any text that is structured like a book. e.g. there are chapters and chunks.
@@ -28,10 +28,43 @@ Related resources can be indicated in the config.yml file:
           notes: 
             - "//tq/gen/help/01:01"
           images: 
-            - "//ulb/gen/image/01:01"
+            - "//ulb/gen/img/01:01"
 
 Implementation Notes:
 Related resources as shown above may be displayed in the application along the side of the book content in order to provide contextual information.
+
+
+Image (img)
+----
+
+Represents a set of images that correspond to a book. It is valid to associate a single image with any chunk in a matching book container.
+
+.. code-block:: none
+
+    content/
+        ...
+        |-01/
+        |    |-title.png
+        |    |-sub-title.png
+        |    |-intro.png
+        |    |-reference.png
+        |    |-summary.png
+        |    |-01.png
+        |    |-02.png
+        |    ...
+        ...
+        |-front/
+        |-back/
+        ...
+
+The image mime type should be specified in the config.yml.
+
+
+.. code-block:: yaml
+
+    ---
+    image_mime_type: "image/png"
+
 
 Help (help)
 ----
