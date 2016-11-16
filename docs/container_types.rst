@@ -1,12 +1,13 @@
+.. _types:
 Container Types
 ==============
 
 Content can be displayed in different forms and used in different ways within an application. Therefore several container types exist to support different needs.
 
 
-
+.. _types-book:
 Book (book)
-----
+-----------
 
 Represents any text that is structured like a book. e.g. there are chapters and chunks.
 
@@ -34,8 +35,9 @@ Implementation Notes:
 Related resources as shown above may be displayed in the application along the side of the book content in order to provide contextual information.
 
 
+.. _types-image:
 Image (img)
-----
+-----------
 
 Represents a set of images that follows the same structure as a book. It is valid to provide a single image to any equivilant chunk in a book.
 
@@ -66,8 +68,9 @@ The image mime type should be specified in the config.yml.
     image_mime_type: "image/png"
 
 
+.. _types-audio:
 Audio (audio)
-----
+-------------
 
 Represents a set of audio files that follows the same structure as a book. It is valid to provide a single audio file to any equilvilant chunk in a book.
 
@@ -97,8 +100,9 @@ The audio mime type should be specified in the config.yml.
     audio_mime_type: "audio/mp3"
 
 
+.. _types-video:
 Video (vid)
-----
+-----------
 
 Represents a set of video files that follows the same structure as a book. It is valid to provide a single video file to any equilvilant chunk in a book.
 
@@ -128,8 +132,9 @@ The video mime type should be specified in the config.yml.
     video_mime_type: "video/mp4"
 
 
+.. _types-help:
 Help (help)
-----
+-----------
 
 A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help resource containers must use the markdown format.
 
@@ -148,8 +153,9 @@ Each chunk contains one or more helps which correlate to the corresponding chunk
 When parsed by an app the helps in this chunk are split at the headers. If there is preceding text (without a header) it will be displayed as a single help and a short snippet of the text will be used for the header if applicable.
 
 
+.. _types-dictionary:
 Dictionary (dict)
-----------
+-----------------
 
 A standalone dictionary of terms. Currently all dictionary resources must use the markdown format.
 
@@ -195,8 +201,9 @@ The config.yml is used to indicate related terms, aliases, definition title, and
 Examples are tricky because a dict may be referenced by many different resources/projects. Therefore we cannot specify a resource link but instead must simply provide the chapter and chunk that contains the example.
 
 
+.. _types-manual:
 Manual (man)
-------
+------------
 
 A user manual. For now manual resource containers must use the markdown format.
 
