@@ -4,7 +4,7 @@ Resource Container Structure
 Container Format
 ----------------
 
-Resource containers exist as directories on the disk. They may be optionally compressed so long as the compressed file follows standard naming conventions for the file extension. E.g. a zipped resource container would end in `.zip`, a tarred resource container would end in `.tar`, a tarred+bzip2 resource container would end in `.tar.bz2` etc.
+Resource containers exist as directories. They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension. E.g. a zipped resource container would end in `.zip`, a tarred resource container would end in `.tar`, a tarred+bzip2 resource container would end in `.tar.bz2` etc.  A git repository is also a valid way to store Resource Containers.
 
 Slug
 ----
