@@ -1,3 +1,4 @@
+.. _manifest:
 Manifest File
 =============
 
@@ -8,12 +9,13 @@ All resource containers have a package.json file which looks like this:
     {
       "package_version": "0.2",
       "container_type": "book",
+      "container_slug": "en_ulb_gen",
       "modified_at": 20151222120130,
       "content_mime_type": "text/usfm",
-      "versification_slug": "some-slug",
+      "versification": "kjv",
 
       "language": {
-        "slug": "en",
+        "ietf": "en",
         "name": "English",
         "dir": "ltr"
       },
@@ -51,8 +53,7 @@ All resource containers have a package.json file which looks like this:
           ],
           "source_translations": [
             {
-              "language_slug": "en",
-              "resource_slug": "asv",
+              "container_slug": "en_asv_gen",
               "version": "1901"
             }
           ]
@@ -70,25 +71,38 @@ All resource containers have a package.json file which looks like this:
     }
 
 
+.. _manifest-definitions:
 Definitions
 -----------
 
-- package_version: the version of the resource container syntax. This includes changes to the package.json and directory structure.
-- container_type: the specific type of resource container being represented.
+- package_version: the version of the resource container.
+- container_type: the type of resource container being represented.
+- container_slug: the shortname of this container, which should also be the directory or filename (e.g. en_ulb_gen.zip).
 - content_mime_type: the format of the text that is being stored inside the resource container. The supported formats are currently:
- - text/usfm
- - text/markdown
-- language: the language of the text that is being stored inside this resource container.
-- project: the project to which the content stored in this resource container belong.
+
+  - text/usfm
+  - text/markdown
+  
+- language: the language information of the text inside this resource container.
+- project: the project information of the text inside this resource container.
 - resource > status: the translation status of the resource.
 - resource > status > translate_mode: The mode in which the resource may be translated.
- - all: it can always be translated.
- - gl: it can only be translated when gateway language mode is activated in the app.
- - none: it can never be translated.
-- versification_slug indicates the versification system used to defined chunks in this resource container. See Resource Catalog and Chunk Markers for more information.
+
+  - all: it can always be translated.
+  - gl: it can only be translated when gateway language mode is activated in the app.
+  - none: it can never be translated.
+
+- versification: indicates the versification system used to defined chunks in this resource container. See Resource Catalog and Chunk Markers for more information.
 - chunk_status: the current stage of each chunk
 
+Note that there are 3 types of slugs used:
 
+- A *container_slug* that **uniquely** identifies the resource
+- A *project slug* that identifies the specific project this container contains (e.g. a book of the Bible)
+- A *resource slug* that identifies the higher level resource that this project is a part of (e.g. a translation of the Bible)
+
+
+.. _manifest-changing-lang:
 Changing Language & Resource
 ------------------------------
 
@@ -96,7 +110,9 @@ Some times it is desirable to change certain the language and resource of a reso
 
 Care should be taken since changing the language and/or resource will also change the slug of the resource container.
 
-Implimentation Notes:
+Implementation Notes
+~~~~~~~~~~~~~~~~~~~~
+
 If while changing either of these properties the resource container will conflict with an existing resource container (on the current file system) the user should be asked if they would like to merge the two resource containers or cancel the change. See Merging Resource Containers for more information about merging.
 
 In order to fully change either of these properties the following steps must be taken
