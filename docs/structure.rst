@@ -9,19 +9,20 @@ Resource containers exist as directories. They may be optionally compressed or p
 Slug
 ----
 
-The resource container slug is primarily used to create unique file names for storing resource containers on the disk. In the case of creating a translation this is also the name of the online repository where the resource container is uploaded on Door43. These slugs are also used when linking from one resource container to another. See Resource Container Links for more information about linking.
+The resource container slug is primarily used to create unique file names for storing resource containers on the disk. In the case of creating a translation this is also the name of the online repository where the resource container is uploaded on Door43. These slugs are also used when linking from one resource container to another. See :ref:`linking`
+ for more information about linking.
 
 The slug is also a convenient way to identify a resource container without opening it to inspect the package.json. This can be helpful when searching for resource containers through an API that only returns the resource container slugs.
 
-Slugs are structured as indicated below. Each component of the slug is delimited by an underscore _.
+Slugs are structured as indicated below. Each component of the slug is delimited by an underscore (_).
 
 .. code-block:: none
 
     [language slug]_[resource slug]_[project slug]_[container type]
 
-Each component of the slug may include alphanumeric characters and dashes -. The language slug is the language code of the translation within the resource container. The resource slug is the type of resource that is represented by the resource container. The project slug is the specific project (within the resource) that is translated in the resource container. See Container Types for a list of valid container types that may be used in the slug.
+Each component of the slug may include alphanumeric characters and dashes (-). The language slug is the language code of the translation within the resource container. The resource slug is the type of resource that is represented by the resource container. The project slug is the specific project (within the resource) that is translated in the resource container. See Container Types for a list of valid container types that may be used in the slug.
 
-NOTE: slug components may not contain any underscores _ since this is the delimiter.
+NOTE: slug components may not contain any underscores (_) since this is the delimiter.
 
 An example of using the slug to identify a resource container is illustrated below. By viewing the file name we are able to quickly identify that this resource container contains the ULB version of the book Genesis translated in English:
 
