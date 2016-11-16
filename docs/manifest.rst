@@ -65,7 +65,7 @@ All resource containers have a package.json file which looks like this:
         "01-01": "reviewed",
         "01-02": "draft2",
         "01-title": "draft2",
-        "01-reference": draft2",
+        "01-reference": "draft2",
         "02-01": "reviewed"
       }
     }
