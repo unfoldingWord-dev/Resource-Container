@@ -43,7 +43,7 @@ An example of using the file or directory name to identify a resource container 
 
     en_ulb_gen_book/
 
-Note: The directory or file name is not the strict authority regarding the nature of the resource container. Therefore, whenever a resource container is utilized the `container_slug` field in the `package.json` manifest file should always be consulted and has the final word.
+.. note:: The directory or file name is not the strict authority regarding the nature of the resource container. Therefore, whenever a resource container is utilized the `container_slug` field in the `package.json` manifest file should always be consulted and has the final word.
 
 
 .. _structure-directory:
