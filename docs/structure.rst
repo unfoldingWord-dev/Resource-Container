@@ -1,49 +1,60 @@
+.. _structure:
 Resource Container Structure
 ============================
 
+.. _structure-format:
 Container Format
 ----------------
 
 Resource containers exist as directories. They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension. E.g. a zipped resource container would end in `.zip`, a tarred resource container would end in `.tar`, a tarred+bzip2 resource container would end in `.tar.bz2` etc.  A git repository is also a valid way to store Resource Containers.
 
-Slug
-----
+.. _structure-slug:
+Container Slug
+--------------
 
-The resource container slug is primarily used to create unique file names for storing resource containers on the disk. In the case of creating a translation this is also the name of the online repository where the resource container is uploaded on Door43. These slugs are also used when linking from one resource container to another. See :ref:`linking`
- for more information about linking.
+The `container_slug` provides a unique name for the given resource container.
 
-The slug is also a convenient way to identify a resource container without opening it to inspect the package.json. This can be helpful when searching for resource containers through an API that only returns the resource container slugs.
+Usage
+~~~~~
 
-Slugs are structured as indicated below. Each component of the slug is delimited by an underscore (_).
+The `container_slug` is used to create unique file names for storing resource containers on the disk or when a unique name is needed for displaying multiple projects at the same level (like an API endpoint). These are also the names of the repositories where the resource container is uploaded to on git.door43.org. These `container_slugs` are used when linking from one resource container to another. See :ref:`linking` for more information about linking.
 
-.. code-block:: none
+The `container_slug` is also a convenient way to identify a resource container without opening it to inspect the `package.json`. This can be helpful when searching for resource containers through an API that only returns the resource container slugs.
 
-    [language slug]_[resource slug]_[project slug]_[container type]
+Structure
+~~~~~~~~~
 
-Each component of the slug may include alphanumeric characters and dashes (-). The language slug is the language code of the translation within the resource container. The resource slug is the type of resource that is represented by the resource container. The project slug is the specific project (within the resource) that is translated in the resource container. See Container Types for a list of valid container types that may be used in the slug.
-
-NOTE: slug components may not contain any underscores (_) since this is the delimiter.
-
-An example of using the slug to identify a resource container is illustrated below. By viewing the file name we are able to quickly identify that this resource container contains the ULB version of the book Genesis translated in English:
+Container slugs are structured as indicated below. Each component of the `container_slug` is delimited by an underscore (_).
 
 .. code-block:: none
 
-    en_ulb_gen_book
+    [IETF language code]_[resource slug]_[project slug]_[container type]
 
-As mentioned above, the slug is not the strict authority regarding the nature of the resource container. Therefore whenever a resource container is utilized the package.json should always be consulted and has the final word. This is important since a user could change the name of the file between exporting it and sharing it with someone else.
+Each component of the `container_slug` may include alphanumeric characters and dashes (-). The `container_slug` components may not contain any underscores (_) since this is the delimiter.
 
-In order to correctly generate the slug of a resource container you must consult the package.json which contains all of the necessary information.
+See :ref:`types` for a list of valid container types that may be used in the slug.
+
+Example
+~~~~~~~
+
+An example of using the file or directory name to identify a resource container is illustrated below. By viewing the file name we are able to quickly identify that this resource container contains the ULB version of the book Genesis translated in English:
+
+.. code-block:: none
+
+    en_ulb_gen_book/
+
+Note: The directory or file name is not the strict authority regarding the nature of the resource container. Therefore, whenever a resource container is utilized the `container_slug` field in the `package.json` manifest file should always be consulted and has the final word.
 
 
-
+.. _structure-directory:
 Directory Structure
 -------------------
 
-Resource containers may be zip archives with the .tsrc (translationStudio) extension, or directories.
+Resource containers must use the following top level directory structure:
 
 .. code-block:: none
 
-    my_resource_container.tsrc/
+    my_resource_container/
         |-.git/
         |-LICENSE.md
         |-package.json
@@ -51,17 +62,28 @@ Resource containers may be zip archives with the .tsrc (translationStudio) exten
 
 - the .git directory is optional and is usually only seen in active translations.
 - LICENSE.md contains the appropriate license information for the resource container.
-- package.json contains meta data about the resource container.
-- the content directory contains any other files needed by the container type.
+- `package.json` is the manifest file that contains meta data about the resource container.
+- the `content` directory contains any other files needed by the container type, including the content itself.
+
+  - See below for the basic structure of this directory
+  - A mime type of `text/usfm` is allowed to omit the `content` directory in order to conform to the USFM standard.  For example, this is acceptable:
+
+.. code-block:: none
+
+    usfm_resource_container/
+        |-.git/
+        |-01-GEN.usfm
+        |-02-EXO.usfm
+        |-...
+        |-LICENSE.md
+        |-package.json
 
 
+.. _structure-content:
+Content Directory
+-----------------
 
-Content
--------
-
-The folder structure of the content directory in resource containers are mostly the same. Differences between container types may include the absense of some files or the inclusion of others.
-
-Note: that where a .txt extension is shown below, the proper extension should be used according to the content_mime_type indicated in the package.json. For example .usfm or .md.
+The file and folder structure of the content directory in resource containers is mostly the same across container types.  The structure is as follows:
 
 .. code-block:: none
 
@@ -82,18 +104,22 @@ Note: that where a .txt extension is shown below, the proper extension should be
         |-back/
         ...
 
+Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the `package.json`. For example `.usfm` or `.md`.
+
 The directories shown above indicate chapters. The two reserved chapter names "front" and "back" are used to contain the front and back matter if applicable. 
 
-The files within each chapter represents the chunks of the chapter in general the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names if used have special meaning:
+The files within each chapter represents the chunks of the chapter. Often the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names have special meaning:
 
-- title - the title of the chapter
-- sub-title - the sub title of the chapter
-- intro - the introduction to the chapter
-- reference - a reference displayed at the end of a chapter
-- summary - a summary displayed at the end of a chapter
+- `title.txt` - the title of the chapter
+- `sub-title.txt` - the sub title of the chapter
+- `intro.txt` - the introduction to the chapter
+- `reference.txt` - a reference displayed at the end of a chapter
+- `summary.txt` - a summary displayed at the end of a chapter
 
 In the case of front and back matter, the above named chunks apply to the project. e.g. the project title, project summary etc.
 
+
+.. _structure-config:
 Config
 ------
 
@@ -124,7 +150,7 @@ In the above example there are three different media types:
 - image_large
 - single_image
 
-These media types are utilized via Resource Container Links .
+These media types are utilized via :ref:`linking`.
 
 The `url` can point to either a single media file or a zip archive which contains many pieces of media.
 The downloaded media files themselves can be named whatever you want so long as they adhere to the naming conventions for slugs.
@@ -154,10 +180,10 @@ If you want to provide hierarchy to media files in a zip archive without using f
 
 Implementation Notes:
 When downloaded, the media should be stored in a central location where each media type is stored under a folder named according to it's type. e.g. /media/image_large.
-The examples above deal only with images, however it is possible to reference other media formats including video or audio content. For more information about how to use media types see Resource Container Links .
+The examples above deal only with images, however it is possible to reference other media formats including video or audio content. For more information about how to use media types see :ref:`linking`.
 
 
-
+.. _structure-toc:
 Table of Contents
 -----------------
 
@@ -173,7 +199,7 @@ The table of contents is built with small blocks as shown below. All of the fiel
       link: "my-link"
       sections: []
 
-The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to. Alternatively you may provide a fully qualified link as defined in Resource Container Links.
+The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to. Alternatively you may provide a fully qualified link as defined in :ref:`linking`.
 
 Here's an example toc.yml from translationAcademy. Generally speaking the title and sub-titles fields in this file should be the same as what is found in the subsquently named chunks. However, the TOC is allowed to deviate as nessesary.
 
@@ -287,4 +313,4 @@ Alternatively you can choose to use a simplified table of contents as shown belo
             - '12'
             - reference
 
-The simple version will rely on the available content (titles, references, etc.) to generate the table of contents. i.e. Readable titles will be retrieved from the content itself.
+The simple version will rely on the available content (titles, references, etc.) to generate the table of contents (readable titles will be retrieved from the content itself).
