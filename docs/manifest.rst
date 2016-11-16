@@ -97,7 +97,7 @@ Definitions
 
 Note that there are 3 types of slugs used:
 
-- A *container_slug* that **uniquely** identifies the resource
+- A *container_slug* that **uniquely** identifies the content of the container
 - A *project slug* that identifies the specific project this container contains (e.g. a book of the Bible)
 - A *resource slug* that identifies the higher level resource that this project is a part of (e.g. a translation of the Bible)
 
