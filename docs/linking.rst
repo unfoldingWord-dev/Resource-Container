@@ -1,11 +1,11 @@
 Linking
 =======
 
-A resource link provides navigable directions to a Resource Container.
+A resource container link provides navigable directions to a Resource Container.
 
-All resource links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character.
+All resource container links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character.
 
-Links may include arguments as required by the resource type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
+Links may include arguments as required by the container type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
 
 Anonymous Link
 ---------------
@@ -26,15 +26,15 @@ These links have a title and are indicated by enclosing the link title in single
 Shorthand Links
 ---------------
 
-Shorthand links may be used when the resource slug matches it's project slug.
+Shorthand links may be used when the project slug matches it's resource slug.
 For example:
 
-``[[en/obs/obs/01:02]]`` could be written as ``[[en/obs/01:02]]``.
+``[[en/obs/obs/book/01:02]]`` could be written as ``[[en/obs/book/01:02]]``.
 
 Shorthand links may only be used when linking to a passage in a book or linking to a resource as a whole. i.e.
 
-- ``[[en/obs/01:02]]`` Links to OBS 1:2
-- ``[[en/obs]]`` Links to OBS
+- ``[[en/obs/book/01:02]]`` Links to OBS 1:2
+- ``[[en/obs/book]]`` Links to OBS
 
 External URLS
 -------------
@@ -73,10 +73,10 @@ Links must always be direct therefore you may not indicate multiple ranges of pa
 
 Complete Examples:
 
-- ``[[en/obs/obs/01:02]]``
-- ``[Open Bible Stories 1:2](en/obs/obs/01:02)``
-- ``[[en/gen/ulb/01:02-06]]``
-- ``[Genesus 1:2-6](en/gen/ulb/01:02-06)``
+- ``[[en/obs/obs/book/01:02]]``
+- ``[Open Bible Stories 1:2](en/obs/obs/book/01:02)``
+- ``[[en/ulb/gen/book/01:02-06]]``
+- ``[Genesus 1:2-6](en/ulb/gen/book/01:02-06)``
 
 help
 ~~~~
@@ -96,8 +96,8 @@ Accepts a single dictionary term id as an argument. For example:
 
 Complete Examples:
 
-- ``[[en/bible/tw/canaan]]``
-- ``[Canaan](en/bible/tw/canaan)``
+- ``[[en/tw/bible/dict/canaan]]``
+- ``[Canaan](en/tw/bible/dict/canaan)``
 
 man
 ~~~~
@@ -108,8 +108,20 @@ Accepts a single module id as an argument For example:
 
 Complete examples:
 
-- ``[[en/ta-translate/vol1/translate-unknowns]]``
-- ``[Translate Unknowns](en/ta-translate/vol1/translate-unknowns)``
+- ``[[en/ta-vol1/translate/man/translate-unknowns]]``
+- ``[Translate Unknowns](en/ta-vol1/translate/man/translate-unknowns)``
+
+img
+~~~~
+
+These accept the same arguments as book links.
+
+Complete examples:
+
+- ``[[en/obs/obs/img/01:02]]``
+- ``[Open Bible Stories 1:2](en/obs/obs/img/01:02)``
+- ``[[en/ulb/gen/img/01:02-06]]``
+- ``[Genesus 1:2-6](en/ulb/gen/img/01:02-06)``
 
 Abbreviations
 -------------
@@ -138,8 +150,8 @@ Some times you may not wish to restrict the linked resource to a particular lang
 
 Example:
 
-- ``[[//ta-translate/vol1/translate-unknowns]]``
-- ``[Translate Unknowns](//ta-translate/vol1/translate-unknowns)``
+- ``[[//ta-vol1/translate/man/translate-unknowns]]``
+- ``[Translate Unknowns](//ta-vol1/translate/man/translate-unknowns)``
 
 Automatically Linking Bible References
 --------------------------------------
@@ -176,7 +188,7 @@ If the user now downloads the French resource the link will resolve because ``Ge
 
 .. code-block:: markdown
 
-    [Genèse 1:1](fr/gen/ulb/01:01)
+    [Genèse 1:1](fr/ulb/gen/book/01:01)
 
 When a match occurs there may be several different resources that could be used in the link such as ``ulb`` or ``udb``. When more than one resource slug is available use the following rules in order until a solution is found:
 
@@ -189,25 +201,3 @@ Care must be taken when formatting the chapter and chunk slugs. You must not ass
 Because chunks may contain a range of verses some judgment is required to determine if a verse resides within a chunk. For example chunk ``01`` may contain verses ``1-3`` whereas chunk ``02`` contains verses ``4-6``.
 
 If no chapter or chunk can be found to satisfy the reference it should not be converted to a link.
-
-Media Links
------------
-
-Media types are described in Resource Containers. Media defined in such a way is accessible to not only the resource containing them but any resource that links to it.
-
-In order to use a media link you need only pre-pend a link with the media type as indicated below (this assumes a media type ``image`` exists for both of these resources):
-
-- ``[[image:en/obs/obs/01:02]]``
-- ``[[image:en/gen/ulb/01:02]]``
-
-> NOTE: if a media link is titled the title will be used as the alt text.
-
-You may notice a striking similarity between the media links shown above and their accompanying passage links show below:
-
-- ``[[en/obs/obs/01:02]]``
-- ``[[en/gen/ulb/01:02]]``
-
-Media links are handled in exactly the same way as a normal link except that the arguments are used to reference the correct media file.
-
-The similarity seen above is not required neither will this always be the case since the media files may be named whatever you wish (while adhering to the requirements in Resource Containers). However, it is strongly encouraged where appropriate since it makes the creation of content much easier.
-

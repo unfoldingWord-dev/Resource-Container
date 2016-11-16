@@ -4,12 +4,7 @@ Resource Container Structure
 Container Format
 ----------------
 
-A resource container may exist in two forms:
-
-- a compressed archive with the extension .tsrc as in: some_resource_container.tsrc
-- a directory as in: some_resource_container/
-
-In both cases the internal structure is exactly the same. Compressing a resource container and changing the file extension to .tsrc simply makes the resource container portable.
+Resource containers exist as directories on the disk. They may be optionally compressed so long as the compressed file follows standard naming conventions for the file extension. E.g. a zipped resource container would end in `.zip`, a tarred resource container would end in `.tar`, a tarred+bzip2 resource container would end in `.tar.bz2` etc.
 
 Slug
 ----
@@ -22,9 +17,9 @@ Slugs are structured as indicated below. Each component of the slug is delimited
 
 .. code-block:: none
 
-    [language slug]_[project slug]_[resource slug]
+    [language slug]_[resource slug]_[project slug]_[container type]
 
-Each component of the slug may include alphanumeric characters and dashes -. See Resource Types for a list of valid resource types that may be used in the slug.
+Each component of the slug may include alphanumeric characters and dashes -. The language slug is the language code of the translation within the resource container. The resource slug is the type of resource that is represented by the resource container. The project slug is the specific project (within the resource) that is translated in the resource container. See Container Types for a list of valid container types that may be used in the slug.
 
 NOTE: slug components may not contain any underscores _ since this is the delimiter.
 
@@ -32,7 +27,7 @@ An example of using the slug to identify a resource container is illustrated bel
 
 .. code-block:: none
 
-    en_gen_ulb.tsrc
+    en_ulb_gen_book
 
 As mentioned above, the slug is not the strict authority regarding the nature of the resource container. Therefore whenever a resource container is utilized the package.json should always be consulted and has the final word. This is important since a user could change the name of the file between exporting it and sharing it with someone else.
 
@@ -56,14 +51,14 @@ Resource containers may be zip archives with the .tsrc (translationStudio) exten
 - the .git directory is optional and is usually only seen in active translations.
 - LICENSE.md contains the appropriate license information for the resource container.
 - package.json contains meta data about the resource container.
-- the content directory contains any other files needed by the resource type.
+- the content directory contains any other files needed by the container type.
 
 
 
 Content
 -------
 
-The folder structure of the content directory in resource containers are mostly the same. Differences between resource types may include the absense of some files or the inclusion of others.
+The folder structure of the content directory in resource containers are mostly the same. Differences between container types may include the absense of some files or the inclusion of others.
 
 Note: that where a .txt extension is shown below, the proper extension should be used according to the content_mime_type indicated in the package.json. For example .usfm or .md.
 
@@ -86,22 +81,24 @@ Note: that where a .txt extension is shown below, the proper extension should be
         |-back/
         ...
 
-The directories shown above indicate chapters except for the two reserved folders `front` and `back` which contain, if applicable, the front matter and back matter of the container.
+The directories shown above indicate chapters. The two reserved chapter names "front" and "back" are used to contain the front and back matter if applicable. 
 
-The files within each chapter represents the chunks of the chapter. Within each folder are additional reserved files:
+The files within each chapter represents the chunks of the chapter in general the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names if used have special meaning:
 
-- title
-- sub-title
-- intro
-- reference
-- summary
+- title - the title of the chapter
+- sub-title - the sub title of the chapter
+- intro - the introduction to the chapter
+- reference - a reference displayed at the end of a chapter
+- summary - a summary displayed at the end of a chapter
 
-
+In the case of front and back matter, the above named chunks apply to the project. e.g. the project title, project summary etc.
 
 Config
 ------
 
-The `config.yml` file contains information specific to the resource type. However, there is a reserved field `media` which allows different media to be assoicated with the resource container.
+> TODO: the media block described below may be deprecated in favor of new container types image and video.
+
+The `config.yml` file contains information specific to the container type. However, there is a reserved field `media` which allows different media to be assoicated with the resource container regardless of type.
 
 .. code-block:: none
 
