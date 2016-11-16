@@ -9,7 +9,7 @@ All resource containers have a package.json file which looks like this:
     {
       "package_version": "0.2",
       "container_type": "book",
-      "container_slug": "en_ulb_gen",
+      "container_slug": "en_ulb_gen_book",
       "modified_at": 20151222120130,
       "content_mime_type": "text/usfm",
       "versification": "kjv",
