@@ -1,3 +1,4 @@
+.. _linking:
 Linking
 =======
 
@@ -7,6 +8,7 @@ All resource container links follow a very simple structure in two different fla
 
 Links may include arguments as required by the container type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
 
+.. _linking-anonymous:
 Anonymous Link
 ---------------
 
@@ -14,6 +16,7 @@ These links have no title and are declared by enclosing the link in double brack
 
 ``[[language/project/resource]]``
 
+.. _linking-titled:
 Titled Link
 -----------
 
@@ -23,6 +26,7 @@ These links have a title and are indicated by enclosing the link title in single
 
     [Link Title](language/project/resource)
 
+.. _linking-shorthand:
 Shorthand Links
 ---------------
 
@@ -36,6 +40,7 @@ Shorthand links may only be used when linking to a passage in a book or linking 
 - ``[[en/obs/book/01:02]]`` Links to OBS 1:2
 - ``[[en/obs/book]]`` Links to OBS
 
+.. _linking-external:
 External URLS
 -------------
 
@@ -46,6 +51,7 @@ You may link to online media by simply using a url instead of a resource contain
 
 Links where the path begins with ``http://`` or ``https://`` are treated as external urls.
 
+.. _linking-arguments:
 Arguments
 ---------
 
@@ -123,6 +129,7 @@ Complete examples:
 - ``[[en/ulb/gen/img/01:02-06]]``
 - ``[Genesus 1:2-6](en/ulb/gen/img/01:02-06)``
 
+.. _linking-abbreviations:
 Abbreviations
 -------------
 
@@ -153,6 +160,7 @@ Example:
 - ``[[//ta-vol1/translate/man/translate-unknowns]]``
 - ``[Translate Unknowns](//ta-vol1/translate/man/translate-unknowns)``
 
+.. _linking-bible-refs:
 Automatically Linking Bible References
 --------------------------------------
 
