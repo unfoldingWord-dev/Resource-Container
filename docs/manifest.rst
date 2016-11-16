@@ -1,7 +1,7 @@
 Manifest File
 =============
 
-All resource containers have a package.json file which looks something like this:
+All resource containers have a package.json file which looks like this:
 
 .. code-block:: json
 
@@ -44,17 +44,16 @@ All resource containers have a package.json file which looks something like this
             "Wycliffe Associates"
           ],
           "pub_date": "2015-12-17",
-          "license": "CC BY-SA",
+          "license": "CC BY-SA 4.0",
           "checks_performed": [
             "keyword",
-            "metaphor",
-            "etc..."
+            "metaphor"
           ],
           "source_translations": [
             {
               "language_slug": "en",
-              "resource_slug": "obs",
-              "version": "3"
+              "resource_slug": "asv",
+              "version": "1901"
             }
           ]
         },
