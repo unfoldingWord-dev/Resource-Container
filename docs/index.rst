@@ -16,5 +16,5 @@ Contents:
 
    structure
    manifest
-   resource_types
+   container_types
    linking
