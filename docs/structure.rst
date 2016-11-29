@@ -100,13 +100,13 @@ The file and folder structure of the content directory in resource containers is
         |    |-02.txt
         |    ...
         ...
-        |-front/
-        |-back/
+        |-_front/
+        |-_back/
         ...
 
 Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the `package.json`. For example `.usfm` or `.md`.
 
-The directories shown above indicate chapters. The two reserved chapter names "front" and "back" are used to contain the front and back matter if applicable. 
+The directories shown above indicate chapters. The two reserved chapter names "_front" and "_back" are used to contain the front and back matter if applicable. 
 
 The files within each chapter represents the chunks of the chapter. Often the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names have special meaning:
 
