@@ -2,7 +2,9 @@
 Manifest File
 =============
 
-All resource containers have a package.json file which looks like this:
+.. include:: includes/note_keys_required.txt
+
+Resource containers have a manifest.yml that describes it's content and structure.
 
 .. code-block:: json
 

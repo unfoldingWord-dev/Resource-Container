@@ -123,69 +123,13 @@ In the case of front and back matter, the above named chunks apply to the projec
 Config
 ------
 
-> TODO: the media block described below may be deprecated in favor of new container types image and video.
-
-The `config.yml` file contains information specific to the container type. However, there is a reserved field `media` which allows different media to be assoicated with the resource container regardless of type.
-
-.. code-block:: none
-
-    ---
-      media:
-        image: 
-            mime_type: "image/jpeg"
-            size: 37620940
-            url: "https://cdn.door43.org/en/obs/v3/jpg/360px.zip"
-        image_large: 
-            mime_type: "image/jpeg"
-            size: 807010466
-            url: "https://cdn.door43.org/en/obs/v3/jpg/2160px.zip"
-        single_image: 
-            mime_type: "image/jpeg"
-            size: 80701
-            url: "https://cdn.door43.org/en/obs/v3/jpg/01_01.jpg"
-
-In the above example there are three different media types:
-
-- image
-- image_large
-- single_image
-
-These media types are utilized via :ref:`linking`.
-
-The `url` can point to either a single media file or a zip archive which contains many pieces of media.
-The downloaded media files themselves can be named whatever you want so long as they adhere to the naming conventions for slugs.
-
-If media is served as a zip archive the archive should contain appropriately named media files which may optionally be organized within folders also appropriately named.
-
-.. code-block:: none
-
-    my_media.zip/
-        |-01/
-        |   |-01.jpg
-        |   |-02.jpg
-        |
-        |-02/
-        |   |-01.jpg
-        |   |-02.jpg
-        ...
-
-If you want to provide hierarchy to media files in a zip archive without using folders you may use an underscore _ to delimit the slugs.
-
-.. code-block:: none
-
-    my_obs_media.zip/
-        |-01_01.jpg
-        |-01_02.jpg
-        ...
-
-Implementation Notes:
-When downloaded, the media should be stored in a central location where each media type is stored under a folder named according to it's type. e.g. /media/image_large.
-The examples above deal only with images, however it is possible to reference other media formats including video or audio content. For more information about how to use media types see :ref:`linking`.
-
+The `config.yml` file contains information specific to each container type. If a particular container type does not need this file it may be excluded.
 
 .. _structure-toc:
 Table of Contents
 -----------------
+
+.. include:: includes/note_keys_required.txt
 
 Chapter directories and chunk files are often named with padded integers. A side effect of this is the natural file order often represents the appropriate order. However, you may also indicate the order of chapters and frames by providing a table of contents toc.yml within the content directory. If no such file exists then the integer order followed by the natural order of the files will be used.
 
