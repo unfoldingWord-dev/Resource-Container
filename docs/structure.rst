@@ -1,16 +1,16 @@
 .. _structure:
-Container Structure
-===================
+Resource Container Structure
+============================
 
 .. _structure-format:
-Container Format
-----------------
+Resource Container Format
+-------------------------
 
 Resource containers (RCs) exist as directories.
 They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension.
-E.g. a zipped resource container would end in ``.zip``,
-a tarred resource container would end in ``.tar``,
-a tarred+bzip2 resource container would end in ``.tar.bz2`` etc.
+E.g. a zipped RC would end in ``.zip``,
+a tarred RC would end in ``.tar``,
+a tarred+bzip2 RC would end in ``.tar.bz2`` etc.
 A git repository is also a valid way to store RCs.
 
 .. _structure-identifier:
@@ -73,13 +73,13 @@ RCs must use the following top level directory structure:
     my_resource_container/
         |-.git/
         |-LICENSE.md
-        |-package.json
+        |-manifest.yml
         |-content/
 
 - the .git directory is optional and is usually only seen in active translations.
 - LICENSE.md contains the appropriate license information for the RC.
 - ``manifest.yml`` is the :doc:`manifest` that contains meta data about the RC.
-- the ``content`` directory contains any other files needed by the container type, including the content itself.
+- the ``content`` directory contains any other files needed by the RC type, including the content itself.
 
   - See below for the basic structure of this directory
   - A mime type of ``text/usfm`` is allowed to omit the ``content`` directory in order to conform to the USFM standard.  For example, this is acceptable:
@@ -92,14 +92,14 @@ RCs must use the following top level directory structure:
         |-02-EXO.usfm
         |-...
         |-LICENSE.md
-        |-package.json
+        |-manifest.yml
 
 
 .. _structure-content:
 Content Directory
 -----------------
 
-The file and folder structure of the content directory in RCs is mostly the same across container types.  The structure is as follows:
+The file and folder structure of the content directory in RCs is mostly the same across RC types.  The structure is as follows:
 
 .. code-block:: none
 
@@ -139,7 +139,7 @@ In the case of front and back matter, the above named chunks apply to the projec
 Config
 ------
 
-The ``config.yml`` file contains information specific to each container type. If a particular container type does not need this file it may be excluded.
+The ``config.yml`` file contains information specific to each RC type. If a particular RC type does not need this file it may be excluded.
 
 .. _structure-toc:
 Table of Contents

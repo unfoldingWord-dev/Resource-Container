@@ -143,7 +143,7 @@ The video mime type should be specified in the config.yml.
 Help (help)
 -----------
 
-A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help resource containers must use the markdown format.
+A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help RCs must use the markdown format.
 
 Each chunk contains one or more helps which correlate to the corresponding chunk in a book resource:
 
@@ -212,7 +212,7 @@ Examples are tricky because a dict may be referenced by many different resources
 Manual (man)
 ------------
 
-A user manual. For now manual resource containers must use the markdown format.
+A user manual. For now manual RCs must use the markdown format.
 
 Manuals are a collection of modules (articles):
 

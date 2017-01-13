@@ -4,13 +4,13 @@ Linking
 
 A Resource Container (RC) link provides navigable directions to a Resource Container.
 
-All resource container links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character.
+All RC links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the RC identifier where the delimiter is replaced by a slash ``/`` character.
 
-Links may include arguments as required by the container type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
+Links may include arguments as required by the RC type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
 
 .. _linking-anonymous:
 Anonymous Link
----------------
+--------------
 
 These links have no title and are declared by enclosing the link in double brackets
 
@@ -44,7 +44,7 @@ Shorthand links may only be used when linking to a passage in a book or linking 
 External URLS
 -------------
 
-You may link to online media by simply using a url instead of a resource container id.
+You may link to online media by simply using a url instead of an RC identifier.
 
 - ``[[https://www.google.com]]``
 - ``[Google](https://www.google.com)``
@@ -55,7 +55,7 @@ Links where the path begins with ``http://`` or ``https://`` are treated as exte
 Arguments
 ---------
 
-Some Resource Containers can accept or require additional arguments in the link. These are described below. For more information about these types please see Resource Containers.
+Some RCs can accept or require additional arguments in the link. These are described below. For more information about these types please see RCs.
 
 book
 ~~~~
@@ -164,7 +164,7 @@ Example:
 Automatically Linking Bible References
 --------------------------------------
 
-Bible references in any resource container should be automatically converted into resolvable links according to the linking rules for **book** resource types. Of course, if the reference is already a link nothing needs to be done.
+Bible references in any RC should be automatically converted into resolvable links according to the linking rules for **book** resource types. Of course, if the reference is already a link nothing needs to be done.
 
 Conversion of biblical references are limited to those resources that have been indexed on the users' device. Conversion should be performed based on any one of the following:
 
@@ -181,7 +181,7 @@ For each case above there must be a valid ``chapter:verse`` reference immediatel
     Gen 1:1-3
     gen 1:1 -- not valid
 
-If the user clicks on one such generated link where the resource container has not yet been downloaded they should be asked if they would like to download it. After downloading the resource container they should immediately follow the link.
+If the user clicks on one such generated link where the RC has not yet been downloaded they should be asked if they would like to download it. After downloading the RC they should immediately follow the link.
 
 Example
 ~~~~~~~
