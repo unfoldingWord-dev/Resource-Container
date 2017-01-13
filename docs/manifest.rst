@@ -4,7 +4,7 @@ Manifest File
 
 .. include:: includes/note_keys_required.txt
 
-Resource containers have a manifest.yml that describes it's content and structure.
+Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
 
 .. code-block:: json
 

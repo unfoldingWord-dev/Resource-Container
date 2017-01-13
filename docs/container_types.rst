@@ -1,9 +1,12 @@
 .. _types:
 Container Types
-==============
+===============
 
-Content can be displayed in different forms and used in different ways within an application. Therefore several container types exist to support different needs.
+Resource Containers (RCs) can be used to represent different forms of data.
+These different data types are represented by the below RC Types.
 
+.. note:: The types below are noted by ``Type Name (Type Slug)``
+    e.g. ``Book (book)``
 
 .. _types-book:
 Book (book)
@@ -11,7 +14,11 @@ Book (book)
 
 Represents any text that is structured like a book. e.g. there are chapters and chunks.
 
-Related resources can be indicated in the config.yml file:
+Config
+^^^^^^
+A book may references supplementary RCs in it's config.yml file via :doc:`linking`.
+Such references must be grouped by the corresponding RC type.
+The order of elements in each of these groups should be respected.
 
 .. code-block:: yaml
 
@@ -19,27 +26,27 @@ Related resources can be indicated in the config.yml file:
     content:
       01:      // chapter
         01:    // chunk
-          words: 
+          dict:
             - "//tw/bible/dict/creation"
             - "//tw/bible/dict/god"
             - "//tw/bible/dict/heaven"
             - "//tw/bible/dict/holyspirit"
-          questions: 
+          help:
             - "//tq/gen/help/01:01"
-          notes: 
             - "//tq/gen/help/01:01"
-          images: 
+          img:
             - "//ulb/gen/img/01:01"
 
-Implementation Notes:
-Related resources as shown above may be displayed in the application along the side of the book content in order to provide contextual information.
-
+.. note:: Implementation Notes:
+    References to external RCs may be displayed in the application along the side of the book content in order to provide contextual information.
 
 .. _types-image:
 Image (img)
 -----------
 
-Represents a set of images that follows the same structure as a book. It is valid to provide a single image to any equivilant chunk in a book.
+Represents a set of images that follows the same structure as a book.
+In most cases you will want to provide a single image to an equivalent chunk in the related book.
+However, any image can be included so long as it follows the requirements for identifiers.
 
 .. code-block:: none
 

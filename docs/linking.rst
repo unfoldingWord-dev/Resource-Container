@@ -2,7 +2,7 @@
 Linking
 =======
 
-A resource container link provides navigable directions to a Resource Container.
+A Resource Container (RC) link provides navigable directions to a Resource Container.
 
 All resource container links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the Resource Container slug where the slug delimiter is replaced by a slash ``/`` character.
 
