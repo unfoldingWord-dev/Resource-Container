@@ -72,15 +72,16 @@ RCs must use the following top level directory structure:
 
     my_resource_container/
         |-.git/
+        |-.apps/
         |-LICENSE.md
         |-manifest.yml
         |-content/
 
-- the .git directory is optional and is usually only seen in active translations.
-- LICENSE.md contains the appropriate license information for the RC.
+- ``.git`` is optional and is usually only seen in active translations.
+- ``.apps`` is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
+- ``LICENSE.md`` contains the appropriate license information for the RC.
 - ``manifest.yml`` is the :doc:`manifest` that contains meta data about the RC.
-- the ``content`` directory contains any other files needed by the RC type, including the content itself.
-
+- ``content`` contains any other files needed by the RC type, including the content itself.
   - See below for the basic structure of this directory
   - A mime type of ``text/usfm`` is allowed to omit the ``content`` directory in order to conform to the USFM standard.  For example, this is acceptable:
 

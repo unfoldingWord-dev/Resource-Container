@@ -18,4 +18,5 @@ Contents:
    manifest
    container_types
    linking
+   app_meta
    slug
