@@ -45,9 +45,6 @@ Resource Containers (RCs) have a manifest.yml that describes it's content and st
         - 'Wycliffe Associates'
         pub_date: '2015-12-17'
         license: 'CC BY-SA 4.0'
-        checks_performed:
-        - 'keyword'
-        - 'metaphor'
         source_translations:
         - rc.identifier: 'en_asv_gen'
           version: '1901'
