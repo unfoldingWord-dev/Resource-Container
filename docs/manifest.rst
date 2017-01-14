@@ -1,4 +1,5 @@
 .. _manifest:
+
 Manifest File
 =============
 
@@ -50,6 +51,7 @@ Resource Containers (RCs) have a manifest.yml that describes it's content and st
           version: '1901'
 
 .. _manifest-definitions:
+
 Definitions
 -----------
 
@@ -73,6 +75,7 @@ Definitions
 - ``versification``: indicates the versification system used to defined chunks in this RC. See Resource Catalog and Chunk Markers for more information.
 
 .. _manifest-changing-lang:
+
 Changing Language & Resource
 ----------------------------
 

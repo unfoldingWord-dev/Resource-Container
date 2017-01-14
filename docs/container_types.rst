@@ -1,4 +1,5 @@
 .. _types:
+
 Container Types
 ===============
 
@@ -9,6 +10,7 @@ These different data types are represented by the below RC Types.
     e.g. ``Book (book)``
 
 .. _types-book:
+
 Book (book)
 -----------
 
@@ -41,6 +43,7 @@ The order of elements in each of these groups should be respected.
     References to external RCs may be displayed in the application along the side of the book content in order to provide contextual information.
 
 .. _types-image:
+
 Image (img)
 -----------
 
@@ -76,6 +79,7 @@ The image mime type should be specified in the config.yml.
 
 
 .. _types-audio:
+
 Audio (audio)
 -------------
 
@@ -108,6 +112,7 @@ The audio mime type should be specified in the config.yml.
 
 
 .. _types-video:
+
 Video (vid)
 -----------
 
@@ -140,6 +145,7 @@ The video mime type should be specified in the config.yml.
 
 
 .. _types-help:
+
 Help (help)
 -----------
 
@@ -161,6 +167,7 @@ When parsed by an app the helps in this chunk are split at the headers. If there
 
 
 .. _types-dictionary:
+
 Dictionary (dict)
 -----------------
 
@@ -209,6 +216,7 @@ Examples are tricky because a dict may be referenced by many different resources
 
 
 .. _types-manual:
+
 Manual (man)
 ------------
 

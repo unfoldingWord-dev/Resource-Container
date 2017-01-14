@@ -1,32 +1,76 @@
 .. _linking:
+
 Linking
 =======
 
-A Resource Container (RC) link provides navigable directions to a Resource Container.
+A Resource Container (RC) link allows one RC to reference content from another RC.
 
-All RC links follow a very simple structure in two different flavors: Anonymous and Titled. The link path is the RC identifier where the delimiter is replaced by a slash ``/`` character.
+All RC links follow a very simple structure in two different flavors.
 
-Links may include arguments as required by the RC type. Arguments must be specified at the end of a link and separated from the link path by a slash as well.
+* **Anonymous links** - have no title and are declared by enclsing the link in double brackets
+* **Titled links** - have a title and are indicated by enclosing the link title in single brackets and the link in parentheses.
 
-.. _linking-anonymous:
-Anonymous Link
---------------
-
-These links have no title and are declared by enclosing the link in double brackets
-
-``[[language/project/resource]]``
-
-.. _linking-titled:
-Titled Link
------------
-
-These links have a title and are indicated by enclosing the link title in single brackets and the link in parentheses.
+For example:
 
 .. code-block:: markdown
 
-    [Link Title](language/project/resource)
+    [[language/resource/project/type]]
+
+    [Link Title](language/resource/project/type)
+
+Structure
+---------
+
+The minimum form of a link is ``language/resource/project/type``.
+We interpret this as the project content directory inside the RC.
+This is illustrated below:
+
+.. code-block:: none
+
+    # link
+    en/ulb/gen/book
+
+    # file system
+    en_ulb_gen_book/
+        |-LICENSE.md
+        |-manifest.yml
+        |-content/ <-- link points here
+
+From this point we can lengthen the link to include a chapter slug which resolves to the chapter directory.
+
+.. code-block:: markdown
+
+    # link
+    en/ulb/gen/book/01
+
+    # file system
+    en_ulb_gen_book/
+        |-LICENSE.md
+        |-manifest.yml
+        |-content/
+            |-01/ <-- equates to
+
+Going a step further we can link to a specific chunk
+
+.. code-block:: none
+
+    # link
+    en/ulb/gen/book/01/01
+
+    # file system
+    en_ulb_gen_book/
+        |-LICENSE.md
+        |-manifest.yml
+        |-content/
+            |-01/
+                |-01.usfm <-- equates to
+
+In some of the examples above the link was not pointing directly at a file.
+In those cases the link should resolve to the first available file in order of the sorting priority described in :ref:`structure-content-sort`.
+
 
 .. _linking-shorthand:
+
 Shorthand Links
 ---------------
 
@@ -41,6 +85,7 @@ Shorthand links may only be used when linking to a passage in a book or linking 
 - ``[[en/obs/book]]`` Links to OBS
 
 .. _linking-external:
+
 External URLS
 -------------
 
@@ -52,6 +97,7 @@ You may link to online media by simply using a url instead of an RC identifier.
 Links where the path begins with ``http://`` or ``https://`` are treated as external urls.
 
 .. _linking-arguments:
+
 Arguments
 ---------
 
@@ -130,6 +176,7 @@ Complete examples:
 - ``[Genesus 1:2-6](en/ulb/gen/img/01:02-06)``
 
 .. _linking-abbreviations:
+
 Abbreviations
 -------------
 
@@ -161,6 +208,7 @@ Example:
 - ``[Translate Unknowns](//ta-vol1/translate/man/translate-unknowns)``
 
 .. _linking-bible-refs:
+
 Automatically Linking Bible References
 --------------------------------------
 

@@ -97,35 +97,40 @@ RCs must use the following top level directory structure:
 
 
 .. _structure-content:
+
 Content Directory
 -----------------
 
-The file and folder structure of the content directory in RCs is mostly the same across RC types.  The structure is as follows:
+The file and folder structure of the project content directory in RCs is mostly the same across RC types.  The structure is as follows:
 
 .. code-block:: none
 
     content/
         |-config.yml
         |-toc.yml
+        |-front/
         |-01/
         |    |-title.txt
         |    |-sub-title.txt
         |    |-intro.txt
-        |    |-reference.txt
-        |    |-summary.txt
         |    |-01.txt
         |    |-02.txt
         |    ...
+        |    |-reference.txt
+        |    |-summary.txt
         ...
-        |-front/
         |-back/
-        ...
 
-Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the ``manifest.yml``. For example ``.usfm`` or ``.md``.
+Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the ``manifest.yml``.
+For example ``.usfm`` or ``.md``.
 
-The directories shown above indicate chapters. The two reserved chapter names "front" and "back" are used to contain the front and back matter, if applicable. You may use any of the named files (e.g. "intro.txt") in the "front" or "back" directories.
+The directories within ``content`` shown above indicate chapters.
+The two reserved chapter names "front" and "back" are used to contain, if applicable, the front and back matter.
+You may use any of the reserved names (e.g. "intro.txt") in the "front" and "back" directories.
 
-The files within each chapter represents the chunks of the chapter. Often the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names have special meaning:
+The files within each chapter represent the chunks of the chapter.
+Often the chunk file names will be numeric (e.g. 01.txt) but that is not required.
+The following reserved chunk names have special meaning:
 
 - ``title.txt`` - the title of the chapter
 - ``sub-title.txt`` - the sub title of the chapter
@@ -135,6 +140,30 @@ The files within each chapter represents the chunks of the chapter. Often the ch
 
 In the case of front and back matter, the above named chunks apply to the project. e.g. the project title, project summary etc.
 
+.. _structure-content-sort:
+
+Content Sort Order
+^^^^^^^^^^^^^^^^^^
+
+When utilizing content in an RC the order is very important.
+The content sorting rules are defined as:
+
+**Chapters**
+
+1. front matter directory
+2. numeric chapter directories sorted numerically in ascending order
+3. non-numeric chapter directories sorted alphabetically
+4. back matter directory
+
+**Chunks**
+
+1. title
+2. sub-title
+3. intro
+4. numeric chunks sorted numerically in ascending order
+5. non-numeric chunks sorted alphabetically
+6. reference
+7. summary
 
 .. _structure-config:
 Config
