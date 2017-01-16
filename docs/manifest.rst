@@ -23,14 +23,16 @@ Resource Containers (RCs) have a manifest.yml that describes it's content and st
       name: 'English'
       dir: 'ltr'
 
-    project:
-      slug: 'gen'
-      name: 'Genesis'
-      desc: ''
-      icon: ''
-      sort: 1
-      categories:
-      - 'bible-ot'
+    projects:
+      -
+        slug: 'gen'
+        name: 'Genesis'
+        desc: ''
+        icon: ''
+        sort: 1
+        rc.path: './content'
+        categories:
+        - 'bible-ot'
 
     resource:
       slug: 'ulb'
@@ -58,13 +60,20 @@ Definitions
 - ``rc.version``: the version of the RC.
 - ``rc.type``: the type of RC being represented.
 - ``rc.identifier``: the shortname of this RC, which should also be the directory or filename (e.g. en_ulb_gen.zip).
-- ``content_mime_type``: the format of the text that is being stored inside the RC. The supported formats are currently:
+- ``content_mime_type``: the format of the content that is being stored inside the RC. e.g.:
 
   - text/usfm
   - text/markdown
+  - image/png
+  - audio/mp3
+  - video/mp4
   
 - ``language``: the language information of the text inside this RC.
-- ``project``: the project information of the text inside this RC.
+- ``projects``: an array of projects inside the RC. Each object is a project definition inside the RC.
+
+  - ``rc.path``: the path to the project within the RC. This will be a directory or in some cases a file. In all of our
+    examples we will use the directory `content`.
+
 - ``resource > status``: the translation status of the resource.
 - ``resource > status > translate_mode``: The mode in which the resource may be translated.
 

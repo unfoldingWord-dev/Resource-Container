@@ -17,6 +17,9 @@ A git repository is also a valid way to store RCs.
 Identifier
 ----------
 
+.. note:: RC Identifers present a number of issues that are difficult to overcome.
+    Therefore this may be deprecated and a suggestion for nomenclature left in it's place.
+
 RCs are uniquely identified by a composition of :ref:`slug` s delimited by underscores.
 This composition is called the RC identifier.
 
@@ -79,20 +82,13 @@ RCs must use the following top level directory structure:
 - ``.apps`` is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
 - ``LICENSE.md`` contains the appropriate license information for the RC.
 - ``manifest.yml`` is the :ref:`manifest` that contains meta data about the RC.
-- ``content`` contains any other files needed by the RC type, including the content itself.
-  - See below for the basic structure of this directory
-  - A mime type of ``text/usfm`` is allowed to omit the ``content`` directory in order to conform to the USFM standard.  For example, this is acceptable:
+- ``content`` contains the project files inside the RC.
+  There is nothing special about the name of this directory.
+  Depending on how many projects are stored in the RC you may use a different name or use several different folders
+  as defined in the :ref:`manifest`.
 
-.. code-block:: none
-
-    usfm_resource_container/
-        |-.git/
-        |-01-GEN.usfm
-        |-02-EXO.usfm
-        |-...
-        |-LICENSE.md
-        |-manifest.yml
-
+  - See below for the basic structure of the project directory/directories.
+  - In the case of USFM RC types there will be no project directory. See the :ref:`manifest` for details.
 
 .. _structure-content:
 

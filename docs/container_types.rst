@@ -18,7 +18,7 @@ Represents any text that is structured like a book. e.g. there are chapters and 
 
 Config
 ^^^^^^
-A book may references supplementary RCs in it's config.yml file via :doc:`linking`.
+A book may references supplementary RCs in it's config.yml file via :ref:`linking`.
 Such references must be grouped by the corresponding RC type.
 The order of elements in each of these groups should be respected.
 
@@ -34,10 +34,10 @@ The order of elements in each of these groups should be respected.
             - "//tw/bible/dict/heaven"
             - "//tw/bible/dict/holyspirit"
           help:
-            - "//tq/gen/help/01:01"
-            - "//tq/gen/help/01:01"
+            - "//tq/gen/help/01/01"
+            - "//tq/gen/help/01/01"
           img:
-            - "//ulb/gen/img/01:01"
+            - "//ulb/gen/img/01/01"
 
 .. note:: Implementation Notes:
     References to external RCs may be displayed in the application along the side of the book content in order to provide contextual information.
@@ -69,14 +69,6 @@ However, any image can be included so long as it follows the requirements for id
         |-back/
         ...
 
-The image mime type should be specified in the config.yml.
-
-
-.. code-block:: yaml
-
-    ---
-    image_mime_type: "image/png"
-
 
 .. _types-audio:
 
@@ -103,20 +95,14 @@ Represents a set of audio files that follows the same structure as a book. It is
         |-back/
         ...
         
-The audio mime type should be specified in the config.yml.
-
-.. code-block:: yaml
-
-    ---
-    audio_mime_type: "audio/mp3"
-
 
 .. _types-video:
 
 Video (vid)
 -----------
 
-Represents a set of video files that follows the same structure as a book. It is valid to provide a single video file to any equilvilant chunk in a book.
+Represents a set of video files that follows the same structure as a book.
+It is valid to provide a single video file to any equilvilant chunk in a book.
 
 .. code-block:: none
 
@@ -136,22 +122,14 @@ Represents a set of video files that follows the same structure as a book. It is
         |-back/
         ...
         
-The video mime type should be specified in the config.yml.
-
-.. code-block:: yaml
-
-    ---
-    video_mime_type: "video/mp4"
-
-
-.. _types-help:
 
 Help (help)
 -----------
 
-A helpful resource to supplement chunks in a book. e.g. notes or questions. Currently all help RCs must use the markdown format.
+A helpful resource to supplement chunks in a book. e.g. notes or questions.
+Currently all help RCs must use the markdown format.
 
-Each chunk contains one or more helps which correlate to the corresponding chunk in a book resource:
+Each chunk contains one or more helps which correlate to the corresponding chunk in a book RC:
 
 .. code-block:: none
 
@@ -171,9 +149,9 @@ When parsed by an app the helps in this chunk are split at the headers. If there
 Dictionary (dict)
 -----------------
 
-A standalone dictionary of terms. Currently all dictionary resources must use the markdown format.
+A standalone dictionary of terms. Currently all dictionary RCs must use the markdown format.
 
-The dictionary terms are used as the chapter :ref:`slug` and the translation of the term is placed inside a single 01.txt file:
+The dictionary terms are used as the chapter :ref:`slug` and the translation of the term is placed inside a single 02.txt file:
 
 .. code-block:: none
 
@@ -186,7 +164,7 @@ The dictionary terms are used as the chapter :ref:`slug` and the translation of 
         ...
         |-unclean/
 
-NOTE: lengthy dictionary terms may be split into more than one chunk.
+.. note:: Lengthy dictionary terms may be split into more than one chunk.
 
 The 01.txt file contains the translation of the term where the header is the title of the term and the rest is the description:
 
@@ -212,7 +190,8 @@ The config.yml is used to indicate related terms, aliases, definition title, and
           - "09-15"
           - "10-05"
 
-Examples are tricky because a dict may be referenced by many different resources/projects. Therefore we cannot specify a resource link but instead must simply provide the chapter and chunk that contains the example.
+Examples are tricky because a dict may be referenced by many different resources and projects.
+Therefore we cannot specify a RC link but instead must simply provide the chapter and chunk that contains the example.
 
 
 .. _types-manual:
@@ -251,3 +230,43 @@ The config.yml indicates recommended and dependent modules:
           - "figs-sentences"
 
 Dependencies are :ref:`slug` s of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
+
+.. _types-usfm:
+
+USFM (usfm)
+-----------
+
+A USFM bundle. This type enables support for the existing USFM bundle format while enabling additional RC features.
+
+Rather than being stored in a directory USFM is stored in a single file at the root of the RC.
+Additionally, the project specified in the manifest points directly to this file.
+
+Example
+~~~~~~~
+
+Project block in manifest
+
+.. code-block:: yaml
+
+    ---
+       project:
+        slug: 'gen'
+        name: 'Genesis'
+        desc: ''
+        icon: ''
+        sort: 1
+        rc.path: './01-GEN.usfm'
+        categories:
+        - 'bible-ot'
+
+Directory structure
+
+.. code-block:: none
+
+    myrc/
+        |-01-GEN.usfm
+        |-LICENSE.md
+        |-manifest.yml
+
+
+
