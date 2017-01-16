@@ -100,12 +100,12 @@ dict
 - ``[Canaan](en/tw/bible/dict/canaan)``
 
 man
-~~~~
+~~~
 
 - ``[Translate Unknowns](en/ta-vol1/translate/man/translate-unknowns)``
 
 img
-~~~~
+~~~
 
 - ``[Open Bible Stories 1:2](en/obs/obs/img/01/02)``
 - ``[Genesus 1:2-6](en/ulb/gen/img/01/02)``

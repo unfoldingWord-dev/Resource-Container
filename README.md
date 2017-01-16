@@ -17,4 +17,6 @@ Install the sphinx engine
 
 Then run the build script.
 
+> NOTE: this top level makefile is just a shorcut to building the html.
+
     make

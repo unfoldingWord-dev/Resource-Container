@@ -268,5 +268,7 @@ Directory structure
         |-LICENSE.md
         |-manifest.yml
 
+.. note:: When your application supports USFM bundles it can identify the them in two ways
 
-
+    - attempt to read the :ref:`manifest` to determine type.
+    - look for any ``*.usfm`` files in the root directory if the :ref:`manifest` does not exist.
