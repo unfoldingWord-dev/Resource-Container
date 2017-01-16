@@ -48,7 +48,7 @@ From this point we can lengthen the link to include a chapter slug which resolve
         |-LICENSE.md
         |-manifest.yml
         |-content/
-            |-01/ <-- equates to
+            |-01/ <-- link points here
 
 Going a step further we can link to a specific chunk
 
@@ -63,28 +63,11 @@ Going a step further we can link to a specific chunk
         |-manifest.yml
         |-content/
             |-01/
-                |-01.usfm <-- equates to
+                |-01.usfm <-- link points here
 
 In some of the examples above the link was not pointing directly at a file.
 In those cases the link should resolve to the first available file in order of the sorting priority described in :ref:`structure-content-sort`.
 
-
-.. _linking-shorthand:
-
-Shorthand Links
----------------
-
-Shorthand links may be used when the project slug matches it's resource slug.
-For example:
-
-``[[en/obs/obs/book/01:02]]`` could be written as ``[[en/obs/book/01:02]]``.
-
-Shorthand links may only be used when linking to a passage in a book or linking to a resource as a whole. i.e.
-
-- ``[[en/obs/book/01:02]]`` Links to OBS 1:2
-- ``[[en/obs/book]]`` Links to OBS
-
-.. _linking-external:
 
 External URLS
 -------------
@@ -96,111 +79,77 @@ You may link to online media by simply using a url instead of an RC identifier.
 
 Links where the path begins with ``http://`` or ``https://`` are treated as external urls.
 
-.. _linking-arguments:
-
-Arguments
----------
-
-Some RCs can accept or require additional arguments in the link. These are described below. For more information about these types please see RCs.
+Examples
+--------
 
 book
 ~~~~
 
-These types accept an additional chapter and verse parameter formatted as is common in Bible passages.
-
-Here are some examples:
-
-- ``01:02`` verse two in chapter one
-- ``01:02-04`` verses two through four in chapter one. This is allowed for convenience. It will resolve as ``01:02``.
-- ``02`` chapter two. This will resolve to the first chunk of the chapter e.g. ``02:title``. NOTE: the first chunk is not necessarily the first verse. Additional front matter may exist.
-
-Please note that the values in these arguments are not digits but slugs to chapters and chunks. Therefore care must be taken to not use them as digits. For example ``1:2`` will not resolve because there is no chapter ``1`` or chunk ``2``. Because these are just slugs we may link to other elements such as chapter titles or even project titles.
-
-- ``01:title`` the title of chapter one
-- ``title`` the title of the book
-
-Links must always be direct therefore you may not indicate multiple ranges of passages.
-
-- ``01:02,04`` **this is incorrect and will not resolve**
-
-Complete Examples:
-
-- ``[[en/obs/obs/book/01:02]]``
-- ``[Open Bible Stories 1:2](en/obs/obs/book/01:02)``
-- ``[[en/ulb/gen/book/01:02-06]]``
-- ``[Genesus 1:2-6](en/ulb/gen/book/01:02-06)``
+- ``[Genesis 1:2](en/ulb/gen/book/01/02)``
+- ``[Open Bible Stories 1:2](/en/obs/obs/book/01/02)``
 
 help
 ~~~~
 
-See arguments for **book**. Differences are described below.
-
-When linking to a help you must always link to a chapter + chunk combination. You cannot link to just a chapter.
+- ``[[en/tq/gen/help/01/02]]`` - links to translationQuestions for Genesis 1:2
+- ``[[en/tn/gen/help/01/02]]`` - links to translationNotes for Genesis 1:2
 
 dict
 ~~~~
 
-Accepts a single dictionary term id as an argument. For example:
-
-- ``aaron``
-- ``abel``
-- ``canaan``
-
-Complete Examples:
-
-- ``[[en/tw/bible/dict/canaan]]``
 - ``[Canaan](en/tw/bible/dict/canaan)``
 
 man
 ~~~~
 
-Accepts a single module id as an argument For example:
-
-- ``translate-unknowns``
-
-Complete examples:
-
-- ``[[en/ta-vol1/translate/man/translate-unknowns]]``
 - ``[Translate Unknowns](en/ta-vol1/translate/man/translate-unknowns)``
 
 img
 ~~~~
 
-These accept the same arguments as book links.
+- ``[Open Bible Stories 1:2](en/obs/obs/img/01/02)``
+- ``[Genesus 1:2-6](en/ulb/gen/img/01/02)``
 
-Complete examples:
+vid
+~~~
 
-- ``[[en/obs/obs/img/01:02]]``
-- ``[Open Bible Stories 1:2](en/obs/obs/img/01:02)``
-- ``[[en/ulb/gen/img/01:02-06]]``
-- ``[Genesus 1:2-6](en/ulb/gen/img/01:02-06)``
+- ``[Open Bible Stories 1:2](en/obs/obs/vid/01/02)``
+
+audio
+~~~~~
+
+- ``[Open Bible Stories 1:2](en/obs/obs/audio/01/02)``
 
 .. _linking-abbreviations:
 
 Abbreviations
 -------------
 
-In certain cases it is appropriate to abbreviate a link. Below are a list of cases where you are allowed to use an abbreviation.
+In certain cases it is appropriate to abbreviate a link.
+Below are a list of cases where you are allowed to use an abbreviation.
 
-Links within the same resource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Links within the same RC
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-When linking to a different part of the same resource you may just provide the arguments.
+When linking to a different section within the same RC you may just provide the chapter/chunk :ref:`slug` s.
 
-Example from tA Translate resource:
+Manual example:
 
-- ``[[translate-unknowns]]``
 - ``[Translate Unknowns](translate-unknowns)``
 
-Example from tW resource
+Dictionary example:
 
-- ``[[canaan]]``
 - ``[Canaan](canaan)``
 
-Links to any translation of a resource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Book example:
 
-Some times you may not wish to restrict the linked resource to a particular language. In that case you may exclude the language code from the beginning of the path and place an extra slash ``/`` in it's place.
+- ``[Genesis 1:2](01/02)``
+
+Links to any language
+~~~~~~~~~~~~~~~~~~~~~
+
+At times you may not wish to restrict the link to a partuclarl language of the RC.
+In that case you may exclude the language code from the beginning of the path and place an extra slash ``/`` in it's place.
 
 Example:
 
@@ -212,14 +161,17 @@ Example:
 Automatically Linking Bible References
 --------------------------------------
 
-Bible references in any RC should be automatically converted into resolvable links according to the linking rules for **book** resource types. Of course, if the reference is already a link nothing needs to be done.
+Bible references in any RC should be automatically converted into resolvable links according to the linking rules for **book** resource types. 
+Of course, if the reference is already a link nothing needs to be done.
 
-Conversion of biblical references are limited to those resources that have been indexed on the users' device. Conversion should be performed based on any one of the following:
+Conversion of biblical references are limited to those resources that have been indexed on the users' device.
+Conversion should be performed based on any one of the following:
 
 - a case *insensitive* match of the entire project title.
-- a case *sensitive* match of the project slug where the first character is uppercase e.g. ``Gen``.
+- a start case (first letter is uppercase) match of the project slug e.g. ``Gen``.
 
-For each case above there must be a valid ``chapter:verse`` reference immediately after the matching word separated only by white space. For example:
+For each case above there must be a valid ``chapter:verse`` reference immediately after the matching word separated a single white space.
+For example:
 
 .. code-block:: none
 
@@ -227,9 +179,8 @@ For each case above there must be a valid ``chapter:verse`` reference immediatel
     genesis 1:1
     Gen 1:1
     Gen 1:1-3
-    gen 1:1 -- not valid
 
-If the user clicks on one such generated link where the RC has not yet been downloaded they should be asked if they would like to download it. After downloading the RC they should immediately follow the link.
+The chapter and verse numbers should be converted to properly formatted :ref:`slug` s.
 
 Example
 ~~~~~~~
@@ -244,16 +195,33 @@ If the user now downloads the French resource the link will resolve because ``Ge
 
 .. code-block:: markdown
 
-    [Genèse 1:1](fr/ulb/gen/book/01:01)
+    [Genèse 1:1](fr/ulb/gen/book/01/01)
 
-When a match occurs there may be several different resources that could be used in the link such as ``ulb`` or ``udb``. When more than one resource slug is available use the following rules in order until a solution is found:
+Multiple Matches
+~~~~~~~~~~~~~~~~
 
-1. choose the first resource that has a translate_mode of 'all'.
-2. choose the first resource that has a translate_mode of 'none.
-3. choose the first resource found.
+When a match occurs there may be several different resources that could be used in the link such as ``ulb`` or ``udb``.
+When more than one resource :ref:`slug` is available use the following rules in order until a unique match is found:
 
-Care must be taken when formatting the chapter and chunk slugs. You must not assume a chapter is padded with a single ``0`` and likewise for chunks. When preparing the link you should attempt to compare the integer values found in the text with the chapter and verse slugs (this time parsed as integers) in order to identify the correct chapter and chunk.
+1. use the same resource as indicated by the application context.
+2. use the RC allowed by the translate_mode set in the application.
+3. choose the first resource found or let the user choose (e.g. pop up).
 
-Because chunks may contain a range of verses some judgment is required to determine if a verse resides within a chunk. For example chunk ``01`` may contain verses ``1-3`` whereas chunk ``02`` contains verses ``4-6``.
+Aligning Verses to Chunks
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Because chunks may contain a range of verses, a passage reference may not exactly match up to a chunk.
+Therefore some interpolation may be nessesary. For both chapter and verse numbers perform the follow:
+
+    Given a chapter or verse number ``key``.
+    And an equivalent sorted list ``list`` of chapters or verses in the matched resource 
+
+- incrementally compare the key against items in the list.
+- if the integer value of the current list item is less than the key: continue.
+- if the integer value of the current list item is greater than the key: use the previous list item.
+- if the end of the list is reached: use the previous list item.
+  
+For example chunk ``01`` may contain verses ``1-3`` whereas chunk ``02`` contains verses ``4-6``.
+Therefore, verse ``2`` would resolve to chunk ``01``.
 
 If no chapter or chunk can be found to satisfy the reference it should not be converted to a link.
