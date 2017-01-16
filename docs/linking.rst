@@ -36,7 +36,7 @@ This is illustrated below:
         |-manifest.yml
         |-content/ <-- link points here
 
-From this point we can lengthen the link to include a chapter slug which resolves to the chapter directory.
+From this point we can lengthen the link to include a chapter :ref:`slug` which resolves to the chapter directory.
 
 .. code-block:: markdown
 
@@ -168,7 +168,7 @@ Conversion of biblical references are limited to those resources that have been 
 Conversion should be performed based on any one of the following:
 
 - a case *insensitive* match of the entire project title.
-- a start case (first letter is uppercase) match of the project slug e.g. ``Gen``.
+- a start case (first letter is uppercase) match of the project :ref:`slug` e.g. ``Gen``.
 
 For each case above there must be a valid ``chapter:verse`` reference immediately after the matching word separated a single white space.
 For example:
@@ -189,9 +189,11 @@ Given the French reference below:
 
 ``Genèse 1:1``
 
-If the user has only downloaded the English resource the link will not resolve because the title ``Genesis`` or ``genesis`` does not match ``Genèse`` or ``genèse``. Neither does the camel case slug ``Gen`` match since it does not match the *entire* word.
+If the user has only downloaded the English resource the link will not resolve because the title ``Genesis`` or ``genesis`` does not match ``Genèse`` or ``genèse``.
+Neither does the camel case :ref:`slug` ``Gen`` match since it does not match the *entire* word.
 
-If the user now downloads the French resource the link will resolve because ``Genèse`` or ``genèse`` does indeed match ``Genèse`` or ``genèse``. The result will be:
+If the user now downloads the French resource the link will resolve because ``Genèse`` or ``genèse`` does indeed match ``Genèse`` or ``genèse``.
+The result will be:
 
 .. code-block:: markdown
 

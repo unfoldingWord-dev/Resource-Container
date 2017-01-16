@@ -173,7 +173,7 @@ Dictionary (dict)
 
 A standalone dictionary of terms. Currently all dictionary resources must use the markdown format.
 
-The dictionary terms are used as the chapter slug and the translation of the term is placed inside a single 01.txt file:
+The dictionary terms are used as the chapter :ref:`slug` and the translation of the term is placed inside a single 01.txt file:
 
 .. code-block:: none
 
@@ -250,4 +250,4 @@ The config.yml indicates recommended and dependent modules:
         dependencies: 
           - "figs-sentences"
 
-Dependencies are slugs's of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
+Dependencies are :ref:`slug` s of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.

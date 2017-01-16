@@ -17,7 +17,7 @@ A git repository is also a valid way to store RCs.
 Identifier
 ----------
 
-RCs are uniquely identified by a composition of :doc:`slug` s delimited by underscores.
+RCs are uniquely identified by a composition of :ref:`slug` s delimited by underscores.
 This composition is called the RC identifier.
 
 Usage
@@ -29,13 +29,13 @@ The identifier is used as a unique name when:
 * representing multiple RCs in an API endpoint
 * storing RC's in a repository on git.door43.org
 
-The identifier is also a convenient way to identify an RC without inspecting it's :doc:`manifest`.
+The identifier is also a convenient way to identify an RC without inspecting it's :ref:`manifest`.
 This can be helpful when searching for RCs through an API.
 
 Example
 ^^^^^^^
 
-The composition of slugs is illustrated below:
+The composition of :ref:`slug` s is illustrated below:
 
 .. code-block:: none
 
@@ -46,8 +46,6 @@ For example, the ULB book of Genesis in Portuguese would be given in the followi
 .. code-block:: none
 
     pt-br_ulb_gen_book
-
-See :doc:`slug` for details on slug syntax.
 
 Example
 ~~~~~~~
@@ -60,7 +58,7 @@ By viewing the file name we are able to quickly identify that this RC contains t
     en_ulb_gen_book/
 
 .. note:: Although convenient, the directory or file name should not be solely relied upon when determining the composition of an RC.
-    Therefore, whenever possible you should consult the :doc:`manifest`.
+    Therefore, whenever possible you should consult the :ref:`manifest`.
 
 .. _structure-directory:
 Directory Structure
@@ -80,7 +78,7 @@ RCs must use the following top level directory structure:
 - ``.git`` is optional and is usually only seen in active translations.
 - ``.apps`` is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
 - ``LICENSE.md`` contains the appropriate license information for the RC.
-- ``manifest.yml`` is the :doc:`manifest` that contains meta data about the RC.
+- ``manifest.yml`` is the :ref:`manifest` that contains meta data about the RC.
 - ``content`` contains any other files needed by the RC type, including the content itself.
   - See below for the basic structure of this directory
   - A mime type of ``text/usfm`` is allowed to omit the ``content`` directory in order to conform to the USFM standard.  For example, this is acceptable:
