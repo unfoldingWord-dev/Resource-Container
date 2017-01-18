@@ -8,13 +8,11 @@ Manifest File
 Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
 Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/documents/dcmi-terms/) have been used when appropriate.
 
-.. note:: the ``language`` key below conflicts with the dublin core specification which indicates it should be a string.
-
 .. code-block:: yaml
 
     ---
-    rc_version: '0.2'
-    rc_type: 'book'
+    version: '0.2'
+    type: 'book'
     format: 'text/usfm'
     modified: '2015-12-22T12:01:30-05:00'
 
@@ -39,10 +37,13 @@ Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/document
         rights: 'CC BY-SA 4.0'
         source:
         -
-            language: 'en'
-            resource: 'asv'
-            project: 'gen'
-            version: '1901'
+            language:
+                identifier: 'en'
+            resource:
+                identifier: 'asv'
+                version: '1901'
+            project:
+                identifier: 'gen'
 
     projects:
         -
