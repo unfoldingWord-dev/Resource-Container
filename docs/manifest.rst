@@ -8,38 +8,27 @@ Manifest File
 Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
 Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/documents/dcmi-terms/) have been used when appropriate.
 
+.. note:: the ``language`` key below conflicts with the dublin core specification which indicates it should be a string.
+
 .. code-block:: yaml
 
     ---
-    version: '0.2'
-    type: 'book'
-
+    rc_version: '0.2'
+    rc_type: 'book'
     format: 'text/usfm'
     modified: '2015-12-22T12:01:30-05:00'
-    versification: 'kjv'
 
-    target_language:
-      language: 'en'
-      title: 'English'
-      direction: 'ltr'
-
-    projects:
-      -
-        identifier: 'gen'
-        title: 'Genesis'
-        description: ''
-        icon: ''
-        sort: 1
-        rc_path: './content'
-        categories:
-        - 'bible-ot'
+    language:
+        identifier: 'en'
+        title: 'English'
+        direction: 'ltr'
 
     resource:
-      identifier: 'ulb'
-      title: 'Unlocked Literal Bible'
-      translate_mode: 'all'
-      status:
-        checking_entity:
+        identifier: 'ulb'
+        title: 'Unlocked Literal Bible'
+        translatable: 'yes'
+        versification: 'kjv'
+        checker:
         - 'Wycliffe Associates'
         checking_level: '3'
         version: '3'
@@ -49,11 +38,21 @@ Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/document
         issued: '2015-12-17'
         rights: 'CC BY-SA 4.0'
         source:
-        - rc_identifier: 'en_asv_gen'
-          language: 'en'
-          resource: 'asv'
-          project: 'gen'
-          version: '1901'
+        -
+            language: 'en'
+            resource: 'asv'
+            project: 'gen'
+            version: '1901'
+
+    projects:
+        -
+            identifier: 'gen'
+            title: 'Genesis'
+            description: ''
+            sort: 1
+            path: './content'
+            categories:
+            - 'bible-ot'
 
 .. _manifest-definitions:
 
@@ -80,9 +79,9 @@ Definitions
 - ``resource > status``: the translation status of the resource.
 - ``resource > status > translate_mode``: The mode in which the resource may be translated.
 
-  - all: it can always be translated.
-  - gl: it can only be translated when gateway language mode is activated in the app.
-  - none: it can never be translated.
+  - yes: it can always be translated.
+  - gateway: it can only be translated when gateway language mode is activated in the app.
+  - no: it can never be translated.
 
 - ``versification``: indicates the versification system used to defined chunks in this RC. See Resource Catalog and Chunk Markers for more information.
 
