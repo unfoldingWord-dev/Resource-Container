@@ -6,50 +6,53 @@ Manifest File
 .. include:: includes/note_keys_required.txt
 
 Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
+Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/documents/dcmi-terms/) have been used when appropriate.
 
 .. code-block:: yaml
 
     ---
-    rc.version: '0.2'
-    rc.type: 'book'
-    rc.identifier: 'en_ulb_gen_book'
+    version: '0.2'
+    type: 'book'
 
-    content_mime_type: 'text/usfm'
-    modified_at: 20151222120130
+    format: 'text/usfm'
+    modified: '2015-12-22T12:01:30-05:00'
     versification: 'kjv'
 
-    language:
-      ietf: 'en'
-      name: 'English'
-      dir: 'ltr'
+    target_language:
+      language: 'en'
+      title: 'English'
+      direction: 'ltr'
 
     projects:
       -
-        slug: 'gen'
-        name: 'Genesis'
-        desc: ''
+        identifier: 'gen'
+        title: 'Genesis'
+        description: ''
         icon: ''
         sort: 1
-        rc.path: './content'
+        rc_path: './content'
         categories:
         - 'bible-ot'
 
     resource:
-      slug: 'ulb'
-      name: 'Unlocked Literal Bible'
+      identifier: 'ulb'
+      title: 'Unlocked Literal Bible'
       translate_mode: 'all'
       status:
         checking_entity:
         - 'Wycliffe Associates'
         checking_level: '3'
         version: '3'
-        comments: ''
-        contributors:
+        description: ''
+        contributor:
         - 'Wycliffe Associates'
-        pub_date: '2015-12-17'
-        license: 'CC BY-SA 4.0'
-        source_translations:
-        - rc.identifier: 'en_asv_gen'
+        issued: '2015-12-17'
+        rights: 'CC BY-SA 4.0'
+        source:
+        - rc_identifier: 'en_asv_gen'
+          language: 'en'
+          resource: 'asv'
+          project: 'gen'
           version: '1901'
 
 .. _manifest-definitions:
