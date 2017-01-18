@@ -3,7 +3,7 @@
 Date
 ====
 
-Dates follow the encoding scheme defined in the [W3CDTF profile of ISO 8601](https://www.w3.org/TR/NOTE-datetime).
+Dates follow the encoding scheme defined in the `W3CDTF profile of ISO 8601 <https://www.w3.org/TR/NOTE-datetime>`_.
 
 Example
 -------

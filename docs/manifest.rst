@@ -6,7 +6,7 @@ Manifest File
 .. include:: includes/note_keys_required.txt
 
 Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
-Terms from the [Dublin Core Meta Data Initiative](http://dublincore.org/documents/dcmi-terms/) have been used when appropriate.
+Terms from the `Dublin Core Meta Data Initiative <http://dublincore.org/documents/dcmi-terms>`_ have been used when appropriate.
 
 .. code-block:: yaml
 

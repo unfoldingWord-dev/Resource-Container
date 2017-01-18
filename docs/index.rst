@@ -20,3 +20,4 @@ Contents:
    linking
    app_meta
    slug
+   date
