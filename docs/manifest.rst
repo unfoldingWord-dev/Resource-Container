@@ -11,45 +11,46 @@ Terms from the `Dublin Core Meta Data Initiative <http://dublincore.org/document
 .. code-block:: yaml
 
     ---
-    version: '0.2'
-    type: 'book'
-    format: 'text/usfm'
-    modified: '2015-12-22T12:01:30-05:00'
 
-    language:
-        identifier: 'en'
-        title: 'English'
-        direction: 'ltr'
-
-    resource:
-        identifier: 'ulb'
+    dublin_core:
+        identifier: 'en-ulb'
+        language:
+            identifier: 'en'
+            title: 'English'
+            direction: 'ltr'
+        type: 'book'
         title: 'Unlocked Literal Bible'
-        translatable: 'yes'
-        versification: 'kjv'
-        checker:
-        - 'Wycliffe Associates'
-        checking_level: '3'
-        version: '3'
-        description: ''
-        contributor:
-        - 'Wycliffe Associates'
-        issued: '2015-12-17'
-        rights: 'CC BY-SA 4.0'
+        format: 'text/usfm'
         source:
         -
-            language:
-                identifier: 'en'
-            resource:
-                identifier: 'asv'
-                version: '1901'
-            project:
-                identifier: 'gen'
+            language: 'en'
+            identifier: 'en-asv'
+            version: '1901'
+        rights: 'CC BY-SA 4.0'
+        creator: 'Wycliffe Associates'
+        subject: 'Bible translation'
+        description: 'The Unlocked Literal Bible is an open-licensed version of the Bible that is intended to provide a form-centric translation of the Bible.'
+        publisher: 'Door43'
+        contributor:
+            - 'NamesOfContributors'
+        relation:
+            - 'en-udb'
+            - 'en-tn'
+        version: '3'
+        issued: '2015-12-17'
+        modified: '2015-12-22T12:01:30-05:00'
+        conformsto: 'rc0.2'
+
+    checking:
+        checking_entity:
+        - 'Wycliffe Associates'
+        checking_level: '3'
 
     projects:
         -
             identifier: 'gen'
             title: 'Genesis'
-            description: ''
+            versification: 'kjv'
             sort: 1
             path: './content'
             categories:
