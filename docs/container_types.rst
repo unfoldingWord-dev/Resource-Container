@@ -29,15 +29,15 @@ The order of elements in each of these groups should be respected.
       01:      // chapter
         01:    // chunk
           dict:
-            - "//tw/bible/dict/creation"
-            - "//tw/bible/dict/god"
-            - "//tw/bible/dict/heaven"
-            - "//tw/bible/dict/holyspirit"
+            - '//tw/bible/dict/creation'
+            - '//tw/bible/dict/god'
+            - '//tw/bible/dict/heaven'
+            - '//tw/bible/dict/holyspirit'
           help:
-            - "//tq/gen/help/01/01"
-            - "//tq/gen/help/01/01"
+            - '//tq/gen/help/01/01'
+            - '//tn/gen/help/01/01'
           img:
-            - "//ulb/gen/img/01/01"
+            - '//ulb/gen/img/01/01'
 
 .. note:: Implementation Notes:
     References to external RCs may be displayed in the application along the side of the book content in order to provide contextual information.
@@ -180,15 +180,15 @@ The config.yaml is used to indicate related terms, aliases, definition title, an
 
     ---
       aaron:
-        def_title: "Description"
+        def_title: 'Description'
         see_also: 
-          - "covenant"
-          - "testimony"
+          - 'covenant'
+          - 'testimony'
         aliases:
           - aaronalias # note: not a real alias for this word
         examples:
-          - "09-15"
-          - "10-05"
+          - '09-15'
+          - '10-05'
 
 Examples are tricky because a dict may be referenced by many different resources and projects.
 Therefore we cannot specify a RC link but instead must simply provide the chapter and chunk that contains the example.
@@ -224,10 +224,10 @@ The config.yaml indicates recommended and dependent modules:
     ---
       translate-unknowns: 
         recommended: 
-          - "translate-names"
-          - "translate-transliterate"
+          - 'translate-names'
+          - 'translate-transliterate'
         dependencies: 
-          - "figs-sentences"
+          - 'figs-sentences'
 
 Dependencies are :ref:`slug` s of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
 
