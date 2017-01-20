@@ -18,7 +18,7 @@ Represents any text that is structured like a book. e.g. there are chapters and 
 
 Config
 ^^^^^^
-A book may references supplementary RCs in it's config.yml file via :ref:`linking`.
+A book may references supplementary RCs in it's config.yaml file via :ref:`linking`.
 Such references must be grouped by the corresponding RC type.
 The order of elements in each of these groups should be respected.
 
@@ -156,7 +156,7 @@ The dictionary terms are used as the chapter :ref:`slug` and the translation of 
 .. code-block:: none
 
     content/
-        |-config.yml
+        |-config.yaml
         |-aaron/
         |    |-01.txt
         |
@@ -174,7 +174,7 @@ The 01.txt file contains the translation of the term where the header is the tit
 
     God chose Aaron to be the first high priest for the people of Israel.
 
-The config.yml is used to indicate related terms, aliases, definition title, and examples.
+The config.yaml is used to indicate related terms, aliases, definition title, and examples.
 
 .. code-block:: yaml
 
@@ -217,7 +217,7 @@ Manuals are a collection of modules (articles):
 The 01.txt file contains the translation of the module. The title.txt file contains the name of the module. And sub-title.txt contains the question that is answered by this module.
 
 NOTE: if desired the module can be split into multiple chunks.
-The config.yml indicates recommended and dependent modules:
+The config.yaml indicates recommended and dependent modules:
 
 .. code-block:: yaml
 
@@ -266,7 +266,7 @@ Directory structure
     myrc/
         |-01-GEN.usfm
         |-LICENSE.md
-        |-manifest.yml
+        |-manifest.yaml
 
 .. note:: When your application supports USFM bundles it can identify the them in two ways
 

@@ -26,13 +26,13 @@ RCs have a folder structure like the following:
         |-.git/
         |-.apps/
         |-LICENSE.md
-        |-manifest.yml
+        |-manifest.yaml
         |-content/
 
 - ``.git``: only exists when the RC is stored in a git repository.
 - ``.apps``: is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
 - ``LICENSE.md``: contains the appropriate license information for the RC.
-- ``manifest.yml``: is the RC :ref:`manifest`.
+- ``manifest.yaml``: is the RC :ref:`manifest`.
 - ``content``: contains the project files. The name of this directory is subject to the :ref:`manifest`.
   It is also possible for there to be multiple directories or excluded altogether.
 
@@ -47,8 +47,8 @@ The most common structure is indicated below:
 .. code-block:: none
 
     content/
-        |-config.yml
-        |-toc.yml
+        |-config.yaml
+        |-toc.yaml
         |-front/
         |-01/
         |    |-title.txt
@@ -109,7 +109,7 @@ The content sorting rules are defined as:
 Config
 ------
 
-The ``config.yml`` file contains information specific to each RC type. If a particular RC type does not need this file it may be excluded.
+The ``config.yaml`` file contains information specific to each RC type. If a particular RC type does not need this file it may be excluded.
 
 .. _structure-toc:
 Table of Contents
@@ -119,7 +119,7 @@ Table of Contents
 
 Chapter directories and chunk files are often named with padded integers.
 A side effect of this is the natural file order often represents the appropriate order.
-However, you may also indicate the order of chapters and frames by providing a table of contents toc.yml within the content directory.
+However, you may also indicate the order of chapters and frames by providing a table of contents toc.yaml within the content directory.
 If no such file exists then the integer order followed by the natural order of the files will be used.
 
 The table of contents is built with small blocks as shown below. All of the fields in the blocks are optional:
@@ -135,7 +135,7 @@ The table of contents is built with small blocks as shown below. All of the fiel
 The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to.
 Alternatively you may provide a fully qualified link as defined in :ref:`linking`.
 
-Here's an example toc.yml from translationAcademy.
+Here's an example toc.yaml from translationAcademy.
 Generally speaking the title and sub-titles fields in this file should be the same as what is found in the subsequently named chunks.
 However, the TOC is allowed to deviate as necessary.
 

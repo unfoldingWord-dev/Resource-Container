@@ -33,7 +33,7 @@ This is illustrated below:
     # file system
     en_ulb_gen_book/
         |-LICENSE.md
-        |-manifest.yml
+        |-manifest.yaml
         |-content/ <-- link points here
 
 From this point we can lengthen the link to include a chapter :ref:`slug` which resolves to the chapter directory.
@@ -46,7 +46,7 @@ From this point we can lengthen the link to include a chapter :ref:`slug` which 
     # file system
     en_ulb_gen_book/
         |-LICENSE.md
-        |-manifest.yml
+        |-manifest.yaml
         |-content/
             |-01/ <-- link points here
 
@@ -60,7 +60,7 @@ Going a step further we can link to a specific chunk
     # file system
     en_ulb_gen_book/
         |-LICENSE.md
-        |-manifest.yml
+        |-manifest.yaml
         |-content/
             |-01/
                 |-01.usfm <-- link points here
