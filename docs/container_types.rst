@@ -4,7 +4,7 @@ Container Types
 ===============
 
 Resource Containers (RCs) can be used to represent different forms of data.
-These different data types are represented by the below RC Types.
+These different forms are represented by the below RC Types.
 
 .. note:: The types below are noted by ``Type Name (Type Slug)``
     e.g. ``Book (book)``

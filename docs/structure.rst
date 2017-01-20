@@ -2,10 +2,6 @@
 Resource Container Structure
 ============================
 
-.. _structure-format:
-Resource Container Format
--------------------------
-
 Resource containers (RCs) exist as directories.
 They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension.
 E.g. a zipped RC would end in ``.zip``,
@@ -13,61 +9,16 @@ a tarred RC would end in ``.tar``,
 a tarred+bzip2 RC would end in ``.tar.bz2`` etc.
 A git repository is also a valid way to store RCs.
 
-.. _structure-identifier:
-Identifier
-----------
-
-.. note:: RC Identifers present a number of issues that are difficult to overcome.
-    Therefore this may be deprecated and a suggestion for nomenclature left in it's place.
-
-RCs are uniquely identified by a composition of :ref:`slug` s delimited by underscores.
-This composition is called the RC identifier.
-
-Usage
-^^^^^
-
-The identifier is used as a unique name when:
-
-* storing RCs on the disk
-* representing multiple RCs in an API endpoint
-* storing RC's in a repository on git.door43.org
-
-The identifier is also a convenient way to identify an RC without inspecting it's :ref:`manifest`.
-This can be helpful when searching for RCs through an API.
-
-Example
-^^^^^^^
-
-The composition of :ref:`slug` s is illustrated below:
-
-.. code-block:: none
-
-    [IETF language code]_[resource slug]_[project slug]_[RC type slug]
-
-For example, the ULB book of Genesis in Portuguese would be given in the following way:
-
-.. code-block:: none
-
-    pt-br_ulb_gen_book
-
-Example
-~~~~~~~
-
-An example of using the file or directory name to identify an RC is illustrated below.
-By viewing the file name we are able to quickly identify that this RC contains the ULB version of the book Genesis translated in English:
-
-.. code-block:: none
-
-    en_ulb_gen_book/
-
-.. note:: Although convenient, the directory or file name should not be solely relied upon when determining the composition of an RC.
-    Therefore, whenever possible you should consult the :ref:`manifest`.
+.. note:: When naming an RC directory or repository the best practice is to use a combination of the resource and
+    project identifiers e.g. ``en-ulb-gen``.
+    If the RC contains more than one project just use the resource identifier with an optional :ref:`slug` formatted qualifier
+    e.g. ``en-ulb-nt`` where ``nt`` is the custom qualifier denoting the New Testament.
 
 .. _structure-directory:
 Directory Structure
 -------------------
 
-RCs must use the following top level directory structure:
+RCs have a folder structure like the following:
 
 .. code-block:: none
 
@@ -78,24 +29,20 @@ RCs must use the following top level directory structure:
         |-manifest.yml
         |-content/
 
-- ``.git`` is optional and is usually only seen in active translations.
-- ``.apps`` is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
-- ``LICENSE.md`` contains the appropriate license information for the RC.
-- ``manifest.yml`` is the :ref:`manifest` that contains meta data about the RC.
-- ``content`` contains the project files inside the RC.
-  There is nothing special about the name of this directory.
-  Depending on how many projects are stored in the RC you may use a different name or use several different folders
-  as defined in the :ref:`manifest`.
-
-  - See below for the basic structure of the project directory/directories.
-  - In the case of USFM RC types there will be no project directory. See the :ref:`manifest` for details.
+- ``.git``: only exists when the RC is stored in a git repository.
+- ``.apps``: is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
+- ``LICENSE.md``: contains the appropriate license information for the RC.
+- ``manifest.yml``: is the RC :ref:`manifest`.
+- ``content``: contains the project files. The name of this directory is subject to the :ref:`manifest`.
+  It is also possible for there to be multiple directories or excluded altogether.
 
 .. _structure-content:
 
-Content Directory
+Project Directory
 -----------------
 
-The file and folder structure of the project content directory in RCs is mostly the same across RC types.  The structure is as follows:
+The folder structure of the project directory in RCs is mostly the same across RC types.
+The most common structure is indicated below:
 
 .. code-block:: none
 
@@ -115,12 +62,11 @@ The file and folder structure of the project content directory in RCs is mostly 
         ...
         |-back/
 
-Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the ``manifest.yml``.
-For example ``.usfm`` or ``.md``.
+.. note:: Where a .txt extension is shown above, the proper extension should be used according to the format
+    indicated in the :ref:`manifest`. For example ``.usfm`` or ``.md``.
 
 The directories within ``content`` shown above indicate chapters.
-The two reserved chapter names "front" and "back" are used to contain, if applicable, the front and back matter.
-You may use any of the reserved names (e.g. "intro.txt") in the "front" and "back" directories.
+There are two special chapters named "front" and "back" that contain, if applicable, the front and back matter.
 
 The files within each chapter represent the chunks of the chapter.
 Often the chunk file names will be numeric (e.g. 01.txt) but that is not required.
@@ -260,6 +206,9 @@ However, the TOC is allowed to deviate as necessary.
           sections: []
 
 Alternatively you can choose to use a simplified table of contents as shown below.
+
+.. note:: We may deprecate this form due to the addition of content sorting instructions describe above.
+  Since sorting is defined this form may not provide anything useful.
 
 .. code-block:: yaml
 

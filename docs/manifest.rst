@@ -6,21 +6,25 @@ Manifest File
 .. include:: includes/note_keys_required.txt
 
 Resource Containers (RCs) have a manifest.yml that describes it's content and structure.
-Terms from the `Dublin Core Meta Data Initiative <http://dublincore.org/documents/dcmi-terms>`_ have been used when appropriate.
+Most of the information adheres to the `Dublin Core Meta Data Initiative <http://dublincore.org/documents/dcmi-terms>`_
+and can be found nested within the ``dublin_core`` key.
 
 .. code-block:: yaml
 
     ---
 
     dublin_core:
+        type: 'book'
+        conformsto: 'rc0.2'
+        format: 'text/usfm'
         identifier: 'en-ulb'
+        title: 'Unlocked Literal Bible'
+        subject: 'Bible translation'
+        description: 'The Unlocked Literal Bible is an open-licensed version of the Bible that is intended to provide a form-centric translation of the Bible.'
         language:
             identifier: 'en'
             title: 'English'
             direction: 'ltr'
-        type: 'book'
-        title: 'Unlocked Literal Bible'
-        format: 'text/usfm'
         source:
         -
             language: 'en'
@@ -28,18 +32,15 @@ Terms from the `Dublin Core Meta Data Initiative <http://dublincore.org/document
             version: '1901'
         rights: 'CC BY-SA 4.0'
         creator: 'Wycliffe Associates'
-        subject: 'Bible translation'
-        description: 'The Unlocked Literal Bible is an open-licensed version of the Bible that is intended to provide a form-centric translation of the Bible.'
-        publisher: 'Door43'
         contributor:
             - 'NamesOfContributors'
         relation:
             - 'en-udb'
             - 'en-tn'
-        version: '3'
+        publisher: 'Door43'
         issued: '2015-12-17'
         modified: '2015-12-22T12:01:30-05:00'
-        conformsto: 'rc0.2'
+        version: '3'
 
     checking:
         checking_entity:
@@ -61,48 +62,25 @@ Terms from the `Dublin Core Meta Data Initiative <http://dublincore.org/document
 Definitions
 -----------
 
-- ``rc.version``: the version of the RC.
-- ``rc.type``: the type of RC being represented.
-- ``rc.identifier``: the shortname of this RC, which should also be the directory or filename (e.g. en_ulb_gen.zip).
-- ``content_mime_type``: the format of the content that is being stored inside the RC. e.g.:
 
-  - text/usfm
-  - text/markdown
-  - image/png
-  - audio/mp3
-  - video/mp4
-  
-- ``language``: the language information of the text inside this RC.
-- ``projects``: an array of projects inside the RC. Each object is a project definition inside the RC.
+- ``dublin_core``
 
-  - ``rc.path``: the path to the project within the RC. This will be a directory or in some cases a file. In all of our
-    examples we will use the directory `content`.
+    - ``type``: the RC type.
+    - ``conformsto``: the version of the RC specification used by the RC.
+    - ``format``: the file format of content within the RC e.g.
 
-- ``resource > status``: the translation status of the resource.
-- ``resource > status > translate_mode``: The mode in which the resource may be translated.
+        - ``text/usfm``
+        - ``image/png``
+        - ``audio/mp3``
 
-  - yes: it can always be translated.
-  - gateway: it can only be translated when gateway language mode is activated in the app.
-  - no: it can never be translated.
+    - ``identifier``: a :ref:`slug` formatted string uniquely identifying the resource.
+    - ``contributor``: an array of names or aliases to people that have contributed to the resource.
+    - ``relation``: identifiers of other related RCs.
+    - ``publisher``: the name of the individual or organization responsible for publishing the resource.
+    - ``issued``: the :ref:`date` of publication.
 
-- ``versification``: indicates the versification system used to defined chunks in this RC. See Resource Catalog and Chunk Markers for more information.
+- ``projects``: an array of projects inside the RC.
 
-.. _manifest-changing-lang:
-
-Changing Language & Resource
-----------------------------
-
-Some times it is desirable to change certain the language and resource of a RC. For example a mistake may have been made when originally defining the RC.
-
-Care should be taken since changing the language and/or resource will also change the identifier of the RC.
-
-Implementation Notes
-~~~~~~~~~~~~~~~~~~~~
-
-If while changing either of these properties the RC will conflict with an existing RC (on the current file system) the user should be asked if they would like to merge the two RC or cancel the change. See Merging RCs for more information about merging.
-
-In order to fully change either of these properties the following steps must be taken
-
-1. change the value of the property in the ``manifest.yml``.
-2. update the name of the RC folder to the new identifier.
-3. update any external usages of the RC's identifier to the new identifier.
+    - ``identifier``: a :ref:`slug` formatted string uniquely identifying the project.
+    - ``versification``: the system used for placing verse markers and consequently chunk markers.
+    - ``path``: the relative path to the project within the RC. Depending on the RC type this may be a directory or a file.

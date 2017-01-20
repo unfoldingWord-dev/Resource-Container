@@ -10,6 +10,12 @@ Example
 
 .. code-block:: none
 
+    1994-11-05
     1994-11-05T08:15:30-05:00
 
-Corresponds to November 5, 1994, 8:15:30 am, US Eastern Standard Time.
+Corresponds to:
+
+.. code-block:: none
+
+    November 5, 1994
+    November 5, 1994, 8:15:30 am, US Eastern Standard Time.
