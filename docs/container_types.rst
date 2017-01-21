@@ -242,7 +242,7 @@ Rather than being stored in a directory USFM is stored in a single file at the r
 Additionally, the project specified in the manifest points directly to this file.
 
 Example
-~~~~~~~
+^^^^^^^
 
 Project block in manifest
 

@@ -84,3 +84,8 @@ Definitions
     - ``identifier``: a :ref:`slug` formatted string uniquely identifying the project.
     - ``versification``: the system used for placing verse markers and consequently chunk markers.
     - ``path``: the relative path to the project within the RC. Depending on the RC type this may be a directory or a file.
+
+Generating From USFM
+--------------------
+
+See :ref:`usfm_manifest` for instructions on populating the manifest.yaml from the headers in a usfm file.

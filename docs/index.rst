@@ -19,5 +19,6 @@ Contents:
    container_types
    linking
    app_meta
+   usfm_manifest
    slug
    date
