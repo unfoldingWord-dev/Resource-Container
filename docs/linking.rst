@@ -7,7 +7,7 @@ A Resource Container (RC) link allows one RC to reference content from another R
 
 All RC links follow a very simple structure in two different flavors.
 
-* **Anonymous links** - have no title and are declared by enclsing the link in double brackets
+* **Anonymous links** - have no title and are declared by enclosing the link in double brackets
 * **Titled links** - have a title and are indicated by enclosing the link title in single brackets and the link in parentheses.
 
 For example:
@@ -148,7 +148,7 @@ Book example:
 Links to any language
 ~~~~~~~~~~~~~~~~~~~~~
 
-At times you may not wish to restrict the link to a partuclarl language of the RC.
+At times you may not wish to restrict the link to a particular language of the RC.
 In that case you may exclude the language code from the beginning of the path and place an extra slash ``/`` in it's place.
 
 Example:

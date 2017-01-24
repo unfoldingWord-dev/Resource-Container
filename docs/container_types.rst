@@ -236,7 +236,7 @@ Dependencies are :ref:`slug` s of modules that should be read before this one. R
 USFM (usfm)
 -----------
 
-A USFM bundle. This type enables support for the existing USFM bundle format while enabling additional RC features.
+A [USFM](http://ubsicap.github.io/usfm/) bundle. This type enables support for the existing USFM bundle format while enabling additional RC features.
 
 Rather than being stored in a directory USFM is stored in a single file at the root of the RC.
 Additionally, the project specified in the manifest points directly to this file.

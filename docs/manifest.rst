@@ -33,7 +33,8 @@ and can be found nested within the ``dublin_core`` key.
         rights: 'CC BY-SA 4.0'
         creator: 'Wycliffe Associates'
         contributor:
-            - 'NamesOfContributors'
+            - 'A Contributor'
+            - 'Another Contributor'
         relation:
             - 'en-udb'
             - 'en-tn'
