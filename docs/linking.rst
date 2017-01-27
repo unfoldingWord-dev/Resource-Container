@@ -120,6 +120,11 @@ audio
 
 - ``[Open Bible Stories 1:2](en/obs/obs/audio/01/02)``
 
+bundle
+~~~~~~
+
+Linking to bundles is not supported at this time.
+
 .. _linking-abbreviations:
 
 Abbreviations
