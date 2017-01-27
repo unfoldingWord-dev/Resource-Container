@@ -51,6 +51,8 @@ Represents a set of images that follows the same structure as a book.
 In most cases you will want to provide a single image to an equivalent chunk in the related book.
 However, any image can be included so long as it follows the requirements for identifiers.
 
+Below is an example with a format of ``image/png``.
+
 .. code-block:: none
 
     content/
@@ -75,7 +77,10 @@ However, any image can be included so long as it follows the requirements for id
 Audio (audio)
 -------------
 
-Represents a set of audio files that follows the same structure as a book. It is valid to provide a single audio file to any equilvilant chunk in a book.
+Represents a set of audio files that follows the same structure as a book.
+It is valid to provide a single audio file to any equilvilant chunk in a book.
+
+Below is an example with a format of ``audio/mp3``.
 
 .. code-block:: none
 
@@ -102,7 +107,9 @@ Video (vid)
 -----------
 
 Represents a set of video files that follows the same structure as a book.
-It is valid to provide a single video file to any equilvilant chunk in a book.
+It is valid to provide a single video file to any equivalent chunk in a book.
+
+Below is an example with a format of ``video/mp4``.
 
 .. code-block:: none
 
@@ -131,7 +138,7 @@ Currently all help RCs must use the markdown format.
 
 Each chunk contains one or more helps which correlate to the corresponding chunk in a book RC:
 
-.. code-block:: none
+.. code-block:: markdown
 
     #In the beginning God created
 
@@ -141,7 +148,8 @@ Each chunk contains one or more helps which correlate to the corresponding chunk
 
     This refers to the start of the world and everything in it.
 
-When parsed by an app the helps in this chunk are split at the headers. If there is preceding text (without a header) it will be displayed as a single help and a short snippet of the text will be used for the header if applicable.
+When parsed by an app the helps in this chunk are split at the headers.
+If there is preceding text (without a header) it will be displayed as a single help and a short snippet of the text will be used for the header if applicable.
 
 
 .. _types-dictionary:
@@ -168,7 +176,7 @@ The dictionary terms are used as the chapter :ref:`slug` and the translation of 
 
 The 01.txt file contains the translation of the term where the header is the title of the term and the rest is the description:
 
-.. code-block:: none
+.. code-block:: markdown
 
     #Aaron
 
@@ -214,9 +222,12 @@ Manuals are a collection of modules (articles):
         ...
         |-writing-decisions/
 
-The 01.txt file contains the translation of the module. The title.txt file contains the name of the module. And sub-title.txt contains the question that is answered by this module.
+The 01.txt file contains the translation of the module.
+The title.txt file contains the name of the module.
+And sub-title.txt contains the question that is answered by this module.
 
-NOTE: if desired the module can be split into multiple chunks.
+.. note:: If desired the module can be split into multiple chunks.
+
 The config.yaml indicates recommended and dependent modules:
 
 .. code-block:: yaml
@@ -229,35 +240,31 @@ The config.yaml indicates recommended and dependent modules:
         dependencies: 
           - 'figs-sentences'
 
-Dependencies are :ref:`slug` s of modules that should be read before this one. Recommendations are modules that would likely benefit the reader next.
+Dependencies are :ref:`slug` s of modules that should be read before this one.
+Recommendations are modules that would likely benefit the reader next.
 
 .. _types-usfm:
 
-USFM (usfm)
------------
+Bundle (bundle)
+---------------
 
-A USFM bundle. This type enables support for the existing `USFM bundle format <http://ubsicap.github.io/usfm/>`_ while enabling additional RC features.
+A bundle is simply a flat directory (no sub-folders) with a single file for each project.
+This type is particularly suited for `USFM <http://ubsicap.github.io/usfm/>`_ when providing "USFM Bundles".
 
-Rather than being stored in a directory USFM is stored in a single file at the root of the RC.
-Additionally, the project specified in the manifest points directly to this file.
-
-Example
-^^^^^^^
-
-Project block in manifest
+A project block in the :ref:`manifest`:
 
 .. code-block:: yaml
 
     ---
-       project:
-        slug: 'gen'
-        name: 'Genesis'
-        desc: ''
-        icon: ''
-        sort: 1
-        rc.path: './01-GEN.usfm'
-        categories:
-        - 'bible-ot'
+      projects:
+        -
+          identifier: 'gen'
+          title: 'Genesis'
+          versification: 'kjv'
+          sort: 1
+          path: './01-GEN.usfm'
+          categories:
+          - 'bible-ot'
 
 Directory structure
 
@@ -268,7 +275,10 @@ Directory structure
         |-LICENSE.md
         |-manifest.yaml
 
-.. note:: When your application supports USFM bundles it can identify the them in two ways
+.. note:: When your application supports "USFM Bundles" it can identify the them in two ways
 
-    - attempt to read the :ref:`manifest` to determine type.
+    - attempt to read the :ref:`manifest` to determine type as ``bundle`` and the format as ``text/usfm``.
     - look for any ``*.usfm`` files in the root directory if the :ref:`manifest` does not exist.
+
+    In this way the application will satisfy both the ``Bundle`` RC type described above and generic "USFM Bundles"
+    as is common in the industry.
