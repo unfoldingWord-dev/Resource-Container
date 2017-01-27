@@ -22,3 +22,4 @@ Contents:
    usfm_manifest
    slug
    date
+   libraries
