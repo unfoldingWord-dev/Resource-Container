@@ -2,192 +2,127 @@
 Resource Container Structure
 ============================
 
-.. _structure-format:
-Container Format
-----------------
+Resource containers (RCs) exist as directories.
+They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension.  For example:
 
-Resource containers exist as directories. They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension. E.g. a zipped resource container would end in `.zip`, a tarred resource container would end in `.tar`, a tarred+bzip2 resource container would end in `.tar.bz2` etc.  A git repository is also a valid way to store Resource Containers.
+- a zipped RC would end in ``.zip``,
+- a tarred RC would end in ``.tar``,
+- a tarred+bzip2 RC would end in ``.tar.bz2``
 
-.. _structure-slug:
-Container Slug
---------------
+A git repository is also a valid way to store RCs.
 
-The `container_slug` provides a unique name for the given resource container.
-
-Usage
-~~~~~
-
-The `container_slug` is used to create unique file names for storing resource containers on the disk or when a unique name is needed for displaying multiple projects at the same level (like an API endpoint). These are also the names of the repositories where the resource container is uploaded to on git.door43.org. These `container_slugs` are used when linking from one resource container to another. See :ref:`linking` for more information about linking.
-
-The `container_slug` is also a convenient way to identify a resource container without opening it to inspect the `package.json`. This can be helpful when searching for resource containers through an API that only returns the resource container slugs.
-
-Structure
-~~~~~~~~~
-
-Container slugs are structured as indicated below. Each component of the `container_slug` is delimited by an underscore (_).
-
-.. code-block:: none
-
-    [IETF language code]_[resource slug]_[project slug]_[container type]
-
-Each component of the `container_slug` may include alphanumeric characters and dashes (-). The `container_slug` components may not contain any underscores (_) since this is the delimiter.
-
-See :ref:`types` for a list of valid container types that may be used in the slug.
-
-Example
-~~~~~~~
-
-An example of using the file or directory name to identify a resource container is illustrated below. By viewing the file name we are able to quickly identify that this resource container contains the ULB version of the book Genesis translated in English:
-
-.. code-block:: none
-
-    en_ulb_gen_book/
-
-.. note:: The directory or file name is not the strict authority regarding the nature of the resource container. Therefore, whenever a resource container is utilized the `container_slug` field in the `package.json` manifest file should always be consulted and has the final word.
-
+.. note:: When naming an RC directory or repository the best practice is to use a combination of the resource and
+    project identifiers e.g. ``en-ulb-gen``.
+    If the RC contains more than one project just use the resource identifier with an optional :ref:`slug` formatted qualifier
+    e.g. ``en-ulb-nt`` where ``nt`` is the custom qualifier denoting the New Testament.
 
 .. _structure-directory:
 Directory Structure
 -------------------
 
-Resource containers must use the following top level directory structure:
+RCs have a folder structure like the following:
 
 .. code-block:: none
 
     my_resource_container/
         |-.git/
+        |-.apps/
         |-LICENSE.md
-        |-package.json
+        |-manifest.yaml
         |-content/
 
-- the .git directory is optional and is usually only seen in active translations.
-- LICENSE.md contains the appropriate license information for the resource container.
-- `package.json` is the manifest file that contains meta data about the resource container.
-- the `content` directory contains any other files needed by the container type, including the content itself.
-
-  - See below for the basic structure of this directory
-  - A mime type of `text/usfm` is allowed to omit the `content` directory in order to conform to the USFM standard.  For example, this is acceptable:
-
-.. code-block:: none
-
-    usfm_resource_container/
-        |-.git/
-        |-01-GEN.usfm
-        |-02-EXO.usfm
-        |-...
-        |-LICENSE.md
-        |-package.json
-
+- ``.git``: only exists when the RC is stored in a git repository.
+- ``.apps``: is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
+- ``LICENSE.md``: contains the appropriate license information for the RC.
+- ``manifest.yaml``: is the RC :ref:`manifest`.
+- ``content``: contains the project files. The name of this directory is subject to the :ref:`manifest`.
+  It is also possible for there to be multiple directories or excluded altogether.
 
 .. _structure-content:
-Content Directory
+
+Project Directory
 -----------------
 
-The file and folder structure of the content directory in resource containers is mostly the same across container types.  The structure is as follows:
+The folder structure of the project directory in RCs is mostly the same across RC types.
+The most common structure is indicated below:
 
 .. code-block:: none
 
     content/
-        |-config.yml
-        |-toc.yml
+        |-config.yaml
+        |-toc.yaml
+        |-front/
         |-01/
         |    |-title.txt
         |    |-sub-title.txt
         |    |-intro.txt
-        |    |-reference.txt
-        |    |-summary.txt
         |    |-01.txt
         |    |-02.txt
         |    ...
+        |    |-reference.txt
+        |    |-summary.txt
         ...
-        |-front/
         |-back/
-        ...
 
-Where a .txt extension is shown above, the proper extension should be used according to the content_mime_type indicated in the `package.json`. For example `.usfm` or `.md`.
+.. note:: Where a .txt extension is shown above, the proper extension should be used according to the format
+    indicated in the :ref:`manifest`. For example ``.usfm`` or ``.md``.
 
-The directories shown above indicate chapters. The two reserved chapter names "front" and "back" are used to contain the front and back matter, if applicable. You may use any of the named files (e.g. "intro.txt") in the "front" or "back" directories.
+The directories within ``content`` shown above indicate chapters.
+There are two special chapters named ``front`` and ``back`` that contain, if applicable, the front and back matter.
 
-The files within each chapter represents the chunks of the chapter. Often the chunk file names will be numeric (e.g. 01.txt) but that is not required. The following chunk names have special meaning:
+The files within each chapter represent the chunks of the chapter.
+Often the chunk file names will be numeric (e.g. ``01.txt``) but that is not required.
+The following reserved chunk names have special meaning:
 
-- `title.txt` - the title of the chapter
-- `sub-title.txt` - the sub title of the chapter
-- `intro.txt` - the introduction to the chapter
-- `reference.txt` - a reference displayed at the end of a chapter
-- `summary.txt` - a summary displayed at the end of a chapter
+- ``title.txt`` - the title of the chapter
+- ``sub-title.txt`` - the sub title of the chapter
+- ``intro.txt`` - the introduction to the chapter
+- ``reference.txt`` - a reference displayed at the end of a chapter
+- ``summary.txt`` - a summary displayed at the end of a chapter
 
-In the case of front and back matter, the above named chunks apply to the project. e.g. the project title, project summary etc.
+In the case of front and back matter, the above named chunks apply to the project, such as the project title, project summary, etc.
 
+.. _structure-content-sort:
+
+Content Sort Order
+^^^^^^^^^^^^^^^^^^
+
+When utilizing content in an RC the order is very important.
+The content sorting rules are defined as:
+
+**Chapters**
+
+1. front matter directory
+2. numeric chapter directories sorted numerically in ascending order
+3. non-numeric chapter directories sorted alphabetically
+4. back matter directory
+
+**Chunks**
+
+1. title
+2. sub-title
+3. intro
+4. numeric chunks sorted numerically in ascending order
+5. non-numeric chunks sorted alphabetically
+6. reference
+7. summary
 
 .. _structure-config:
 Config
 ------
 
-> TODO: the media block described below may be deprecated in favor of new container types image and video.
-
-The `config.yml` file contains information specific to the container type. However, there is a reserved field `media` which allows different media to be assoicated with the resource container regardless of type.
-
-.. code-block:: none
-
-    ---
-      media:
-        image: 
-            mime_type: "image/jpeg"
-            size: 37620940
-            url: "https://cdn.door43.org/en/obs/v3/jpg/360px.zip"
-        image_large: 
-            mime_type: "image/jpeg"
-            size: 807010466
-            url: "https://cdn.door43.org/en/obs/v3/jpg/2160px.zip"
-        single_image: 
-            mime_type: "image/jpeg"
-            size: 80701
-            url: "https://cdn.door43.org/en/obs/v3/jpg/01_01.jpg"
-
-In the above example there are three different media types:
-
-- image
-- image_large
-- single_image
-
-These media types are utilized via :ref:`linking`.
-
-The `url` can point to either a single media file or a zip archive which contains many pieces of media.
-The downloaded media files themselves can be named whatever you want so long as they adhere to the naming conventions for slugs.
-
-If media is served as a zip archive the archive should contain appropriately named media files which may optionally be organized within folders also appropriately named.
-
-.. code-block:: none
-
-    my_media.zip/
-        |-01/
-        |   |-01.jpg
-        |   |-02.jpg
-        |
-        |-02/
-        |   |-01.jpg
-        |   |-02.jpg
-        ...
-
-If you want to provide hierarchy to media files in a zip archive without using folders you may use an underscore _ to delimit the slugs.
-
-.. code-block:: none
-
-    my_obs_media.zip/
-        |-01_01.jpg
-        |-01_02.jpg
-        ...
-
-Implementation Notes:
-When downloaded, the media should be stored in a central location where each media type is stored under a folder named according to it's type. e.g. /media/image_large.
-The examples above deal only with images, however it is possible to reference other media formats including video or audio content. For more information about how to use media types see :ref:`linking`.
-
+The ``config.yaml`` file contains information specific to each RC type. If a particular RC type does not need this file it may be excluded.
 
 .. _structure-toc:
 Table of Contents
 -----------------
 
-Chapter directories and chunk files are often named with padded integers. A side effect of this is the natural file order often represents the appropriate order. However, you may also indicate the order of chapters and frames by providing a table of contents toc.yml within the content directory. If no such file exists then the integer order followed by the natural order of the files will be used.
+.. include:: includes/note_keys_required.txt
+
+Chapter directories and chunk files are often named with padded integers.
+A side effect of this is the natural file order often represents the appropriate order.
+However, you may also indicate the order of chapters and frames by providing a table of contents, ``toc.yaml``, within the content directory.
+If no such file exists then the integer order followed by the natural order of the files will be used.
 
 The table of contents is built with small blocks as shown below. All of the fields in the blocks are optional:
 
@@ -199,9 +134,12 @@ The table of contents is built with small blocks as shown below. All of the fiel
       link: "my-link"
       sections: []
 
-The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to. Alternatively you may provide a fully qualified link as defined in :ref:`linking`.
+The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to.
+Alternatively, you may provide a fully qualified link as defined in :ref:`linking`.
 
-Here's an example toc.yml from translationAcademy. Generally speaking the title and sub-titles fields in this file should be the same as what is found in the subsquently named chunks. However, the TOC is allowed to deviate as nessesary.
+Here is an example ``toc.yaml`` from `translationAcademy <https://git.door43.org/Door43/en-ta>`_.
+Generally speaking the title and sub-title fields in this file should be the same as what is found in the subsequently named chunks.
+However, the TOC is allowed to deviate as necessary.
 
 .. code-block:: yaml
 
@@ -271,6 +209,9 @@ Here's an example toc.yml from translationAcademy. Generally speaking the title 
 
 Alternatively you can choose to use a simplified table of contents as shown below.
 
+.. note:: We may deprecate this form due to the addition of content sorting instructions describe above.
+  Since sorting is defined this form may not provide anything useful.
+
 .. code-block:: yaml
 
     ---
@@ -313,4 +254,5 @@ Alternatively you can choose to use a simplified table of contents as shown belo
             - '12'
             - reference
 
-The simple version will rely on the available content (titles, references, etc.) to generate the table of contents (readable titles will be retrieved from the content itself).
+The simple version will rely on the available content (titles, references, etc.) to generate the table of contents
+(readable titles will be retrieved from the content itself).

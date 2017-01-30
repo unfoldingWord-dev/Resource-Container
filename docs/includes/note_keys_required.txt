@@ -1,0 +1,2 @@
+.. note:: Keys must always be represented even when the value is optional.
+    If the key is not needed/available the value may be empty.
