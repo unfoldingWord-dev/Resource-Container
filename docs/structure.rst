@@ -68,10 +68,10 @@ The most common structure is indicated below:
     indicated in the :ref:`manifest`. For example ``.usfm`` or ``.md``.
 
 The directories within ``content`` shown above indicate chapters.
-There are two special chapters named "front" and "back" that contain, if applicable, the front and back matter.
+There are two special chapters named ``front`` and ``back`` that contain, if applicable, the front and back matter.
 
 The files within each chapter represent the chunks of the chapter.
-Often the chunk file names will be numeric (e.g. 01.txt) but that is not required.
+Often the chunk file names will be numeric (e.g. ``01.txt``) but that is not required.
 The following reserved chunk names have special meaning:
 
 - ``title.txt`` - the title of the chapter
@@ -80,7 +80,7 @@ The following reserved chunk names have special meaning:
 - ``reference.txt`` - a reference displayed at the end of a chapter
 - ``summary.txt`` - a summary displayed at the end of a chapter
 
-In the case of front and back matter, the above named chunks apply to the project. e.g. the project title, project summary etc.
+In the case of front and back matter, the above named chunks apply to the project, such as the project title, project summary, etc.
 
 .. _structure-content-sort:
 
@@ -121,7 +121,7 @@ Table of Contents
 
 Chapter directories and chunk files are often named with padded integers.
 A side effect of this is the natural file order often represents the appropriate order.
-However, you may also indicate the order of chapters and frames by providing a table of contents toc.yaml within the content directory.
+However, you may also indicate the order of chapters and frames by providing a table of contents, ``toc.yaml``, within the content directory.
 If no such file exists then the integer order followed by the natural order of the files will be used.
 
 The table of contents is built with small blocks as shown below. All of the fields in the blocks are optional:
@@ -135,10 +135,10 @@ The table of contents is built with small blocks as shown below. All of the fiel
       sections: []
 
 The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to.
-Alternatively you may provide a fully qualified link as defined in :ref:`linking`.
+Alternatively, you may provide a fully qualified link as defined in :ref:`linking`.
 
-Here's an example toc.yaml from translationAcademy.
-Generally speaking the title and sub-titles fields in this file should be the same as what is found in the subsequently named chunks.
+Here is an example ``toc.yaml`` from `translationAcademy <https://git.door43.org/Door43/en-ta>`_.
+Generally speaking the title and sub-title fields in this file should be the same as what is found in the subsequently named chunks.
 However, the TOC is allowed to deviate as necessary.
 
 .. code-block:: yaml
