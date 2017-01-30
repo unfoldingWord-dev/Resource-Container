@@ -4,7 +4,7 @@ Container Types
 ===============
 
 Resource Containers (RCs) can be used to represent different forms of data.
-These different forms are represented by the below RC Types.
+These different forms are represented by the following RC Types.
 
 .. note:: The types below are noted by ``Type Name (Type Slug)``
     e.g. ``Book (book)``
@@ -14,11 +14,11 @@ These different forms are represented by the below RC Types.
 Book (book)
 -----------
 
-Represents any text that is structured like a book. e.g. there are chapters and chunks.
+Represents any text that is structured like a book, there are chapters and chunks.
 
 Config
 ^^^^^^
-A book may references supplementary RCs in it's config.yaml file via :ref:`linking`.
+A book may reference supplementary RCs in it's ``config.yaml`` file via :ref:`linking`.
 Such references must be grouped by the corresponding RC type.
 The order of elements in each of these groups should be respected.
 
@@ -140,11 +140,11 @@ Each chunk contains one or more helps which correlate to the corresponding chunk
 
 .. code-block:: markdown
 
-    #In the beginning God created
+    # In the beginning God created
 
     This introductory statement gives a summary of the rest of the chapter. AT: "This is about how God made...in the beginning." Some languages translate it as "A very long time ago God created." Translate it in a way that that shows that this actually happened and is not just a folk story.
 
-    #In the beginning
+    # In the beginning
 
     This refers to the start of the world and everything in it.
 
@@ -159,7 +159,7 @@ Dictionary (dict)
 
 A standalone dictionary of terms. Currently all dictionary RCs must use the markdown format.
 
-The dictionary terms are used as the chapter :ref:`slug` and the translation of the term is placed inside a single 02.txt file:
+The dictionary terms are used as the chapter :ref:`slug` and the description of the term is placed inside a ``01.txt`` file:
 
 .. code-block:: none
 
@@ -174,15 +174,15 @@ The dictionary terms are used as the chapter :ref:`slug` and the translation of 
 
 .. note:: Lengthy dictionary terms may be split into more than one chunk.
 
-The 01.txt file contains the translation of the term where the header is the title of the term and the rest is the description:
+The ``01.txt`` file contains the description of the term where the header is the title of the term and the rest is the description:
 
 .. code-block:: markdown
 
-    #Aaron
+    # Aaron
 
     God chose Aaron to be the first high priest for the people of Israel.
 
-The config.yaml is used to indicate related terms, aliases, definition title, and examples.
+The ``config.yaml`` file is used to indicate related terms, aliases, definition title, and examples.
 
 .. code-block:: yaml
 
@@ -198,7 +198,7 @@ The config.yaml is used to indicate related terms, aliases, definition title, an
           - '09-15'
           - '10-05'
 
-Examples are tricky because a dict may be referenced by many different resources and projects.
+Examples are tricky because a ``dict`` may be referenced by many different resources and projects.
 Therefore we cannot specify a RC link but instead must simply provide the chapter and chunk that contains the example.
 
 
@@ -222,13 +222,11 @@ Manuals are a collection of modules (articles):
         ...
         |-writing-decisions/
 
-The 01.txt file contains the translation of the module.
-The title.txt file contains the name of the module.
-And sub-title.txt contains the question that is answered by this module.
+The ``01.txt`` file contains the translation of the module.
 
 .. note:: If desired the module can be split into multiple chunks.
 
-The config.yaml indicates recommended and dependent modules:
+The ``config.yaml`` file indicates recommended and dependent modules:
 
 .. code-block:: yaml
 
