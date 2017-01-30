@@ -5,7 +5,7 @@ Manifest File
 
 .. include:: includes/note_keys_required.txt
 
-Resource Containers (RCs) have a manifest.yaml that describes it's content and structure.
+Resource Containers (RCs) have a ``manifest.yaml`` file that describes its content and structure.
 Most of the information adheres to the `Dublin Core Meta Data Initiative <http://dublincore.org/documents/dcmi-terms>`_
 and can be found nested within the ``dublin_core`` key.
 
@@ -70,7 +70,7 @@ Definitions
 
     - ``conformsto``: the version of the RC specification used by the RC.
     - ``contributor``: an array of names or aliases to people that have contributed to the resource.
-    - ``format``: the file format of content within the RC e.g.
+    - ``format``: the file format of content within the RC, e.g.
 
         - ``text/usfm``
         - ``image/png``

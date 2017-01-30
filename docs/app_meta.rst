@@ -3,7 +3,7 @@
 App Meta
 ========
 
-Applications can store meta data in a Resource Container (RC) within the `.apps` directory.
+Applications can store meta data in a Resource Container (RC) within the ``.apps`` directory.
 
 .. note:: The contents of this directory are outside the scope of the RC specification.
     The examples below are only a suggestion.
