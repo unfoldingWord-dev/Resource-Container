@@ -17,7 +17,7 @@ Some values are known by default since USFM is always used for Bible projects:
 - `dublin_core:subject` = ``Bible translation``
 - `projects:categories` = ``bible-ot`` or ``bible-nt`` depending on the project identifier
 
-The rest must be parsed from the USFM:
+The rest may be parsed from the USFM:
 
 **\id_<CODE>_(Name of file, Book name, Language, Last edited)**
 
@@ -30,7 +30,7 @@ The rest must be parsed from the USFM:
 
 - ``text`` -> `projects:title`
 
-TODO: We still need to identify other things:
+The following items will need to gathered by the person or app doing the conversion:
 
 - `dublin_core:identifier`
 - `dublin_core:language:identifier`
