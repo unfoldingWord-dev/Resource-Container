@@ -3,10 +3,12 @@ Resource Container Structure
 ============================
 
 Resource containers (RCs) exist as directories.
-They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension.
-E.g. a zipped RC would end in ``.zip``,
-a tarred RC would end in ``.tar``,
-a tarred+bzip2 RC would end in ``.tar.bz2`` etc.
+They may be optionally compressed or packaged so long as the compressed file follows standard naming conventions for the file extension.  For example:
+
+- a zipped RC would end in ``.zip``,
+- a tarred RC would end in ``.tar``,
+- a tarred+bzip2 RC would end in ``.tar.bz2``
+
 A git repository is also a valid way to store RCs.
 
 .. note:: When naming an RC directory or repository the best practice is to use a combination of the resource and
