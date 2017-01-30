@@ -161,6 +161,18 @@ Example:
 - ``[[//ta-vol1/translate/man/translate-unknowns]]``
 - ``[Translate Unknowns](//ta-vol1/translate/man/translate-unknowns)``
 
+.. _short-links:
+
+Short Links
+-----------
+
+A short link is used to reference a resource but not a project.
+There is nothing fundamentally different from regular links. Short links are simply composed of just the language and resource.
+
+- ``en/tn``
+
+Short links are most often used within the :ref:`manifest` when referring to related resources.
+
 .. _linking-bible-refs:
 
 Automatically Linking Bible References
