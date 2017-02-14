@@ -123,7 +123,17 @@ audio
 bundle
 ~~~~~~
 
-Linking to bundles is not supported at this time.
+- ``[Genesis](en/ulb/gen/bundle/01/01)``
+
+.. note:: Linking to a bundle will only resolve down to the project level. e.g. the ``01/01`` will be ignored
+    and the entire project returned.
+    If you must link to a section within the project you will have to parse the content and
+    manually resolve the rest of the link if the ``format`` supports references.
+
+    Formats that support references are:
+
+    - usfm
+    - osis
 
 .. _linking-abbreviations:
 
