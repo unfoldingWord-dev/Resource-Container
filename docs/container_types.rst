@@ -4,10 +4,11 @@ Container Types
 ===============
 
 Resource Containers (RCs) can be used to represent different forms of data.
-These different forms are represented by the following RC Types.
+These different forms are represented by the following types.
 
-.. note:: The types below are noted by ``Type Name (Type Slug)``
-    e.g. ``Book (book)``
+The types below are noted by ``Type Name (Type Slug)`` e.g. ``Book (book)``
+
+.. note:: Most types support a :ref:`condensed`.
 
 .. _types-book:
 
@@ -132,6 +133,7 @@ Below is an example with a format of ``video/mp4``.
 
 Help (help)
 -----------
+.. note:: These types do not support a :ref:`condensed`.
 
 A helpful resource to supplement chunks in a book. e.g. notes or questions.
 Currently all help RCs must use the markdown format.

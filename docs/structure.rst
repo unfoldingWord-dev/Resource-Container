@@ -82,6 +82,30 @@ The following reserved chunk names have special meaning:
 
 In the case of front and back matter, the above named chunks apply to the project, such as the project title, project summary, etc.
 
+.. _condensed:
+
+Condensed Form
+^^^^^^^^^^^^^^
+
+.. note:: This specification makes not distinction between condensed and :ref:`expanded <structure-content>` forms. This is simply shown as an
+    alternative style. Client applications should be prepared to support your chosen style.
+
+Most :ref:`types` support a condensed form in which content in each folder is stored
+in a single file. e.g.
+
+.. code-block:: none
+
+    content/
+        |-config.yaml
+        |-toc.yaml
+        |-front/
+        |-01/
+        |    |-01.txt
+        ...
+        |-back/
+
+Where the file ``01.txt`` may contain the title, sub-title, intro, chunks etc.
+
 .. _structure-content-sort:
 
 Content Sort Order
