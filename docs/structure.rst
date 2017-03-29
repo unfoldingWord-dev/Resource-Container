@@ -87,7 +87,7 @@ In the case of front and back matter, the above named chunks apply to the projec
 Condensed Form
 ^^^^^^^^^^^^^^
 
-.. note:: This specification makes not distinction between condensed and :ref:`expanded <structure-content>` forms. This is simply shown as an
+.. note:: This specification makes no distinction between condensed and :ref:`expanded <structure-content>` forms. This is simply shown as an
     alternative style. Client applications should be prepared to support your chosen style.
 
 Most :ref:`types` support a condensed form in which content in each folder is stored
@@ -135,7 +135,7 @@ The content sorting rules are defined as:
 Config
 ------
 
-The ``config.yaml`` file contains information specific to each RC type. If a particular RC type does not need this file it may be excluded.
+The ``config.yaml`` file contains information specific to each :ref:`RC type <types>`. If a particular :ref:`RC type <types>` does not need this file it may be excluded.
 
 .. _structure-toc:
 Table of Contents
