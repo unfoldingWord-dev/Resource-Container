@@ -176,33 +176,62 @@ The dictionary terms are used as the chapter :ref:`slug` and the description of 
 
 .. note:: Lengthy dictionary terms may be split into more than one chunk.
 
-The ``01.txt`` file contains the description of the term where the header is the title of the term and the rest is the description:
+The ``01.txt`` file contains the description of the term. The term title must always be at the top of the file as a
+h1 heading (a single #). :ref:`Links <linking>` may be used to reference other words, or content in other containers.
+
+.. note:: This type is in progress. We may add Strong's numbers to the markdown as well.
 
 .. code-block:: markdown
 
-    # Aaron
+    # Aaron #
 
-    God chose Aaron to be the first high priest for the people of Israel.
+    ## Facts: ##
 
-The ``config.yaml`` file is used to indicate related terms, aliases, definition title, and examples.
+    Aaron was Moses' older brother. God chose Aaron to be the first high priest for the people of Israel.
+
+    * Aaron helped Moses speak to Pharaoh about letting the Israelites go free.
+    * While the Israelites were traveling through the desert, Aaron sinned by making an idol for the people to worship.
+    * God also appointed Aaron and his descendants to be the [priests](kt/priest) for the people of Israel.
+
+    (Translation suggestions: [How to Translate Names](en/ta-vol1/translate/man/translate-names))
+
+    (See also: [[kt/priest]] **·** [[other/moses]] **·** [[other/israel]])
+
+    ## Bible References: ##
+
+    * [1 Chronicles 23:12-14](en/tn/1ch/help/23/12)
+    * [Acts 07:38-40](en/tn/act/help/07/38)
+    * [Exodus 28:1-3](en/tn/exo/help/28/01)
+    * [Luke 01:5-7](en/tn/luk/help/01/05)
+    * [Numbers 16:44-46](en/tn/num/help/16/44)
+
+    ## Examples from the Bible stories: ##
+
+    * __[09:15](en/tn/obs/help/09/15)__ God warned Moses and __Aaron__  that Pharaoh would be stubborn.
+    * __[10:05](en/tn/obs/help/10/05)__ Pharaoh called Moses and __Aaron__  and told them that if they stopped the plague, the Israelites could leave Egypt.
+    * __[13:09](en/tn/obs/help/13/09)__ God chose Moses' brother, __Aaron__, and Aaron's descendants to be his priests.
+    * __[13:11](en/tn/obs/help/13/11)__ So they (the Israelites) brought gold to __Aaron__  and asked him to form it into an idol for them!
+    * __[14:07](en/tn/obs/help/14/07)__ They (the Israelites) became angry with Moses and __Aaron__  and said, "Oh, why did you bring us to this horrible place?"
+
+
+The ``config.yaml`` file contains extra details about the term that may be helpful for some automation tools.
 
 .. code-block:: yaml
 
     ---
       aaron:
-        def_title: 'Description'
-        see_also: 
-          - 'covenant'
-          - 'testimony'
-        aliases:
-          - aaronalias # note: not a real alias for this word
-        examples:
-          - '09-15'
-          - '10-05'
-
-Examples are tricky because a ``dict`` may be referenced by many different resources and projects.
-Therefore we cannot specify a RC link but instead must simply provide the chapter and chunk that contains the example.
-
+        proper_noun: true
+        occurrences:
+          - 'en/ulb/1ch/book/23/12'
+          - 'en/ulb/1ch/book/07/38'
+          - 'en/ulb/1ch/book/28/01'
+          - 'en/ulb/1ch/book/01/05'
+          - 'en/ulb/1ch/book/16/44'
+          - 'en/obs/obs/book/09/15'
+          - 'en/obs/obs/book/10/05'
+          - 'en/obs/obs/book/13/09'
+          - 'en/obs/obs/book/13/11'
+          - 'en/obs/obs/book/14/07'
 
 .. _types-manual:
 
