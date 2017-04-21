@@ -185,6 +185,11 @@ h1 heading (a single #). :ref:`Links <linking>` may be used to reference other w
 
     # Aaron #
 
+    ## Word Data: ##
+
+    * Strongs: H0175
+    * Part of speech: Proper Noun
+
     ## Facts: ##
 
     Aaron was Moses' older brother. God chose Aaron to be the first high priest for the people of Israel.
@@ -195,7 +200,7 @@ h1 heading (a single #). :ref:`Links <linking>` may be used to reference other w
 
     (Translation suggestions: [How to Translate Names](en/ta-vol1/translate/man/translate-names))
 
-    (See also: [[kt/priest]] **·** [[other/moses]] **·** [[other/israel]])
+    (See also: [[kt/priest]], [[other/moses]], [[other/israel]])
 
     ## Bible References: ##
 
@@ -220,7 +225,7 @@ The ``config.yaml`` file contains extra details about the term that may be helpf
 
     ---
       aaron:
-        proper_noun: true
+        false_positives: []
         occurrences:
           - 'en/ulb/1ch/book/23/12'
           - 'en/ulb/1ch/book/07/38'
