@@ -238,6 +238,17 @@ The ``config.yaml`` file contains extra details about the term that may be helpf
           - 'en/obs/obs/book/13/11'
           - 'en/obs/obs/book/14/07'
 
+Generally, ``false_positives`` and ``occurrences`` are mutually exclusive.
+That is, you should probably only have one or the other.
+
+If ``false_positives`` exists, it is a list of places that should be excluded.
+For example, if a typical regex search for "Aaron" would turn up instances that should not be shown to the user,
+they should be listed here.
+
+Alternatively, if ``occurrences`` exist,
+then it specifies the entire list of occurrences of this word in the given resource.
+If this key exists then a regex search should not be performed by the software.
+
 .. _types-manual:
 
 Manual (man)
