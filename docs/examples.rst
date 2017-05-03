@@ -3,7 +3,7 @@
 Resource Container Examples
 ===========================
 
-Sometimes it is easier to see examples then read documentation.  Here is a list of examples of valid Resource Containers that illustrate the different ways that the specification may be implemented.
+Here is a list of examples of valid Resource Containers that illustrate the different ways that the specification may be implemented.
 
 USFM Scripture Bundle Example
 ------------------------------
@@ -24,3 +24,12 @@ Manual Example
 --------------
 
 Here is what a ``man`` type looks like with multiple ``projects`` in the same repository: `English translationAcademy <https://git.door43.org/Door43/en-ta>`_.
+
+Notice how the ``projects`` array in the `manifest.yaml <https://git.door43.org/Door43/en-ta/raw/master/manifest.yaml>`_ file lists all the projects that are in that repository.  Note further that there is a ``sort`` key in the ``projects`` array that will tell apps the order in which they should present the projects to the user.
+
+Help Example
+------------
+
+Here is what a ``help`` type looks like with multiple ``projects`` in the same repository: `English translationQuestions <https://git.door43.org/Door43/en-tq>`_.
+
+Notice how the ``projects`` array in the `manifest.yaml <https://git.door43.org/Door43/en-tq/raw/master/manifest.yaml>`_ file lists all the projects that are in that repository.
