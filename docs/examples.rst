@@ -8,7 +8,7 @@ Here is a list of examples of valid Resource Containers that illustrate the diff
 USFM Scripture Bundle Example
 ------------------------------
 
-Here is what a combined USFM Scripture ``bundle`` looks like: `English Unlocked Literal Bible <https://git.door43.org/Door43-Catalog/en-ulb>`_.
+Here is what a combined USFM Scripture ``bundle`` looks like: `English Unlocked Literal Bible <https://git.door43.org/Door43-Catalog/en-ulb>`_.  If you are familiar with standard USFM zip files you'll notice that this looks the same except that it has the added ``manifest.yaml`` file that provides extra metadata about the resource.
 
 Book Example
 ------------
