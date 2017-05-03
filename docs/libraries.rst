@@ -19,4 +19,4 @@ Node.js
 Python
 ------
 
-* `unfoldingWord-dev/python-resource-container <https://github.com/unfoldingWord-dev/python-resource-container/tree/rc0.2>`_
+* `unfoldingWord-dev/python-resource-container <https://github.com/unfoldingWord-dev/python-resource-container>`_
