@@ -1,4 +1,5 @@
 .. _structure:
+
 Resource Container Structure
 ============================
 
@@ -17,6 +18,7 @@ A git repository is also a valid way to store RCs.
     e.g. ``en-ulb-nt`` where ``nt`` is the custom qualifier denoting the New Testament.
 
 .. _structure-directory:
+
 Directory Structure
 -------------------
 
@@ -36,15 +38,15 @@ RCs have a folder structure like the following:
 - ``LICENSE.md``: contains the appropriate license information for the RC.
 - ``manifest.yaml``: is the RC :ref:`manifest`.
 - ``content``: contains the project files. The name of this directory is subject to the :ref:`manifest`.
-  It is also possible for there to be multiple directories or excluded altogether.
+  It is also possible for there to be multiple :ref:`Projects Directories <structure-content>` or be excluded altogether.
 
 .. _structure-content:
 
 Project Directory
 -----------------
 
-The folder structure of the project directory in RCs is mostly the same across RC types.
-The most common structure is indicated below:
+The project directory is where all of the translation information exists for a single project within an RC.
+Files in this directory may contain either meta data or readable text.
 
 .. code-block:: none
 
@@ -52,59 +54,91 @@ The most common structure is indicated below:
         |-config.yaml
         |-toc.yaml
         |-front/
-        |-01/
-        |    |-title.txt
-        |    |-sub-title.txt
-        |    |-intro.txt
-        |    |-01.txt
-        |    |-02.txt
-        |    ...
-        |    |-reference.txt
-        |    |-summary.txt
-        ...
         |-back/
 
-.. note:: Where a .txt extension is shown above, the proper extension should be used according to the format
-    indicated in the :ref:`manifest`. For example ``.usfm`` or ``.md``.
+The folders and files illustrated above are reserved.
+Although not required, when used they must fulfill their roles as defined:
 
-The directories within ``content`` shown above indicate chapters.
-There are two special chapters named ``front`` and ``back`` that contain, if applicable, the front and back matter.
+- ``config.yaml`` contains meta data for the project at varying levels of granularity as specified in the :ref:`types`.
+- ``toc.yaml`` contains the :ref:`structure-toc`.
+- ``front`` directory contains the front matter.
+- ``back`` directory contains the back matter.
 
-The files within each chapter represent the chunks of the chapter.
-Often the chunk file names will be numeric (e.g. ``01.txt``) but that is not required.
-The following reserved chunk names have special meaning:
+Furthermore, there are reserved chunk files which may exist in any folder
+including the reserved `front` and `back` folders:
 
-- ``title.txt`` - the title of the chapter
-- ``sub-title.txt`` - the sub title of the chapter
-- ``intro.txt`` - the introduction to the chapter
-- ``reference.txt`` - a reference displayed at the end of a chapter
-- ``summary.txt`` - a summary displayed at the end of a chapter
+.. note:: we use ``ext`` to indicate a wildcard file extension.
+    You should use a file extension that is appropriate for content in your :ref:`Container Type <types>`.
 
-In the case of front and back matter, the above named chunks apply to the project, such as the project title, project summary, etc.
+.. code-block:: none
+
+    content/
+        ...
+        |-front/
+        |    |-title.ext
+        |    |-sub-title.ext
+        |    |-intro.ext
+        |    |-reference.ext
+        |    |-summary.ext
+        ...
+
+Once again, these files are not required but must fulfill their roles as defined:
+
+**when in a chapter**
+
+- ``title.txt`` - contains the chapter title
+- ``sub-title.txt`` - contains the sub title of the chapter
+- ``intro.txt`` - contains the introduction to the chapter
+- ``reference.txt`` - contains a reference displayed at the end of a chapter
+- ``summary.txt`` - contains a summary displayed at the end of a chapter
+
+**when in "front"**
+
+- ``title.txt`` - contains the resource title
+- ``sub-title.txt`` - contains the sub title of the resource
+- ``intro.txt`` - contains the introduction to the resource
+- ``reference.txt`` - contains a reference displayed at the end of the front matter
+- ``summary.txt`` - contains a summary displayed at the end of the front matter
 
 .. _condensed:
 
-Condensed Form
-^^^^^^^^^^^^^^
+Condensed vs Expanded Form
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note:: This specification makes no distinction between condensed and :ref:`expanded <structure-content>` forms. This is simply shown as an
-    alternative style. Client applications should be prepared to support your chosen style.
+Although not officially part of this specification, we offer two suggested forms for storing content.
 
-Most :ref:`types` support a condensed form in which content in each folder is stored
-in a single file. e.g.
+**Expanded**
+
+All :ref:`types` support the expanded form.
+For example, here's :ref:`structure-content` that has a chapter 1 folder containing several chunks:
 
 .. code-block:: none
 
     content/
-        |-config.yaml
-        |-toc.yaml
-        |-front/
+        ...
+        |-01/
+        |    |-title.md
+        |    |-01.md
+        |    ...
+        |    |-reference.txt
+        ...
+
+
+**Condensed**
+
+Most :ref:`types` support a condensed form in which content in each folder is stored
+in a single file:
+
+.. code-block:: none
+
+    content/
+        ...
         |-01/
         |    |-01.txt
         ...
-        |-back/
 
-Where the file ``01.txt`` may contain the title, sub-title, intro, chunks etc.
+Where the file ``01.txt`` may contain the title, sub-title, intro, chunks etc. formatted appropriately so it can
+be read by a client application.
 
 .. _structure-content-sort:
 
@@ -132,12 +166,14 @@ The content sorting rules are defined as:
 7. summary
 
 .. _structure-config:
+
 Config
 ------
 
 The ``config.yaml`` file contains information specific to each :ref:`RC type <types>`. If a particular :ref:`RC type <types>` does not need this file it may be excluded.
 
 .. _structure-toc:
+
 Table of Contents
 -----------------
 

@@ -8,7 +8,7 @@ These different forms are represented by the following types.
 
 The types below are noted by ``Type Name (Type Slug)`` e.g. ``Book (book)``
 
-.. note:: Most types support a :ref:`condensed`.
+.. note:: Most types support a condensed from. See :ref:`condensed` for details.
 
 .. _types-book:
 
@@ -16,6 +16,26 @@ Book (book)
 -----------
 
 Represents any text that is structured like a book, there are chapters and chunks.
+Books RCs should use `usfm` for the file format if the Bible or `markdown` if OBS.
+
+.. code-block:: none
+
+    content/
+        |-config.yaml
+        |-toc.yaml
+        |-front/
+        |-01/
+        |    |-title.txt
+        |    |-sub-title.txt
+        |    |-intro.txt
+        |    |-01.txt
+        |    |-02.txt
+        |    ...
+        |    |-reference.txt
+        |    |-summary.txt
+        ...
+        |-back/
+        ...
 
 Config
 ^^^^^^
@@ -133,7 +153,7 @@ Below is an example with a format of ``video/mp4``.
 
 Help (help)
 -----------
-.. note:: These types do not support a :ref:`condensed`.
+.. note:: This type does not support the :ref:`condensed form <condensed>`.
 
 A helpful resource to supplement chunks in a book. e.g. notes or questions.
 Currently all help RCs must use the markdown format.
