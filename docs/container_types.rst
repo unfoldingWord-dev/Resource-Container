@@ -181,7 +181,7 @@ Dictionary (dict)
 
 A standalone dictionary of terms. Currently all dictionary RCs must use the markdown format.
 
-The dictionary terms are used as the chapter :ref:`slug` and the description of the term is placed inside a ``01.txt`` file:
+The dictionary terms are used as the chapter :ref:`identifier` and the description of the term is placed inside a ``01.txt`` file:
 
 .. code-block:: none
 
@@ -305,10 +305,10 @@ The ``config.yaml`` file indicates recommended and dependent modules:
         dependencies: 
           - 'figs-sentences'
 
-Dependencies are :ref:`slug` s of modules that should be read before this one.
+Dependencies are :ref:`identifier` s of modules that should be read before this one.
 Recommendations are modules that would likely benefit the reader next.
 
-.. _types-usfm:
+.. _types-bundle:
 
 Bundle (bundle)
 ---------------

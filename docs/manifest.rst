@@ -76,7 +76,7 @@ Definitions
         - ``image/png``
         - ``audio/mp3``
 
-    - ``identifier``: a :ref:`slug` formatted string uniquely identifying the resource.
+    - ``identifier``: a :ref:`identifier` formatted string uniquely identifying the resource.
     - ``issued``: the :ref:`date` of publication.
     - ``publisher``: the name of the individual or organization responsible for publishing the resource.
     - ``relation``:  a array of :ref:`short-links` to related resources.
@@ -84,7 +84,7 @@ Definitions
 
 - ``projects``: an array of projects inside the RC.
 
-    - ``identifier``: a :ref:`slug` formatted string uniquely identifying the project.
+    - ``identifier``: a :ref:`identifier` formatted string uniquely identifying the project.
     - ``path``: the relative path to the project within the RC. Depending on the RC type this may be a directory or a file.
     - ``versification``: the system used for placing verse markers and consequently chunk markers.
 

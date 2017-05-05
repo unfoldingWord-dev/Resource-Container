@@ -14,7 +14,7 @@ A git repository is also a valid way to store RCs.
 
 .. note:: When naming an RC directory or repository the best practice is to use a combination of the resource and
     project identifiers e.g. ``en-ulb-gen``.
-    If the RC contains more than one project just use the resource identifier with an optional :ref:`slug` formatted qualifier
+    If the RC contains more than one project just use the resource identifier with an optional :ref:`identifier` formatted qualifier
     e.g. ``en-ulb-nt`` where ``nt`` is the custom qualifier denoting the New Testament.
 
 .. _structure-directory:
@@ -67,7 +67,7 @@ Although not required, when used they must fulfill their roles as defined:
 Furthermore, there are reserved chunk files which may exist in any folder
 including the reserved `front` and `back` folders:
 
-.. note:: we use ``ext`` to indicate a wildcard file extension.
+.. note:: we use ``md`` for the file extension in this example.
     You should use a file extension that is appropriate for content in your :ref:`Container Type <types>`.
 
 .. code-block:: none
@@ -75,30 +75,30 @@ including the reserved `front` and `back` folders:
     content/
         ...
         |-front/
-        |    |-title.ext
-        |    |-sub-title.ext
-        |    |-intro.ext
-        |    |-reference.ext
-        |    |-summary.ext
+        |    |-title.md
+        |    |-sub-title.md
+        |    |-intro.md
+        |    |-reference.md
+        |    |-summary.md
         ...
 
 Once again, these files are not required but must fulfill their roles as defined:
 
 **when in a chapter**
 
-- ``title.txt`` - contains the chapter title
-- ``sub-title.txt`` - contains the sub title of the chapter
-- ``intro.txt`` - contains the introduction to the chapter
-- ``reference.txt`` - contains a reference displayed at the end of a chapter
-- ``summary.txt`` - contains a summary displayed at the end of a chapter
+- ``title.md`` - contains the chapter title
+- ``sub-title.md`` - contains the sub title of the chapter
+- ``intro.md`` - contains the introduction to the chapter
+- ``reference.md`` - contains a reference displayed at the end of a chapter
+- ``summary.md`` - contains a summary displayed at the end of a chapter
 
 **when in "front"**
 
-- ``title.txt`` - contains the resource title
-- ``sub-title.txt`` - contains the sub title of the resource
-- ``intro.txt`` - contains the introduction to the resource
-- ``reference.txt`` - contains a reference displayed at the end of the front matter
-- ``summary.txt`` - contains a summary displayed at the end of the front matter
+- ``title.md`` - contains the resource title
+- ``sub-title.md`` - contains the sub title of the resource
+- ``intro.md`` - contains the introduction to the resource
+- ``reference.md`` - contains a reference displayed at the end of the front matter
+- ``summary.md`` - contains a summary displayed at the end of the front matter
 
 .. _condensed:
 
@@ -120,7 +120,8 @@ For example, here's :ref:`structure-content` that has a chapter 1 folder contain
         |    |-title.md
         |    |-01.md
         |    ...
-        |    |-reference.txt
+        |    |-reference.md
+        |-02/
         ...
 
 
@@ -133,11 +134,11 @@ in a single file:
 
     content/
         ...
-        |-01/
-        |    |-01.txt
+        |-01.md
+        |-02.md
         ...
 
-Where the file ``01.txt`` may contain the title, sub-title, intro, chunks etc. formatted appropriately so it can
+Where the file ``01.md`` may contain the title, sub-title, intro, chunks etc. formatted appropriately so it can
 be read by a client application.
 
 .. _structure-content-sort:
