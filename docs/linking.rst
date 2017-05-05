@@ -270,7 +270,7 @@ From within aaron.md we can link to moses in any of the following ways:
     [Moses](./moses.md)
 
 .. note:: For compatibility with displaying in online services such as github we suggest including the file extension
-    when practical.
+    when practical and to use relative paths rather than absolute paths.
 
 .. _short-links:
 
