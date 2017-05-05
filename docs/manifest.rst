@@ -12,7 +12,6 @@ and can be found nested within the ``dublin_core`` key.
 .. code-block:: yaml
 
     ---
-
     dublin_core:
         conformsto: 'rc0.2'
         contributor:
@@ -40,7 +39,7 @@ and can be found nested within the ``dublin_core`` key.
                 identifier: 'asv'
                 language: 'en'
                 version: '1901'
-        subject: 'Bible translation'
+        subject: 'Bible'
         title: 'Unlocked Literal Bible'
         type: 'book'
         version: '3'
@@ -68,24 +67,29 @@ Definitions
 
 - ``dublin_core``
 
-    - ``conformsto``: the version of the RC specification used by the RC.
-    - ``contributor``: an array of names or aliases to people that have contributed to the resource.
-    - ``format``: the file format of content within the RC, e.g.
-
-        - ``text/usfm``
-        - ``image/png``
-        - ``audio/mp3``
-
+    - ``conformsto``: the version of this specification used by the RC.
+    - ``contributor``: an array of names or aliases of people that have contributed to the resource.
+    - ``creator``: the entity in charge of creating the resource.
+    - ``description``: a brief description of what the resource is.
+    - ``format``: the file format of content within the RC, e.g. ``text/usfm``, ``text/markdown`` etc.
     - ``identifier``: a :ref:`identifier` formatted string uniquely identifying the resource.
     - ``issued``: the :ref:`date` of publication.
-    - ``publisher``: the name of the individual or organization responsible for publishing the resource.
+    - ``language``: the language of the resource.
+    - ``modified``: the date the resource was last modified.
+    - ``publisher``: the name of the entity that published the resource.
     - ``relation``:  a array of :ref:`short-links` to related resources.
-    - ``type``: the RC type.
+    - ``rights``: the license under which the resource is distributed.
+    - ``title``: the title of the resource
+    - ``type``: the RC :ref:`container type <types>`.
+    - ``version``: the published iteration of the resource.
 
 - ``projects``: an array of projects inside the RC.
 
-    - ``identifier``: a :ref:`identifier` formatted string uniquely identifying the project.
+    - ``categories``: an array of category :ref:`identifiers <identifier>` used for hierarchical ordering.
+    - ``identifier``: an :ref:`identifier` formatted string uniquely identifying the project.
     - ``path``: the relative path to the project within the RC. Depending on the RC type this may be a directory or a file.
+    - ``sort``: the sorting order of this project when viewed in relation to other projects in this RC.
+    - ``title``: the title of the project.
     - ``versification``: the system used for placing verse markers and consequently chunk markers.
 
 Generating From USFM
