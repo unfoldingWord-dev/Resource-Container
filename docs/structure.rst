@@ -33,7 +33,7 @@ RCs have a folder structure like the following:
         |-manifest.yaml
         |-content/
 
-- ``.git``: only exists when the RC is stored in a git repository.
+- ``.git``: only exists when the RC is stored as a git repository.
 - ``.apps``: is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
 - ``LICENSE.md``: contains the appropriate license information for the RC.
 - ``manifest.yaml``: is the RC :ref:`manifest`.
@@ -105,12 +105,14 @@ Once again, these files are not required but must fulfill their roles as defined
 Condensed vs Expanded Form
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although not officially part of this specification, we offer two suggested forms for storing content.
+We offer two suggested forms for storing content.
 
 **Expanded**
 
 All :ref:`types` support the expanded form.
-For example, here's :ref:`structure-content` that has a chapter 1 folder containing several chunks:
+This form is most suitable for active translations because collaborators are less likely to interfere with other's files.
+And it decouples formatting from structure.
+For example, here's a :ref:`structure-content` that has a chapter 1 folder containing several chunks:
 
 .. code-block:: none
 
@@ -128,7 +130,8 @@ For example, here's :ref:`structure-content` that has a chapter 1 folder contain
 **Condensed**
 
 Most :ref:`types` support a condensed form in which content in each folder is stored
-in a single file:
+in a single file.
+this form is most suitable for content being delivered as source text:
 
 .. code-block:: none
 
@@ -178,12 +181,9 @@ The ``config.yaml`` file contains information specific to each :ref:`RC type <ty
 Table of Contents
 -----------------
 
-.. include:: includes/note_keys_required.txt
-
 Chapter directories and chunk files are often named with padded integers.
 A side effect of this is the natural file order often represents the appropriate order.
-However, you may also indicate the order of chapters and frames by providing a table of contents, ``toc.yaml``, within the content directory.
-If no such file exists then the integer order followed by the natural order of the files will be used.
+However, you may also indicate the order of chapters and frames by providing a table of contents, ``toc.yaml``, within the :ref:`structure-content`.
 
 The table of contents is built with small blocks as shown below. All of the fields in the blocks are optional:
 
@@ -195,8 +195,10 @@ The table of contents is built with small blocks as shown below. All of the fiel
       link: "my-link"
       sections: []
 
-The sections field allows you to nest more blocks. The link fields may accept the chunk that should be linked to.
-Alternatively, you may provide a fully qualified link as defined in :ref:`linking`.
+- ``title`` a header in the table of contents
+- ``sub-title`` a sub heading in the table of contents
+- ``sections`` allow you to nest more blocks.
+- ``link`` is the chapter :ref:`identifier` that should be linked to. Alternatively, you may provide a fully qualified link as defined in :ref:`linking`.
 
 Here is an example ``toc.yaml`` from `translationAcademy <https://git.door43.org/Door43/en-ta>`_.
 Generally speaking the title and sub-title fields in this file should be the same as what is found in the subsequently named chunks.
@@ -205,65 +207,44 @@ However, the TOC is allowed to deviate as necessary.
 .. code-block:: yaml
 
     ---
-      title: "translationAcademy Table of Contents"
-      sub-title: ""
-      link: ""
-      sections: 
-        - 
-          title: "Introduction to translationAcademy"
-          sub-title: "This page answers the question: What is in the Introduction?"
-          link: ""
-          sections: 
-            - 
-              title: "Introduction"
-              sub-title: ""
-              link: ""
-              sections: 
-                - 
-                  title: ""
-                  sub-title: ""
-                  link: "ta-intro"
-                  sections: []
-                - 
-                  title: ""
-                  sub-title: ""
-                  link: "uw-intro"
-                  sections: []
-        - 
-          title: "Table Of Contents - Process Manual Vol 1"
-          sub-title: "This page answers the question: What is in the process manual volume 1?"
-          sections: 
-            - 
-              title: "Process Manual Volume 1"
-              sub-title: ""
-              link: ""
-              sections: 
-                - 
-                  title: "1. Getting Started"
-                  sub-title: ""
-                  link: ""
-                  sections: 
-                    - 
-                      title: ""
-                      sub-title: ""
-                      link: "process-manual"
-                      sections: []
-                    - 
-                      title: ""
-                      sub-title: ""
-                      link: "getting-started"
-                      sections: []
-                - 
-                  title: "2. Setting Up a Translation Team"
-                  sub-title: ""
-                  link: ""
-                  sections: 
-                    - 
-                      title: ""
-                      sub-title: ""
-                      link: "setup-team"
-                      sections: []
-        - 
-          title: "Table Of Contents - Translation Manual Volume 1"
-          sub-title: "This page answers the question: What is in Volume 1 of the translation manual?"
-          sections: []
+    title: "Table of Contents"
+    sections:
+      - title: "1. Getting Started"
+        sections:
+          - title: "Introduction to the Process Manual"
+            link: process-manual
+
+      - title: "2. Setting Up a Translation Team"
+        sections:
+          - title: "Setting Up A Translation Team"
+            link: setup-team
+
+      - title: "3. Translating"
+        sections:
+          - title: "Training Before Translation Begins"
+            link: pretranslation-training
+          - title: "Choosing a Translation Platform"
+            link: platforms
+          - title: "Setting Up translationStudio"
+            link: setup-ts
+
+      - title: "4. Checking"
+        sections:
+          - title: "Training Before Checking Begins"
+            link: prechecking-training
+          - title: "How to Check"
+            link: required-checking
+
+      - title: "5. Publishing"
+        sections:
+          - title: "Introduction to Publishing"
+            link: intro-publishing
+          - title: "Source Text Process"
+            link: source-text-process
+
+      - title: "6. Distributing"
+        sections:
+          - title: "Introduction to Distribution"
+            link: intro-share
+          - title: "How to Share Content"
+            link: share-content
