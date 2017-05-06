@@ -14,7 +14,7 @@ For example, a link within a markdown file would be displayed with the title in 
     [Link Title](https://example.com)
 
 In markdown we support an additional link form that provides a link without a title.
-The title in these cases would be automatically generated from the context:
+The title in these cases will be automatically generated from the context:
 
 .. code-block:: markdown
 
@@ -134,8 +134,8 @@ In some of the examples above the link was not pointing directly at a file.
 In those cases the link should resolve to the first available file in order of the sorting priority described in :ref:`structure-content-sort`.
 
 .. note:: Depending on the client application, several files may be combined together when displayed to the user.
-    For example: when linking to a book of the Bible it would make more sense to show at least the title and summary, if not
-    the rest of the chapter, rather than just the title.
+    For example: when linking to a chapter in a book of the Bible it would make more sense to show at least the title
+    and summary, if not the rest of the chapter, rather than just the title.
 
 Examples
 ^^^^^^^^
@@ -183,9 +183,9 @@ bundle
 
 - ``[Genesis](rc://en/ulb/gen/bundle/01/01)``
 
-.. note:: Linking to a :ref:`types-bundle` will only resolve down to the project level. e.g. the ``01/01`` will be ignored
-    and the entire project returned.
-    If you must link to a section within the project you will have to parse the content and
+.. note:: Linking to a :ref:`types-bundle` will only resolve down to the project level.
+    e.g. the ``01/01`` in ``rc://en/ulb/gen/bundle/01/01`` will be ignored and the entire project returned.
+    If you must link to a section within the project your application will have to parse the content and
     manually resolve the rest of the link if the ``format`` supports references.
 
     Formats that support references are:
@@ -193,8 +193,8 @@ bundle
     - usfm
     - osis
 
-.. note:: When using RCs with multiple projects you'll need to reference the :ref:`manifest` to determine
-    which :ref:`structure-content` to use.
+.. note:: When using RCs with multiple projects the application will need to inspect the :ref:`manifest` to determine
+    which :ref:`structure-content` to read while resolving a link.
 
 .. _linking-abbreviations:
 
@@ -210,10 +210,11 @@ Internal Links
 ^^^^^^^^^^^^^^
 
 When linking to a different section within the same RC
-you may leave off the :ref:`linking-scheme` and simply give the file path within the RC using UNIX styled file paths.
+you may leave off the :ref:`linking-scheme` and simply provide a UNIX styled file path.
+File extensions are optional.
 
 .. note:: you can use either an absolute path such as ``/my/path`` where ``/`` is the root directory of the RC
-    or relative paths like ``../my/path``.
+    or relative path like ``../my/path``.
 
 For example, let's say we have the following RC:
 
@@ -237,7 +238,7 @@ For example, let's say we have the following RC:
         ...
 
 With an internal link we can reference the "Acceptable Style" article
-from within the introduction to translationAcademy in any of the following ways:
+from within the "Introduction to translationAcademy" in any of the following ways:
 
 .. code-block:: none
 
@@ -247,7 +248,6 @@ from within the introduction to translationAcademy in any of the following ways:
 Notice some times it's more readable to use an absolute path instead of a relative path.
 
 A better use case for relative paths would be in tW using the :ref:`condensed form <condensed>`.
-This is is a made up example.
 
 .. code-block:: none
 
@@ -268,6 +268,8 @@ From within aaron.md we can link to moses in any of the following ways:
     [Moses](moses)
     [Moses](moses.md)
     [Moses](./moses.md)
+    [Moses](../other/moses.md)
+    [Moses](/bible/other/moses.md)
 
 .. note:: For compatibility with displaying in online services such as github we suggest including the file extension
     when practical and to use relative paths rather than absolute paths.
@@ -278,7 +280,7 @@ Short Links
 ^^^^^^^^^^^
 
 A short link is used to reference a resource but not a project.
-There is nothing fundamentally different from regular links. Short links are simply composed of just the language and resource.
+Short links are composed of just the language and resource.
 
 - ``en/tn``
 
@@ -289,13 +291,13 @@ Short links are most often used within the :ref:`manifest` when referring to rel
 Bible References
 ^^^^^^^^^^^^^^^^
 
-Bible references in any RC should be automatically converted into resolvable links according to the linking rules for **book** resource types. 
-Of course, if the reference is already a link nothing needs to be done.
+Bible references in any RC may be automatically converted into resolvable links according to the linking rules for **book** resource types.
+Of course, if the biblical reference is already a link nothing needs to be done.
 
 Conversion of biblical references are limited to those resources that have been indexed on the users' device.
-Conversion should be performed based on any one of the following:
+Conversion should be performed if in the text either of the following conditions is satisfied:
 
-- a case *insensitive* match of the entire project title.
+- a case *insensitive* match of the entire project title. e.g. ``Genesis`` is found in the text.
 - a start case (first letter is uppercase) match of the project :ref:`identifier` e.g. ``Gen``.
 
 For each case above there must be a valid ``chapter:verse`` reference immediately after the matching word separated a single white space.
@@ -343,13 +345,13 @@ Aligning Verses to Chunks
 Because chunks may contain a range of verses, a passage reference may not exactly match up to a chunk.
 Therefore some interpolation may be nessesary. For both chapter and verse numbers perform the follow:
 
-    Given a chapter or verse number ``key``.
-    And an equivalent sorted list ``list`` of chapters or verses in the matched resource 
+    Given a chapter or verse number **key**.
+    And an equivalent sorted list **list** of chapters or verses in the matched resource
 
-- incrementally compare the key against items in the list.
-- if the integer value of the current list item is less than the key: continue.
-- if the integer value of the current list item is greater than the key: use the previous list item.
-- if the end of the list is reached: use the previous list item.
+- incrementally compare the **key** against items in the **list**.
+- if the integer value of the current **list** item is less than the **key**: continue.
+- if the integer value of the current **list** item is greater than the **key**: use the previous item in the **list**.
+- if the end of the **list** is reached: use the previous item in the **list**.
   
 For example chunk ``01`` may contain verses ``1-3`` whereas chunk ``02`` contains verses ``4-6``.
 Therefore, verse ``2`` would resolve to chunk ``01``.
