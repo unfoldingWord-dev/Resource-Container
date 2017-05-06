@@ -130,7 +130,7 @@ For example, here's a :ref:`structure-content` that has a chapter 1 folder conta
 
 **Condensed**
 
-Most :ref:`types` support a condensed form in which content in each folder is stored
+Most :ref:`types` support a condensed form in which content in each chapter folder is stored
 in a single file.
 this form is most suitable for content being delivered as source text:
 
@@ -142,8 +142,7 @@ this form is most suitable for content being delivered as source text:
         |-02.md
         ...
 
-Where the file ``01.md`` may contain the title, sub-title, intro, chunks etc. formatted appropriately so it can
-be read by a client application.
+Where the file ``01.md`` may contain the title, sub-title, intro, chunks, etc. for chapter 1.
 
 .. _structure-content-sort:
 
