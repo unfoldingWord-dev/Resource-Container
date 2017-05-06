@@ -105,7 +105,8 @@ Once again, these files are not required but must fulfill their roles as defined
 Condensed vs Expanded Form
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We offer two suggested forms for storing content.
+At times content can be structured slightly differently for added convenience.
+If the :ref:`container type <types>` supports it an RC may use one form or the other or both simultaneously.
 
 **Expanded**
 
