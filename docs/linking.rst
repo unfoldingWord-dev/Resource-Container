@@ -6,6 +6,10 @@ Linking
 A Resource Container (RC) link allows one RC to reference content from another RC.
 Also, web links may be used to reference content online.
 
+.. note:: Applications using RCs may want to search the RC data for external links and cache the online content
+    so the RC can be used while offline without missing content such as images.
+
+
 How links are written depends on the file format.
 For example, a link within a markdown file would be displayed with the title in brackets and the url in parenthesis:
 

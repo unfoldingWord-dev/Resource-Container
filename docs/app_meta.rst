@@ -40,5 +40,5 @@ unfoldingWord uses dynamically provided localization files for use in the app in
 
 .. code-block:: none
 
-    my_rc/.apps/ufw/
+    my_rc/.apps/uw/
         |-app_words.json
