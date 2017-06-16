@@ -247,6 +247,8 @@ A better use case for relative paths would be in tW using the :ref:`condensed fo
         |      ...
         ...
 
+.. note:: In the above example the :ref:`manifest` will refer to  the ``/bible`` directory as the project path.
+
 From within aaron.md we can link to moses in any of the following ways:
 
 .. code-block:: none
@@ -260,8 +262,8 @@ From within aaron.md we can link to moses in any of the following ways:
     [Moses](rc://en/tw/dict/bible/other/moses)
     [Moses](rc://en/tw/dict/bible/other/moses.md)
 
-.. note:: For compatibility with displaying in online services such as github we suggest including the file extension
-    when practical.
+.. note:: For compatibility with displaying in online services such as github or DCS we suggest either including the file extension
+    when practical or using a fully qualified link complete with the ``rc://`` schema.
 
 .. _short-links:
 

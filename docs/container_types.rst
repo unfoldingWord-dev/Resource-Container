@@ -121,7 +121,7 @@ h1 heading (a single #). :ref:`Links <linking>` may be used to reference other w
 
     * Aaron helped Moses speak to Pharaoh about letting the Israelites go free.
     * While the Israelites were traveling through the desert, Aaron sinned by making an idol for the people to worship.
-    * God also appointed Aaron and his descendants to be the [priests](kt/priest) for the people of Israel.
+    * God also appointed Aaron and his descendants to be the [priests](../kt/priest) for the people of Israel.
 
     (Translation suggestions: [How to Translate Names](rc://en/ta/man/translate/translate-names))
 
