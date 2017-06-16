@@ -6,7 +6,7 @@
 Resource Container Documentation
 ================================
 
-This site is the official documentation for Door43's Resource Container specification.  Resource Containers (RCs) are the building blocks of content in our Door43 eco-system.
+This site is the official documentation for Door43's Resource Container specification.  Resource Containers (RCs) are the building blocks of content in the Door43 eco-system.
 
 If you learn better by seeing, skip straight to the :ref:`examples` page.
 

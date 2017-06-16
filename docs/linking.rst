@@ -42,18 +42,18 @@ The scheme tells the software how to process the uri.
 URI
 ---
 
-The uri in an RC link is composed, at minimum, of the following components.
+The uri in an RC link is composed of the following components.
 
 - **language** - an `IETF <https://en.wikipedia.org/wiki/IETF_language_tag>`_ compatible language tag indicating the language of the resource
 - **resource** - an :ref:`identifier` for the resource
-- **project** - an :ref:`identifier` for the project
 - **type** - an :ref:`identifier` for the :ref:`Container Type <types>`
+- **project** - an :ref:`identifier` for the project
 
 Any additional information you include must be added after those mentioned above.
 
 .. code-block:: markdown
 
-    rc://language/resource/project/type/extra/information
+    rc://language/resource/type/project/extra/information
 
 .. _linking-glob:
 
@@ -65,15 +65,19 @@ Such as when referencing an entire resource like the English Unlocked Literal Bi
 
 To facilitate this RC links support a wildcard ``*`` that can be used in place of any component in the :ref:`uri`.
 
-.. code-block:: markdown
-
-    rc://en/ulb/*/book
-
-You can also do things like use a book in any available language
+.. note:: If the wildcard occurs at the end of the link you can exclude it entirely.
 
 .. code-block:: markdown
 
-    rc://*/ulb/*/book
+    rc://en/ulb/book/*
+    # or
+    rc://en/ulb/book
+
+You can also do things like link to a book in any language
+
+.. code-block:: markdown
+
+    rc://*/ulb/book/gen
 
 .. _linking-resolution:
 
@@ -89,13 +93,13 @@ This is illustrated below:
 .. code-block:: none
 
     # link
-    rc://en/ulb/exo/bundle
+    rc://en/ulb/bundle/exo
 
     # bundle RC on file system
     en_ulb_bundle/
         ...
         |-01-GEN.usfm
-        |-02-EXO.usfm <=== link points here
+        |-02-EXO.usfm <=== the manifest will indicate that exo points here
         ...
 
 From this point we can lengthen the link to include a chapter :ref:`identifier`.
@@ -106,10 +110,10 @@ From this point we can lengthen the link to include a chapter :ref:`identifier`.
 .. code-block:: markdown
 
     # link
-    rc://en/obs/obs/book/01
+    rc://en/obs/book/obs/01
 
     # book RC on file system
-    en_obs_obs_book/
+    en_obs_book_obs/
         ...
         |-content/
         |   |-01/ <=== link points here
@@ -121,16 +125,16 @@ Going a step further we can link to a specific chunk
 .. code-block:: none
 
     # link
-    rc://en/obs/obs/book/01/01
+    rc://en/obs/book/obs/01/01
 
     # file system
-    en_obs_obs_book/
+    en_obs_book_obs/
         ...
         |-content/
             |-01/
                 |-01.md <=== link points here
 
-In some of the examples above the link was not pointing directly at a file.
+In some of the examples above the link was pointing to a directory.
 In those cases the link should resolve to the first available file in order of the sorting priority described in :ref:`structure-content-sort`.
 
 .. note:: Depending on the client application, several files may be combined together when displayed to the user.
@@ -143,50 +147,33 @@ Examples
 book
 ~~~~
 
-- ``[Genesis 1:2](rc://en/ulb/gen/book/01/02)``
-- ``[Open Bible Stories 1:2](rc://en/obs/obs/book/01/02)``
+- ``[Genesis 1:2](rc://en/ulb/book/gen/01/02)``
+- ``[Open Bible Stories 1:2](rc://en/obs/book/obs/01/02)``
 
 help
 ~~~~
 
-- ``[[rc://en/tq/gen/help/01/02]]`` - links to translationQuestions for Genesis 1:2
-- ``[[rc://en/tn/gen/help/01/02]]`` - links to translationNotes for Genesis 1:2
+- ``[[rc://en/tq/help/gen/01/02]]`` - links to translationQuestions for Genesis 1:2
+- ``[[rc://en/tn/help/gen/01/02]]`` - links to translationNotes for Genesis 1:2
 
 dict
 ~~~~
 
-- ``[Canaan](rc://en/tw/bible/dict/other/canaan)``
+- ``[Canaan](rc://en/tw/dict/bible/other/canaan)``
 
 man
 ~~~
 
-- ``[Translate Unknowns](rc://en/ta/translate/man/translate-unknown)``
-
-img
-~~~
-
-- ``[Open Bible Stories 1:2](rc://en/obs/obs/img/01/02)``
-- ``[Genesus 1:2-6](rc://en/ulb/gen/img/01/02)``
-
-vid
-~~~
-
-- ``[Open Bible Stories 1:2](rc://en/obs/obs/vid/01/02)``
-
-audio
-~~~~~
-
-- ``[Open Bible Stories 1:2](rc://en/obs/obs/audio/01/02)``
+- ``[Translate Unknowns](rc://en/ta/man/translate/translate-unknown)``
 
 bundle
 ~~~~~~
 
-- ``[Genesis](rc://en/ulb/gen/bundle/01/01)``
+- ``[Genesis](rc://en/ulb/bundle/gen/01/01)``
 
-.. note:: Linking to a :ref:`types-bundle` will only resolve down to the project level.
-    e.g. the ``01/01`` in ``rc://en/ulb/gen/bundle/01/01`` will be ignored and the entire project returned.
-    If you must link to a section within the project your application will have to parse the content and
-    manually resolve the rest of the link if the ``format`` supports references.
+.. note:: Linking to a :ref:`types-bundle` will resolve down to the project level.
+    The application will need to support parsing the bundle format (if references are supported) in order to continue
+    resolving the link.
 
     Formats that support references are:
 
@@ -284,7 +271,7 @@ Short links are composed of just the language and resource.
 
 - ``en/tn``
 
-Short links are most often used within the :ref:`manifest` when referring to related resources.
+Short links are used within the :ref:`manifest` when referring to related resources.
 
 .. _linking-bible-refs:
 
@@ -327,7 +314,7 @@ The result will be:
 
 .. code-block:: markdown
 
-    [Genèse 1:1](rc://fr/ulb/gen/book/01/01)
+    [Genèse 1:1](rc://fr/ulb/book/gen/01/01)
 
 Multiple Matches
 ~~~~~~~~~~~~~~~~
@@ -343,7 +330,7 @@ Aligning Verses to Chunks
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because chunks may contain a range of verses, a passage reference may not exactly match up to a chunk.
-Therefore some interpolation may be nessesary. For both chapter and verse numbers perform the follow:
+Therefore some interpolation may be necessary. For both chapter and verse numbers perform the follow:
 
     Given a chapter or verse number **key**.
     And an equivalent sorted list **list** of chapters or verses in the matched resource

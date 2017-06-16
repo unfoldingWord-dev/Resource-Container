@@ -32,3 +32,13 @@ translationCore keeps track of checking information.
         |   |-common.tc
         |
         |-tc-manifest.json
+
+unfoldingWord
+-------------
+
+unfoldingWord uses dynamically provided localization files for use in the app interface.
+
+.. code-block:: none
+
+    my_rc/.apps/ufw/
+        |-app_words.json
