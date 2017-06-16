@@ -201,11 +201,8 @@ Internal Links
 ^^^^^^^^^^^^^^
 
 When linking to a different section within the same RC
-you may leave off the :ref:`linking-scheme` and simply provide a UNIX styled file path.
+you may leave off the :ref:`linking-scheme` and simply provide a UNIX styled relative file path.
 File extensions are optional.
-
-.. note:: you can use either an absolute path such as ``/my/path`` where ``/`` is the root directory of the RC
-    or relative path like ``../my/path``.
 
 For example, let's say we have the following RC:
 
@@ -228,15 +225,13 @@ For example, let's say we have the following RC:
         |      ...
         ...
 
-With an internal link we can reference the "Acceptable Style" article
+With the addition of internal links we can reference the "Acceptable Style" article
 from within the "Introduction to translationAcademy" in any of the following ways:
 
 .. code-block:: none
 
-    [Acceptable Style](/checking/acceptable)
+    [Acceptable Style](rc://en/ta/man/checking/acceptable)
     [Acceptable Style](../../checking/acceptable)
-
-Notice some times it's more readable to use an absolute path instead of a relative path.
 
 A better use case for relative paths would be in tW using the :ref:`condensed form <condensed>`.
 
@@ -258,12 +253,15 @@ From within aaron.md we can link to moses in any of the following ways:
 
     [Moses](moses)
     [Moses](moses.md)
+    [Moses](./moses)
     [Moses](./moses.md)
+    [Moses](../other/moses)
     [Moses](../other/moses.md)
-    [Moses](/bible/other/moses.md)
+    [Moses](rc://en/tw/dict/bible/other/moses)
+    [Moses](rc://en/tw/dict/bible/other/moses.md)
 
 .. note:: For compatibility with displaying in online services such as github we suggest including the file extension
-    when practical and to use relative paths rather than absolute paths.
+    when practical.
 
 .. _short-links:
 

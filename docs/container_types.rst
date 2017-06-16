@@ -48,15 +48,15 @@ The order of elements in each of these groups should be respected.
       01:      // chapter
         01:    // chunk
           dict:
-            - 'rc://en/tw/bible/dict/creation'
-            - 'rc://en/tw/bible/dict/god'
-            - 'rc://en/tw/bible/dict/heaven'
-            - 'rc://en/tw/bible/dict/holyspirit'
+            - 'rc://en/tw/dict/bible/creation'
+            - 'rc://en/tw/dict/bible/god'
+            - 'rc://en/tw/dict/bible/heaven'
+            - 'rc://en/tw/dict/bible/holyspirit'
           help:
-            - 'rc://en/tq/gen/help/01/01'
-            - 'rc://en/tn/gen/help/01/01'
+            - 'rc://en/tq/help/gen/01/01'
+            - 'rc://en/tn/help/gen/01/01'
           img:
-            - 'rc://en/ulb/gen/img/01/01'
+            - 'rc://en/ulb/img/gen/01/01'
 
 .. note:: Implementation Notes:
     References to supplementary RCs may be displayed in the application along the side of the book content in order to provide contextual information.
@@ -123,25 +123,25 @@ h1 heading (a single #). :ref:`Links <linking>` may be used to reference other w
     * While the Israelites were traveling through the desert, Aaron sinned by making an idol for the people to worship.
     * God also appointed Aaron and his descendants to be the [priests](kt/priest) for the people of Israel.
 
-    (Translation suggestions: [How to Translate Names](rc://en/ta-vol1/translate/man/translate-names))
+    (Translation suggestions: [How to Translate Names](rc://en/ta/man/translate/translate-names))
 
     (See also: [Priest](../kt/priest.md), [Moses](../other/moses.md), [Israel](../other/israel.md))
 
     ## Bible References: ##
 
-    * [1 Chronicles 23:12-14](rc://en/tn/1ch/help/23/12)
-    * [Acts 07:38-40](rc://en/tn/act/help/07/38)
-    * [Exodus 28:1-3](rc://en/tn/exo/help/28/01)
-    * [Luke 01:5-7](rc://en/tn/luk/help/01/05)
-    * [Numbers 16:44-46](rc://en/tn/num/help/16/44)
+    * [1 Chronicles 23:12-14](rc://en/tn/help/1ch/23/12)
+    * [Acts 07:38-40](rc://en/tn/help/act/07/38)
+    * [Exodus 28:1-3](rc://en/tn/help/exo/28/01)
+    * [Luke 01:5-7](rc://en/tn/help/luk/01/05)
+    * [Numbers 16:44-46](rc://en/tn/help/num/16/44)
 
     ## Examples from the Bible stories: ##
 
-    * __[09:15](rc://en/tn/obs/help/09/15)__ God warned Moses and __Aaron__  that Pharaoh would be stubborn.
-    * __[10:05](rc://en/tn/obs/help/10/05)__ Pharaoh called Moses and __Aaron__  and told them that if they stopped the plague, the Israelites could leave Egypt.
-    * __[13:09](rc://en/tn/obs/help/13/09)__ God chose Moses' brother, __Aaron__, and Aaron's descendants to be his priests.
-    * __[13:11](rc://en/tn/obs/help/13/11)__ So they (the Israelites) brought gold to __Aaron__  and asked him to form it into an idol for them!
-    * __[14:07](rc://en/tn/obs/help/14/07)__ They (the Israelites) became angry with Moses and __Aaron__  and said, "Oh, why did you bring us to this horrible place?"
+    * __[09:15](rc://en/tn/help/obs/09/15)__ God warned Moses and __Aaron__  that Pharaoh would be stubborn.
+    * __[10:05](rc://en/tn/help/obs/10/05)__ Pharaoh called Moses and __Aaron__  and told them that if they stopped the plague, the Israelites could leave Egypt.
+    * __[13:09](rc://en/tn/help/obs/13/09)__ God chose Moses' brother, __Aaron__, and Aaron's descendants to be his priests.
+    * __[13:11](rc://en/tn/help/obs/13/11)__ So they (the Israelites) brought gold to __Aaron__  and asked him to form it into an idol for them!
+    * __[14:07](rc://en/tn/help/obs/14/07)__ They (the Israelites) became angry with Moses and __Aaron__  and said, "Oh, why did you bring us to this horrible place?"
 
 
 The ``config.yaml`` file contains extra details about the term that may be helpful for some automation tools.
@@ -152,16 +152,16 @@ The ``config.yaml`` file contains extra details about the term that may be helpf
       aaron:
         false_positives: []
         occurrences:
-          - 'rc://en/ulb/1ch/book/23/12'
-          - 'rc://en/ulb/1ch/book/07/38'
-          - 'rc://en/ulb/1ch/book/28/01'
-          - 'rc://en/ulb/1ch/book/01/05'
-          - 'rc://en/ulb/1ch/book/16/44'
-          - 'rc://en/obs/obs/book/09/15'
-          - 'rc://en/obs/obs/book/10/05'
-          - 'rc://en/obs/obs/book/13/09'
-          - 'rc://en/obs/obs/book/13/11'
-          - 'rc://en/obs/obs/book/14/07'
+          - 'rc://en/ulb/book/1ch/23/12'
+          - 'rc://en/ulb/book/1ch/07/38'
+          - 'rc://en/ulb/book/1ch/28/01'
+          - 'rc://en/ulb/book/1ch/01/05'
+          - 'rc://en/ulb/book/1ch/16/44'
+          - 'rc://en/obs/book/obs/09/15'
+          - 'rc://en/obs/book/obs/10/05'
+          - 'rc://en/obs/book/obs/13/09'
+          - 'rc://en/obs/book/obs/13/11'
+          - 'rc://en/obs/book/obs/14/07'
 
 Generally, ``false_positives`` and ``occurrences`` are mutually exclusive.
 That is, you should probably only have one or the other.
