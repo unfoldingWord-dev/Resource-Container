@@ -35,32 +35,6 @@ Open Bible Stories should use `markdown` for the file format.
         |    |-summary.md
         ...
 
-Config
-^^^^^^
-A book may reference supplementary RCs in it's ``config.yaml`` file via :ref:`linking`.
-Such references must be grouped by the corresponding RC type.
-The order of elements in each of these groups should be respected.
-
-.. code-block:: yaml
-
-    ---
-    content:
-      01:      // chapter
-        01:    // chunk
-          dict:
-            - 'rc://en/tw/dict/bible/creation'
-            - 'rc://en/tw/dict/bible/god'
-            - 'rc://en/tw/dict/bible/heaven'
-            - 'rc://en/tw/dict/bible/holyspirit'
-          help:
-            - 'rc://en/tq/help/gen/01/01'
-            - 'rc://en/tn/help/gen/01/01'
-          img:
-            - 'rc://en/ulb/img/gen/01/01'
-
-.. note:: Implementation Notes:
-    References to supplementary RCs may be displayed in the application along the side of the book content in order to provide contextual information.
-
 Help (help)
 -----------
 .. note:: This type does not support the :ref:`condensed form <condensed>`.
@@ -203,8 +177,8 @@ The ``config.yaml`` file indicates recommended and dependent modules:
 .. code-block:: yaml
 
     ---
-      translate-unknowns: 
-        recommended: 
+      translate-unknowns:
+        recommended:
           - 'translate-names'
           - 'translate-transliterate'
         dependencies:
