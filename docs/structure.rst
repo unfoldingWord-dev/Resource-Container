@@ -31,12 +31,14 @@ RCs have a folder structure like the following:
         |-.apps/
         |-LICENSE.md
         |-manifest.yaml
+        |-media.yaml
         |-content/
 
 - ``.git``: only exists when the RC is stored as a git repository.
 - ``.apps``: is where applications can store custom meta data about the RC. See :doc:`app_meta` for more information.
 - ``LICENSE.md``: contains the appropriate license information for the RC.
 - ``manifest.yaml``: is the RC :ref:`manifest`.
+- ``media.yaml``: contains definitions of :ref:`media` that has been generated from the content of the RC and where to find them.
 - ``content``: contains the project files. The name of this directory is subject to the :ref:`manifest`.
   It is also possible for there to be multiple :ref:`Projects Directories <structure-content>` or be excluded altogether.
 

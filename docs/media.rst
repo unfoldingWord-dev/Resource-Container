@@ -1,0 +1,53 @@
+.. _media:
+
+Media
+=====
+
+Resource Containers (RCs) have a ``media.yaml`` file that describes media
+generated from the content within the RC. Media is most often generated
+for the purpose of distributing a consumable form of the RC's content.
+
+.. code-block:: yaml
+
+  ---
+  projects:
+    -
+      identifier: 'obs'
+      version: '4'
+      media:
+        -
+          identifier: 'mp3'
+          version: '1'
+          contributors: 'Narrator: Steve Lossing, Checker: Brad Harrington, Engineer: Brad Harrington'
+          quality:
+            - '64kbps'
+            - '32kbps'
+          location: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/en_obs_{chapter}_{quality}.mp3'
+        -
+          identifier: 'mp4'
+          version: '1'
+          contributors:
+          quality:
+            - '360p'
+            - '720p'
+          location: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/en_obs_{chapter}_{quality}.mp4'
+        -
+          identifier: 'pdf'
+          version: '1'
+          contributors:
+          location: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
+
+Because RCs may contain multiple projects, media is grouped by projects as defined in the :ref:`manifest`.
+
+- ``projects->identifier`` the identifier of the project
+- ``projects->version`` the version of the resource that is represented by the media. This is the same value represented in the :ref:`manifest`.
+- ``projects->media`` an array of media definitions
+- ``projects->media->identifier`` the identifier of the media
+- ``projects->media->version`` the version of the media provided. This is is seperate from the version of the project.
+- ``projects->media->contributors`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
+- ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
+- ``projects->media->location`` the location where the media can be found. This is usually a url which may contain expressions for pattern replacement.
+
+For instances where the location of media accepts parameters,
+such as ``{chapter}`` or ``{quality}``,
+You should insert appropriate values.
