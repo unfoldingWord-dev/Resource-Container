@@ -39,6 +39,9 @@ for the purpose of distributing a consumable form of the RC's content.
 
 Because RCs may contain multiple projects, media is grouped by projects as defined in the :ref:`manifest`.
 
+Definitions:
+------------
+
 - ``projects->identifier`` the identifier of the project
 - ``projects->version`` the version of the resource that is represented by the media. This is the same value represented in the :ref:`manifest`.
 - ``projects->media`` an array of media definitions
@@ -51,3 +54,13 @@ Because RCs may contain multiple projects, media is grouped by projects as defin
 For instances where the location of media accepts parameters,
 such as ``{chapter}`` or ``{quality}``,
 You should insert appropriate values.
+
+Media Storage
+-------------
+
+The responsibility for storing media is left to those creating it.
+Media will not be accepted for storage in `DCS <https://git.door43.org>`_
+in order to reduce load on the server and maintain speed and reliability.
+
+When preparing media for distribution we suggest uploading files to a
+content delivery network (CDN).
