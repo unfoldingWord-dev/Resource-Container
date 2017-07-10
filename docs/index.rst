@@ -17,6 +17,7 @@ Detailed Specification:
 
    structure
    manifest
+   media
    container_types
    linking
    app_meta
