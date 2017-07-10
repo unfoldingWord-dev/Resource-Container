@@ -22,8 +22,8 @@ for the purpose of distributing a consumable form of the RC's content.
           quality:
             - '64kbps'
             - '32kbps'
-          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/en_obs_{chapter}_{quality}.mp3'
-          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/en_obs_{quality}.zip'
+          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
+          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
         -
           identifier: 'mp4'
           version: '1'
@@ -31,8 +31,8 @@ for the purpose of distributing a consumable form of the RC's content.
           quality:
             - '360p'
             - '720p'
-          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/en_obs_{chapter}_{quality}.mp4'
-          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/en_obs_{quality}.zip'
+          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs_{chapter}.mp4'
+          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs.zip'
         -
           identifier: 'pdf'
           version: '1'
@@ -54,7 +54,7 @@ Definitions:
 - ``projects->media->contributor`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
 - ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
 - ``projects->media->file_url`` the location where a single media file can be found. This may contain expressions for pattern replacement.
-- ``projects->media->zip_url`` the location where a zip archive of all the media can be found. This may contain expressions for pattern replacement.
+- ``projects->media->zip_url`` the location where a zip archive of all the media can be found. This may exclusively contain an expression for ``quality``.
 
 For instances where the location of media accepts parameters,
 such as ``{chapter}`` or ``{quality}``,
