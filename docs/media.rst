@@ -18,10 +18,7 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'mp3'
           version: '1'
-          contributor:
-            - 'Narrator: Steve Lossing'
-            - 'Checker: Brad Harrington'
-            - 'Engineer: Brad Harrington'
+          contributor: 'Narrator: Steve Lossing, Checker: Brad Harrington, Engineer: Brad Harrington'
           quality:
             - '64kbps'
             - '32kbps'
@@ -30,7 +27,7 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'mp4'
           version: '1'
-          contributor: []
+          contributor:
           quality:
             - '360p'
             - '720p'
@@ -39,7 +36,7 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'pdf'
           version: '1'
-          contributor: []
+          contributor:
           quality:
           url: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
           chapter_url:
@@ -57,11 +54,13 @@ Definitions:
 - ``projects->media->contributor`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
 - ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
 - ``projects->media->url`` the location where the unified media for this format can be found. This may optionally contain a ``{quality}`` placeholder.
-- ``projects->media->file_url`` the location where chapterized media files can be found. This should include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder.
+- ``projects->media->chapter_url`` the location where chapterized media files can be found. This must include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder.
 
-For instances where the location of media accepts parameters,
-such as ``{chapter}`` or ``{quality}``,
-You should insert appropriate values.
+If a media object defines quality values each of it's urls are required to contain a ``{quality}`` placeholder.
+
+.. note:: Implementation Notes:
+    If a url contains placeholders you should insert the appropriate values
+    based on the media or project information.
 
 Media Storage
 -------------
