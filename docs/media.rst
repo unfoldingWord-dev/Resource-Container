@@ -18,7 +18,10 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'mp3'
           version: '1'
-          contributor: 'Narrator: Steve Lossing, Checker: Brad Harrington, Engineer: Brad Harrington'
+          contributor:
+            - 'Narrator: Steve Lossing'
+            - 'Checker: Brad Harrington'
+            - 'Engineer: Brad Harrington'
           quality:
             - '64kbps'
             - '32kbps'
@@ -27,7 +30,7 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'mp4'
           version: '1'
-          contributor:
+          contributor: []
           quality:
             - '360p'
             - '720p'
@@ -36,7 +39,7 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'pdf'
           version: '1'
-          contributor:
+          contributor: []
           quality:
           url: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
           chapter_url:
