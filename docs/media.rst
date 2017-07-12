@@ -22,8 +22,8 @@ for the purpose of distributing a consumable form of the RC's content.
           quality:
             - '64kbps'
             - '32kbps'
-          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
-          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
+          url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
+          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
         -
           identifier: 'mp4'
           version: '1'
@@ -31,15 +31,15 @@ for the purpose of distributing a consumable form of the RC's content.
           quality:
             - '360p'
             - '720p'
-          file_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs_{chapter}.mp4'
-          zip_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs.zip'
+          url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs.zip'
+          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs_{chapter}.mp4'
         -
           identifier: 'pdf'
           version: '1'
           contributor:
           quality:
-          file_url: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
-          zip_url:
+          url: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
+          chapter_url:
 
 Because RCs may contain multiple projects, media is grouped by projects as defined in the :ref:`manifest`.
 
@@ -53,8 +53,8 @@ Definitions:
 - ``projects->media->version`` the version of the media provided. This is is seperate from the version of the project.
 - ``projects->media->contributor`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
 - ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
-- ``projects->media->file_url`` the location where a single media file can be found. This may contain expressions for pattern replacement.
-- ``projects->media->zip_url`` the location where a zip archive of all the media can be found. This may exclusively contain an expression for ``quality``.
+- ``projects->media->url`` the location where the unified media for this format can be found. This may optionally contain a ``{quality}`` placeholder.
+- ``projects->media->file_url`` the location where chapterized media files can be found. This should include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder.
 
 For instances where the location of media accepts parameters,
 such as ``{chapter}`` or ``{quality}``,
