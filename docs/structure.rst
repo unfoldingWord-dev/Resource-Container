@@ -148,8 +148,8 @@ Where the file ``01.md`` may contain the title, sub-title, intro, chunks, etc. f
 
 .. _structure-content-sort:
 
-Chapters and Chunks
-^^^^^^^^^^^^^^^^^^^
+Naming Chapters and Chunks
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When naming folders/files for chapters/chunks we *suggest* you zero pad the chapter or chunk to match the longest chapter or chunk in the given book.
 
