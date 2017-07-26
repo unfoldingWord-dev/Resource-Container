@@ -148,6 +148,19 @@ Where the file ``01.md`` may contain the title, sub-title, intro, chunks, etc. f
 
 .. _structure-content-sort:
 
+Chapters and Chunks
+^^^^^^^^^^^^^^^^^^^
+
+When naming folders/files for chapters/chunks we *suggest* you zero pad the chapter or chunk to match the longest chapter or chunk in the given book.
+
+For example:
+In Psalms there are 150 chapters making the longest number contain 3 digits. So could create a chapter 1 folder as `001`.
+
+Next, in Psalms the longest chapter is 119 which contains 176 verses (3 digits long). So we could create a verse 1 file as `001.md`.
+
+In this manner we could create files for Psalm 1:1 as `001/001.md`. Doing this allows files to be sorted correctly when viewed in a web application such as git.door43.org.
+
+
 Content Sort Order
 ^^^^^^^^^^^^^^^^^^
 
