@@ -156,9 +156,9 @@ When naming folders/files for chapters/chunks we *suggest* you zero pad the chap
 For example,
 In Psalms there are 150 chapters. This number contains 3 digits so we zero pad to 3 digits for chapters. We could create a chapter 1 folder as ``001``.
 
-Next, the longest chapter in Psalms contains 176 verses. This number also contains 3 digits so we zero pad to 3 digits for verses as well. We could create a verse 1 file as ``001.md``.
+Next, Psalm 119 contains 176 verses. This number also contains 3 digits so we zero pad to 3 digits for verses as well. We could create a verse 1 file as ``001.md``. However, Psalm 1 only contains 6 verses so we zero pad to 1 digit (this is effectively no padding).
 
-In this manner we could create files for Psalm 1:1 as ``001/01.md`` and for Psalm 119:1 as ``119/001.md``. Doing this allows files to be sorted correctly when viewed in a web application such as git.door43.org.
+In this manner we could create files for Psalm 1:1 as ``001/1.md`` and for Psalm 119:1 as ``119/001.md``. Doing this allows files to be sorted correctly when viewed in a web application such as git.door43.org.
 
 
 Content Sort Order
