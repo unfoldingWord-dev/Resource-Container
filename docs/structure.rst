@@ -151,14 +151,20 @@ Where the file ``01.md`` may contain the title, sub-title, intro, chunks, etc. f
 Naming Chapters and Chunks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When naming folders/files for chapters/chunks we *suggest* you zero pad the chapter or chunk to match the longest chapter or chunk in the given book.
+When naming folders/files for chapters/chunks we *suggest* you zero pad the chapter or chunk to match the longest chapter or verse in the given book. Doing this allows files to be sorted correctly when viewed in a web application such as git.door43.org.
 
-For example,
-In Psalms there are 150 chapters. This number contains 3 digits so we zero pad to 3 digits for chapters. We could create a chapter 1 folder as ``001``.
+.. note:: A chunk is a range of 1 or more verses.
 
-Next, the longest chapter in Psalms contains 176 verses. This number also contains 3 digits so we zero pad to 3 digits for verses as well. We could create a verse 1 file as ``001.md``.
+Chapter example:
+In Psalms there are 150 chapters. This number contains 3 digits so we zero pad all chapters in Psalms to 3 digits. e.g. chapter 1 turns into ``001``, chapter 10 turns into ``010``, chapter 100 turns into ``100`` etc.
 
-In this manner we could create files for Psalm 1:1 as ``001/001.md``. Doing this allows files to be sorted correctly when viewed in a web application such as git.door43.org.
+Verse example:
+Psalm 119 contains 176 verses. This number contains 3 digits so we zero pad all verses in chapter 176 to 3 digits. e.g. verse 1 turns into ``001``, verse 10 turns into ``010``, verse 100 turns into ``100`` etc.
+
+Another verse example:
+Psalm 1 contains 6 verses so we zero pad all verses in chapter 1 to 1 digit. e.g. verse 1 turns into ``1``, verse 2 turns into ``2`` etc.
+
+Taking from the examples above we would write the chapter/chunk file stucture for Psalm 119:1 as ``119/001.md``, while the file structure for Psalm 1:1 would be ``001/1.md``.
 
 
 Content Sort Order
