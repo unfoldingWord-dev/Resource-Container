@@ -56,8 +56,8 @@ Definitions:
 - ``projects->media->version`` the version of the media provided. This is is seperate from the version of the project.
 - ``projects->media->contributor`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
 - ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
-- ``projects->media->url`` the location where the unified media for this format can be found. This may optionally contain a ``{quality}`` placeholder.
-- ``projects->media->chapter_url`` the location where chapterized media files can be found. This must include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder.
+- ``projects->media->url`` the location where the unified media for this format can be found. This may optionally contain a ``{quality}`` placeholder. This field is required.
+- ``projects->media->chapter_url`` the location where chapterized media files can be found. This must include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder. This field is optional
 
 If a media object defines quality values each of it's urls are required to contain a ``{quality}`` placeholder.
 
