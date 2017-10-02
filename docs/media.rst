@@ -7,6 +7,112 @@ Resource Containers (RCs) have a ``media.yaml`` file that describes media
 generated from the content within the RC. Media is most often generated
 for the purpose of distributing a consumable form of the RC's content.
 
+
+Media Block
+-----------
+RC's may be compiled into many different forms.
+Therefore, you may include many different media blocks each representing a single format.
+A minimal media block requires the following keys:
+
+- ``identifier`` an :ref:`identifier` representing the media type
+- ``version`` the version of the media file. This does not necessarily correspond to the RC version.
+- ``contributor`` a list of people who have contributed in generating this media type. e.g. printers, sound engineers, etc.
+- ``url`` the web address where the media file can be downloaded.
+
+**Example:**
+
+.. code-block:: yaml
+
+  identifier: 'pdf'
+  version: '1'
+  contributor: []
+  url: 'http://cdn.door43.org/en/ta/v1/pdf/en_ta_v1.pdf'
+
+
+Variable Expansion
+^^^^^^^^^^^^^^^^^^
+
+The value of the ``url`` key may also include variables to make the path dynamic.
+However, the variables are limited to keys within the media block and only scalar (non-list) values are allowed.
+e.g. you can use the ``version`` key but not ``contributor`` since ``contributor`` is not a scalar value.
+
+Additionally, you may map the ``version`` key to the version found in the :ref:`manifest` by settings it's value to ``{latest}``.
+
+**Example:**
+
+.. code-block:: yaml
+
+  identifier: 'pdf'
+  version: '{latest}'
+  contributor: []
+  url: 'http://cdn.door43.org/en/ta/v1/{identifier}/en_ta_v{version}.pdf'
+
+Media Quality
+^^^^^^^^^^^^^
+
+For certain media types it is important to note the quality such as audio and video media.
+For such types an additional key may be added to the media block.
+
+- ``quality`` indicates the quality (such as bit rate or frame rate) of the media.
+
+**Example:**
+
+.. code-block:: yaml
+
+  identifier: 'mp3'
+  version: '1'
+  quality: '64kbps'
+  contributor: []
+  url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
+
+
+Chapter Media
+^^^^^^^^^^^^^
+
+In order to support the concept of chapters. We introduce a new key to the media block:
+
+- ``chapter_url`` this is similar to the ``url`` key except it contains a pseudo variable named ``chapter`` that can be expanded across all chapters in a resource.
+
+**Example:**
+
+.. code-block:: yaml
+
+  identifier: 'mp3'
+  version: '1'
+  quality: '64kbps'
+  contributor: []
+  url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
+  chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
+
+Media Scope
+-----------
+
+There are two different scopes for media blocks: resource, and project.
+The resource scope allows you to define a media type that encompasses the entire RC while the project scope encompasses a single project within the RC.
+All resource scoped media blocks should be nested within a top level ``media`` list.
+All project scoped media blocks should be nested within a top level ``projects`` list.
+
+**Example:**
+
+.. code-block:: yaml
+
+  ---
+  media: []
+  projects: []
+
+Additionally, each project scope must include the following project keys:
+
+- ``identifier`` the project identifier as found within the :ref:`manifest`.
+- ``version`` the version of the RC that is represented in this media.
+
+If you expect to keep your media up to date with the latest version of the RC as found within the :ref:`manifest`
+you may use the variable expansion ``{latest}`` with the ``version`` key above.
+`hint: if you use {latest} in your media block you should probably use it in your project scope`.
+
+.. note:: The two project keys are currently **not** available for variable expansion within child media blocks.
+
+**Example:**
+
 .. code-block:: yaml
 
   ---
@@ -18,52 +124,47 @@ for the purpose of distributing a consumable form of the RC's content.
         -
           identifier: 'mp3'
           version: '1'
+          quality: '64kbps'
+          contributor: []
+          url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
+          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
+
+Putting It All Together
+-----------------------
+
+.. code-block:: yaml
+
+  ---
+  media:
+    -
+      identifier: 'pdf'
+      version: '{latest}'
+      contributor: []
+      url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/ulb.pdf'
+
+  projects:
+    -
+      identifier: 'gen'
+      version: '{latest}'
+      media:
+        -
+          identifier: 'mp4'
+          version: '{latest}'
           contributor:
             - 'Narrator: Steve Lossing'
             - 'Checker: Brad Harrington'
             - 'Engineer: Brad Harrington'
           quality:
-            - '64kbps'
-            - '32kbps'
-          url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
-          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
-        -
-          identifier: 'mp4'
-          version: '1'
-          contributor: []
-          quality:
             - '360p'
             - '720p'
-          url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs.zip'
-          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp4/v1/{quality}/obs_{chapter}.mp4'
+          url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/{quality}/gen_chapter_videos.zip'
+          chapter_url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/{quality}/gen_{chapter}.mp4'
         -
           identifier: 'pdf'
-          version: '1'
+          version: '{latest}'
           contributor: []
-          quality:
-          url: 'https://cdn.door43.org/en/obs/v4/media/pdf/v1/en_obs.pdf'
-          chapter_url:
+          url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/01-GEN.pdf'
 
-Because RCs may contain multiple projects, media is grouped by projects as defined in the :ref:`manifest`.
-
-Definitions:
-------------
-
-- ``projects->identifier`` the identifier of the project
-- ``projects->version`` the version of the resource that is represented by the media. This is the same value represented in the :ref:`manifest`.
-- ``projects->media`` an array of media definitions
-- ``projects->media->identifier`` the identifier of the media
-- ``projects->media->version`` the version of the media provided. This is is seperate from the version of the project.
-- ``projects->media->contributor`` the people who have contributed to the creation of the media. This is different from people who actually wrote the content in the RC.
-- ``projects->media->quality`` where applicable, this is an array of perceivable quality in which the media is available.
-- ``projects->media->url`` the location where the unified media for this format can be found. This may optionally contain a ``{quality}`` placeholder. This field is required.
-- ``projects->media->chapter_url`` the location where chapterized media files can be found. This must include a ``{chapter}`` placeholder and optionally a ``{quality}`` placeholder. This field is optional
-
-If a media object defines quality values each of it's urls are required to contain a ``{quality}`` placeholder.
-
-.. note:: Implementation Notes:
-    If a url contains placeholders you should insert the appropriate values
-    based on the media or project information.
 
 Media Storage
 -------------
