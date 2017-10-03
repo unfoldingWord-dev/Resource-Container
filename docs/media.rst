@@ -123,12 +123,14 @@ Putting It All Together
 .. code-block:: yaml
 
   ---
-  media:
-    -
-      identifier: 'pdf'
-      version: '{latest}'
-      contributor: []
-      url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/ulb.pdf'
+  resource:
+    version: '{latest}'
+    media:
+      -
+        identifier: 'pdf'
+        version: '{latest}'
+        contributor: []
+        url: 'https://cdn.door43.org/en/ulb/v{version}/media/{identifier}/ulb.pdf'
 
   projects:
     -
