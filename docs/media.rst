@@ -87,47 +87,35 @@ In order to support the concept of chapters. We introduce a new key to the media
 Media Scope
 -----------
 
-There are two different scopes for media blocks: resource, and project.
-The resource scope allows you to define a media type that encompasses the entire RC while the project scope encompasses a single project within the RC.
-All resource scoped media blocks should be nested within a top level ``media`` list.
-All project scoped media blocks should be nested within a top level ``projects`` list.
+There are two different scopes for media blocks: resource, and projects.
+The resource scope allows you to define a media type that encompasses the entire RC while the projects scope encompasses individual projects within the RC.
+All resource scoped media blocks should be nested within a top level ``resource`` key.
+All projects scoped media blocks should be nested within a top level ``projects`` key.
 
 **Example:**
 
 .. code-block:: yaml
 
   ---
-  media: []
+  resource:
+    version: '1'
+    media: []
   projects: []
 
-Additionally, each project scope must include the following project keys:
+The projects scope is a list while the resource scope is simply a dictionary (because there's only one resource in the RC).
+
+Each project scope must include the following project keys:
 
 - ``identifier`` the project identifier as found within the :ref:`manifest`.
-- ``version`` the version of the RC that is represented in this media.
+- ``version`` the version of the RC that is represented in the subsequent media.
 
-If you expect to keep your media up to date with the latest version of the RC as found within the :ref:`manifest`
+The resource scope only needs the ``version`` key.
+
+If you expect to keep your media up to date with the latest version of the RC, as found within the :ref:`manifest`,
 you may use the variable expansion ``{latest}`` with the ``version`` key above.
-`hint: if you use {latest} in your media block you should probably use it in your project scope`.
+`hint: if you use {latest} in a media block you should probably also use it in the parent scope`.
 
 .. note:: The two project keys are currently **not** available for variable expansion within child media blocks.
-
-**Example:**
-
-.. code-block:: yaml
-
-  ---
-  projects:
-    -
-      identifier: 'obs'
-      version: '4'
-      media:
-        -
-          identifier: 'mp3'
-          version: '1'
-          quality: '64kbps'
-          contributor: []
-          url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs.zip'
-          chapter_url: 'https://cdn.door43.org/en/obs/v4/media/mp3/v1/{quality}/obs_{chapter}.mp3'
 
 Putting It All Together
 -----------------------
