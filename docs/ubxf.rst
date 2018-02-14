@@ -15,15 +15,15 @@ translations and metadata with one another.
 Characteristics
 ---------------
 
-The UBXF is a specific type of :ref:`types-bundle` that utilizes the USFM 3
+The UBXF is a specific type of RC :ref:`types-bundle` that utilizes the USFM 3
 specification to allow extra metadata to be encoded directly in the translation.
-All the characteristics of :ref:`types-bundle` apply, with these added
+All the characteristics of a RC :ref:`types-bundle` apply, with these added
 requirements:
 
 - UBXF must provide its data in `USFM 3 <https://ubsicap.github.io/usfm/index.html>`_.
 - The ``format`` field of the ``manifest.yaml`` file must be set to ``text/usfm3``.
 - Word metadata should be encoded in the translation using `USFM 3 word attributes <https://ubsicap.github.io/usfm/attributes/index.html>`_.
-- Alignment metadata should be encoding using `USFM 3 milestones <https://ubsicap.github.io/usfm/milestones/index.html>`_.  See example below.
+- Alignment metadata should be encoded using `USFM 3 milestones <https://ubsicap.github.io/usfm/milestones/index.html>`_.  See :ref:`ubxf-alignmentexample` below.
 
 .. _ubxf-licensing:
 
@@ -44,9 +44,9 @@ Use the ``source`` array in the ``manifest.yaml`` file to indicate the upstream 
 Recommended Source Texts
 ------------------------
 
-For New Testament alignment, the `Unlocked Greek New Testament <https://unfoldingword.org/ugnt/>`_ or the `Bunning Heuristic Prototype <https://git.door43.org/Door43/BHP>`_ are the recommended sources.
+For New Testament alignment, the `Unlocked Greek New Testament (UGNT) <https://unfoldingword.org/ugnt/>`_ or the `Bunning Heuristic Prototype (BHP) <https://git.door43.org/Door43/BHP>`_ are the recommended sources.
 
-For Old Testament alignment, the `Unlocked Hebrew Bible <https://unfoldingword.org/uhb/>`_ or the `Open Scriptures Hebrew Bible <https://github.com/openscriptures/morphhb/releases/latest>`_ are the recommended sources.
+For Old Testament alignment, the `Unlocked Hebrew Bible (UHB) <https://unfoldingword.org/uhb/>`_ or the `Open Scriptures Hebrew Bible (OSHB) <https://github.com/openscriptures/morphhb/releases/latest>`_ are the recommended sources.
 
 .. _ubxf-alignmentexample:
 
@@ -57,7 +57,7 @@ Here is an example of alignment data encoded in UFSM 3 milestones. Note the foll
 
 - Punctuation occurs outside the ``\w`` markers.
 - Alignment data must use the ``x-aln`` milestone markers.  (Simple word for word alignment data could use word level attributes, but that makes it more difficult for software to process).
-- Use a short code name for the actual Greek or Hebrew text that has been aligned.  The example below uses the ``x-ugnt`` attribute to indicate that the `UGNT text <https://unfoldingword.org/ugnt/>`_ is the source.
+- Use a short code name for the actual Greek or Hebrew text that has been aligned.  The example below uses the ``x-ugnt`` attribute to indicate that the `UGNT text <https://unfoldingword.org/ugnt/>`_ is the source. Note that the code should match what is listed in the ``source`` array in the ``manifest.yaml`` file.
 - The ``occurrence`` and ``occurrences`` attributes can help software identify individual occurrences of identical words within a verse.
 
 .. code-block:: none
