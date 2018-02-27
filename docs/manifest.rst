@@ -73,9 +73,9 @@ Definitions
     - ``description``: a brief description of what the resource is.
     - ``format``: the file format of content within the RC, e.g. ``text/usfm``, ``text/markdown`` etc.
     - ``identifier``: a :ref:`identifier` formatted string uniquely identifying the resource.
-    - ``issued``: the :ref:`date` of publication.
+    - ``issued``: the :ref:`date` of publication. Normally this should stay in sync with ``version`` increments.
     - ``language``: the language of the resource.
-    - ``modified``: the date the resource was last modified.
+    - ``modified``: the date the resource was last modified. Occassionally, this may be more recent than ``issued`` if there are metadata changes that do not include changes to the content.
     - ``publisher``: the name of the entity that published the resource.
     - ``relation``:  a array of :ref:`short-links` to related resources.
     - ``rights``: the license under which the resource is distributed.
