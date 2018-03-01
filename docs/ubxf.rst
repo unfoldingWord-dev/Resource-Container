@@ -56,7 +56,7 @@ Alignment Data Example
 Here is an example of alignment data encoded in UFSM 3 milestones. Note the following features:
 
 - Punctuation occurs outside the ``\w`` markers.
-- Alignment data must use the ``zaln`` milestone markers.  (Simple word for word alignment data could use word level attributes, but that makes it more difficult for software to process).
+- Alignment data must use the ``\zaln`` milestone markers.  The ``\z`` prefix comes from the use of the USFM documentation of the `\z namespace <https://ubsicap.github.io/usfm/about/syntax.html#syntax-znamespace>`_.
 - Use a short code name for the actual Greek or Hebrew text that has been aligned.  The example below uses the ``x-ugnt`` attribute to indicate that the `UGNT text <https://unfoldingword.org/ugnt/>`_ is the source. Note that the code should match what is listed in the ``source`` array in the ``manifest.yaml`` file.
 - The ``occurrence`` and ``occurrences`` attributes can help software identify individual occurrences of identical words within a verse.
 
