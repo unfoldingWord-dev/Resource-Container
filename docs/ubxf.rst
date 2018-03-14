@@ -127,7 +127,7 @@ Here is an example of alignment data encoded in UFSM 3 milestones. Note the foll
     \w godliness|x-occurrence="1" x-occurrences="1"\w*
     \zaln-e\*,
 
-Unaligned words or phrases should show up outside of the `\zaln` milestones.  For example, the English "of God" diid not get aligned to Θεοῦ" in the example below.
+Unaligned words or phrases should show up outside of the `\zaln` milestones.  For example, the English "of God" did not get aligned to "Θεοῦ" in the example below.
 
 .. code-block:: none
 
