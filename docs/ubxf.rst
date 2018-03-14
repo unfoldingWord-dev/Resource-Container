@@ -126,3 +126,24 @@ Here is an example of alignment data encoded in UFSM 3 milestones. Note the foll
     \zaln-s | x-strong="G21500" x-occurrence="1" x-occurrences="1" x-ugnt="εὐσέβειαν"\*
     \w godliness|x-occurrence="1" x-occurrences="1"\w*
     \zaln-e\*,
+
+Unaligned words or phrases should show up outside of the `\zaln` milestones.  For example, the English "of God" did not get aligned to "Θεοῦ" in the example below.
+
+.. code-block:: none
+
+    \v 1 \zaln-s | x-strong="G39720" x-occurrence="1" x-occurrences="1" x-ugnt="Παῦλος"\*
+    \w Paul|x-occurrence="1" x-occurrences="1"\w*
+    \zaln-e\*,
+    \zaln-s | x-strong="G14010" x-occurrence="1" x-occurrences="1" x-ugnt="δοῦλος"\*
+    \w a|x-occurrence="1" x-occurrences="1"\w*
+    \w servant|x-occurrence="1" x-occurrences="1"\w*
+    \zaln-e\*
+    \w of|x-occurrence="1" x-occurrences="4"\w*
+    \w God|x-occurrence="1" x-occurrences="2"\w*
+    \zaln-s | x-strong="G06520" x-occurrence="1" x-occurrences="1" x-ugnt="ἀπόστολος"\*
+    \w and|x-occurrence="1" x-occurrences="2"\w*
+    \w an|x-occurrence="1" x-occurrences="4"\w*
+    \w apostle|x-occurrence="1" x-occurrences="1"\w*
+    \zaln-e\*
+
+Note that since the "base text" in these files is the translation (English in the example), that needs to be text complete.  Missing source text (UGNT in this example) words is OK because the software should provide that text indepedently.
