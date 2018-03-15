@@ -17,8 +17,8 @@ and can be found nested within the ``dublin_core`` key.
         contributor:
             - 'A Contributor'
             - 'Another Contributor'
-        creator: 'Wycliffe Associates'
-        description: 'The Unlocked Literal Bible is an open-licensed version of the Bible that is intended to provide a form-centric translation of the Bible.'
+        creator: 'Someone Or Organization'
+        description: 'One or two sentence description of the resource.'
         format: 'text/usfm'
         identifier: 'ulb'
         issued: '2015-12-17'
@@ -27,7 +27,7 @@ and can be found nested within the ``dublin_core`` key.
             title: 'English'
             direction: 'ltr'
         modified: '2015-12-22T12:01:30-05:00'
-        publisher: 'Door43'
+        publisher: 'Name of Publisher'
         relation:
             - 'en/udb'
             - 'en/tn'
@@ -46,7 +46,8 @@ and can be found nested within the ``dublin_core`` key.
 
     checking:
         checking_entity:
-            - 'Wycliffe Associates'
+            - 'Organization or Church network'
+            - 'Organization or Church network'
         checking_level: '3'
 
     projects:
