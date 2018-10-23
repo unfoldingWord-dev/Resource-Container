@@ -146,4 +146,4 @@ Unaligned words or phrases should show up outside of the `\zaln` milestones.  Fo
     \w apostle|x-occurrence="1" x-occurrences="1"\w*
     \zaln-e\*
 
-Note that since the "base text" in these files is the translation (English in the example), that needs to be text complete.  Missing source text (UGNT in this example) words is OK because the software should provide that text indepedently.
+Note that since the "base text" in these files is the translation (English in the example), that needs to be text complete.  Missing source text (UGNT in this example) words is OK because the software should provide that text independently.
