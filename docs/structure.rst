@@ -146,6 +146,10 @@ this form is most suitable for content being delivered as source text:
 
 Where the file ``01.md`` may contain the title, sub-title, intro, chunks, etc. for chapter 1.
 
+.. note:: if you are developing a tool that writes data to an RC, you could record timestamped changes inside
+    the :doc:`app_meta` and later compile that data into the `content/` directory. This method would resolve
+    potential conflicts if RC's are to be synchronized with a git server.
+
 .. _structure-content-sort:
 
 Naming Chapters and Chunks
