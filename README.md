@@ -15,6 +15,10 @@ Install the sphinx engine
 
     sudo apt-get install python-sphinx
 
+Install the theme with [pip](https://pypi.org/project/pip/)
+
+    pip install sphinx_rtd_theme
+
 Then run the build script.
 
 > NOTE: this top level makefile is just a shorcut to building the html.
