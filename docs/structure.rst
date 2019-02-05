@@ -12,10 +12,10 @@ They may be optionally compressed or packaged so long as the compressed file fol
 
 A git repository is also a valid way to store RCs.
 
-.. note:: When naming an RC directory or repository the best practice is to use a combination of the resource and
-    project identifiers e.g. ``en-ulb-gen``.
+.. note:: When naming an RC directory or repository the best practice is to use a combination of the language, resource, and
+    project identifiers e.g. ``en_ulb_gen``.
     If the RC contains more than one project just use the resource identifier with an optional :ref:`identifier` formatted qualifier
-    e.g. ``en-ulb-nt`` where ``nt`` is the custom qualifier denoting the New Testament.
+    e.g. ``en_ulb_nt`` where ``nt`` is the custom qualifier denoting the New Testament.
 
 .. _structure-directory:
 
