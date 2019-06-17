@@ -274,9 +274,10 @@ A short link is used to reference a resource but not a project.
 Short links are composed of the language, resource, and optional version.
 
 - ``en/tn``
-- ``el-x-koine/ugnt/0.7``
+- ``el-x-koine/ugnt?v=0.7``
 
 Short links are used within the :ref:`manifest` when referring to related resources.
+A version parameter (`v`) may be provided if you want to link to a specific version of the resource.
 If a version number is not included then any version should satisfy the relation.
 
 .. _linking-bible-refs:
