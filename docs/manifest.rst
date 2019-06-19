@@ -78,7 +78,7 @@ Definitions
     - ``language``: the language of the resource.
     - ``modified``: the date the resource was last modified. Occassionally, this may be more recent than ``issued`` if there are metadata changes that do not include changes to the content.
     - ``publisher``: the name of the entity that published the resource.
-    - ``relation``:  a array of :ref:`short-links` to related resources.
+    - ``relation``:  a array of :ref:`short-links` to related resources. In these short links we do allow a link parameter that specifies the version of the resource it is related to. For example, `el-x-koine/ugnt?v=0.7`.
     - ``rights``: the license under which the resource is distributed.
     - ``title``: the title of the resource
     - ``type``: the RC :ref:`container type <types>`.
