@@ -30,6 +30,7 @@ and can be found nested within the ``dublin_core`` key.
         publisher: 'Name of Publisher'
         relation:
             - 'en/udb'
+            - 'el-x-koine/ugnt?v=0.7'
             - 'en/tn'
             - 'en/tq'
             - 'en/tw'
@@ -78,7 +79,7 @@ Definitions
     - ``language``: the language of the resource.
     - ``modified``: the date the resource was last modified. Occassionally, this may be more recent than ``issued`` if there are metadata changes that do not include changes to the content.
     - ``publisher``: the name of the entity that published the resource.
-    - ``relation``:  a array of :ref:`short-links` to related resources.
+    - ``relation``:  an array of :ref:`short-links` to related resources. A version parameter (``v``) may be provided if you want to link to a specific version of the resource. If a version number is not included then any version should satisfy the relation.
     - ``rights``: the license under which the resource is distributed.
     - ``title``: the title of the resource
     - ``type``: the RC :ref:`container type <types>`.
