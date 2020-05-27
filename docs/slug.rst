@@ -15,8 +15,7 @@ Identifiers are composed of lowercase alphanumeric characters and hyphens.
 
     abcdefghijklmnopqrstuvwxyz1234567890-
 
-* The first character in an identifier *must* be a letter.
-* The last character in an identifier *must not* be a hyphen.
+* The first and last characters in an identifier *must* be a letter or a digit (not a hyphen).
 
 Examples
 --------
@@ -24,6 +23,8 @@ Examples
 .. code-block:: none
 
     gen
+    1sa
+    3jn
     pt-br
     aey-x-haya
     custom-identifier-123
